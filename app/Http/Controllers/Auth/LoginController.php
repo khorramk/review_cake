@@ -30,7 +30,7 @@ class LoginController extends Controller
     {
         # code...
         
-        return '/home';
+        return '/review';
     }
 
     /**

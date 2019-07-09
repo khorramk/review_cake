@@ -12,12 +12,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ReviewController@welcome');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware('auth')->group(function ()
+{
+    Route::resource('/review', 'ReviewController');
 
-Route::resource('/posts', 'PostsController');
+    Route::get('/review/user/{id}', 'ReviewController@usersReviews');
+
+});
+

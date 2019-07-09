@@ -8,6 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
         <!-- Styles -->
         <style>
@@ -63,12 +64,12 @@
             }
         </style>
     </head>
-    <body>
+    <body class="orange lighten-4">
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/review') }}">Home</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
@@ -79,10 +80,9 @@
                 </div>
             @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    review your baking
-                </div>
+            <div class="content" >
+                 
+                    <h1>Review baking blog</h1>
 
                 
             </div>

@@ -4,21 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Posts;
-
-
-class PostsController extends Controller
+use App\Review;
+class ReviewController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     *
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
         //
-        
-        return view('home');
+        $reviews = \App\Review::all();
+        return view('reviews.reviews')->with('reviews', $reviews);
     }
 
     /**
@@ -34,30 +32,19 @@ class PostsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     *  
-     *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         //
-        $request->validate([
-            'posts' => 'required',
-            
-        ]);
-        $posts = new Posts;
-        $posts->posts = $request->input('posts');
-        $posts->user_id = Auth::id();
-        $posts->save();
+        $review = new Review();
+        // dd($review);
+        $review->reviews = $request->input('posts');
+        // $review->id = Auth::id();
+        $review->save();
         
-        
-        
-        // $users= User::find($id);
-        // $users_post=$users->posts;
-        // dd(Auth::user());
-
-        return redirect('/home');  
+       return redirect('/review');
     }
 
     /**
@@ -69,7 +56,9 @@ class PostsController extends Controller
     public function show($id)
     {
         //
+        $review = Review::find($id);
         
+        return view('reviews.show')->with('review', $review);
     }
 
     /**
@@ -104,5 +93,17 @@ class PostsController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function usersReviews($id)
+    {
+        $reviews = \App\User::find($id)->reviews;
+    //  dd($review);
+        return view('reviews.reviews')->with('reviews', $reviews);
+    }
+
+    public function welcome()
+    {
+        # code...
+        return view('welcome');
     }
 }
