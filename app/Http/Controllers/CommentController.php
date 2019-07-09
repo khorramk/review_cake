@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use App\Review;
-class ReviewController extends Controller
+
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,6 @@ class ReviewController extends Controller
     public function index()
     {
         //
-        $reviews = \App\Review::all();
-        return view('reviews.reviews')->with('reviews', $reviews);
     }
 
     /**
@@ -27,7 +24,6 @@ class ReviewController extends Controller
     public function create()
     {
         //
-        return view('reviews.create');
     }
 
     /**
@@ -39,13 +35,8 @@ class ReviewController extends Controller
     public function store(Request $request)
     {
         //
-        $review = new Review();
-        // dd($review);
-        $review->reviews = $request->input('posts');
-        // $review->id = Auth::id();
-        $review->save();
+        $comments = new Comments();
         
-       return redirect('/review');
     }
 
     /**
@@ -57,9 +48,6 @@ class ReviewController extends Controller
     public function show($id)
     {
         //
-        $review = Review::find($id);
-        
-        return view('reviews.show')->with('review', $review);
     }
 
     /**
@@ -94,17 +82,5 @@ class ReviewController extends Controller
     public function destroy($id)
     {
         //
-    }
-    public function usersReviews($id)
-    {
-        $reviews = \App\User::find($id)->reviews;
-    //  dd($review);
-        return view('reviews.reviews')->with('reviews', $reviews);
-    }
-
-    public function welcome()
-    {
-        # code...
-        return view('welcome');
     }
 }

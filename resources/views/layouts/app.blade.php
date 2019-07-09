@@ -63,8 +63,7 @@
                                         {{ __('Logout') }}
                                     </a>
                                     <a class="dropdown-item" href="/review"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('reviews-form').submit();">
+                                       >
                                         Review
                                     </a>
                                     

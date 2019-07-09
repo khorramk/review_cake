@@ -22,7 +22,7 @@
                                 <div class="card reviews">
                                     <div class="card-body review">
                                             {{$review->reviews}}
-                                            <span class="create-block"><a href="/reviews/create" class="create-btn"></a></span>
+                                            <span class="create-block"><a href="/review/create" class="create-btn">add comment</a></span>
                                     </div>
                                 </div>
                             @endforeach
