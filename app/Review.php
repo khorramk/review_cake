@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Review extends Model
 {
     //
-    protected $primaryKey = 'id';
+    public $primaryKey = 'id';
 
-    protected $attributes = [
+    public $attributes = [
         'reviews' => null,
         'user_id' => 1,
     ];
@@ -20,5 +20,10 @@ class Review extends Model
     {
         
         return $this->belongsTo('App\User');
+    }
+    public function comments()
+    {
+        
+        return $this->hasMany('App\Comment');
     }
 }

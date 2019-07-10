@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'review-cakes') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
@@ -24,7 +24,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'review-cakes') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -66,8 +66,14 @@
                                        >
                                         Review
                                     </a>
+
+                                    <a class="dropdown-item" href="/review/user/{{ Auth::id()}}"
+                                        >
+                                            your reviews
+                                    </a>
                                     
-                                    
+                                   
+                                
 
 
                                     
@@ -84,7 +90,10 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            <div class="container">
+                    @yield('content')
+            </div>
+            
         </main>
     </div>
 </body>
