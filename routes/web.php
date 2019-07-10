@@ -21,6 +21,9 @@ Route::middleware('auth')->group(function ()
     Route::resource('/review', 'ReviewController');
 
     Route::get('/review/user/{id}', 'ReviewController@usersReviews');
+    Route::resource('/review/comment', 'CommentController');
+    Route::get('/review/comment/{id}', 'CommentController@commentReviews');
+   // Route::get('/review/{id}', 'ReviewController@revie')
 
 });
 

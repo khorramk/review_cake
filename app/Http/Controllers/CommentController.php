@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Review;
+use App\Comment;
 class CommentController extends Controller
 {
     /**
@@ -14,6 +15,7 @@ class CommentController extends Controller
     public function index()
     {
         //
+        return view('comments.comment');
     }
 
     /**
@@ -35,8 +37,12 @@ class CommentController extends Controller
     public function store(Request $request)
     {
         //
-        $comments = new Comments();
-        
+        $comments = new Comment();
+        $comments->comments = $request->input('comment');
+        $comments->review_id = $request->input('review_id');
+        $comments->save();
+
+        return redirect('/review');
     }
 
     /**
@@ -48,6 +54,9 @@ class CommentController extends Controller
     public function show($id)
     {
         //
+        $review = Review::find($id);
+
+        return view('comments.comment')->with('review', $review);
     }
 
     /**
@@ -59,6 +68,12 @@ class CommentController extends Controller
     public function edit($id)
     {
         //
+        
+
+        $comment = Comment::find($id);
+
+        // dd($comment);
+        return view('comments.edit')->with('comment', $comment);
     }
 
     /**
@@ -71,6 +86,16 @@ class CommentController extends Controller
     public function update(Request $request, $id)
     {
         //
+         //dd
+         $updating_comment = Comment::find($id);
+        //  dd($updating_comment);
+        $updating_comment->comments = $request->input('comment_edit');
+        $updating_comment->review_id = $id;
+        $updating_comment->save();
+
+        return redirect('/review');
+
+         
     }
 
     /**
@@ -82,5 +107,16 @@ class CommentController extends Controller
     public function destroy($id)
     {
         //
+       $comment = Comment::find($id);
+       $comment->delete();
+
+        return redirect('/review');
+    }
+
+    public function commentReviews($id)
+    {
+        $comments_review = Review::find($id);
+        dd($comments_review);
+        return view('comments.comment')->with('comment_review', $comments_review);
     }
 }
