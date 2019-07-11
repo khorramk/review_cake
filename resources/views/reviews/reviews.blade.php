@@ -17,14 +17,29 @@
                     <div class="card reviews-card__single-review__wrapper">
                         <div class="card-body reviews-card__single-review">
                                 {{$review->reviews}}
-                        <a  class="review-card__single-review_add-comment" style="float:right;  color:blue; border:2px solid black; margin-left:10px;" href="/review/comment/{{$review->id}}">🞡</a>
-                        <a class="review-card__single-review_edit-review" style="float:right;  color:blue; border:2px solid black; margin-left:10px;" href="/review/{{$review->id}}/edit">🖉</a>
-                        <form class="review-card__single-review_remove-review" style="float:right;  color:blue; border:2px solid black; margin-left:10px;" action="/review/{{$review->id}}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <input type="submit" style="color:teal; background:none; border:none; " value="⨯">
+                                <a  class="review-card__single-review_add-comment" style="float:right;  color:blue;  margin-left:10px;" href="/review/comment/{{$review->id}}">🗨</a>
+                                
                             
-                            </form>
+                           
+                                
+                                
+                              @if ($review->user_id == Auth::id())
+                              <a class="review-card__single-review_edit-review" style="float:right;  color:blue;  margin-left:10px;" href="/review/{{$review->id}}/edit">🖉</a>
+                                <form class="review-card__single-review_remove-review" style="float:right;  color:blue;  margin-left:10px;" action="/review/{{$review->id}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" style="color:teal; background:none; border:none; " value="">⨯</button>
+                                    
+                                </form>
+                              
+                               
+                              @endif
+                            
+                            
+                           
+                            
+                        
+                        
                         </div>
                         @foreach ($review->comments as $comment)
                                 <div class="col border border-primary comments-card_single-comments__wrapper">
@@ -46,7 +61,7 @@
             </div>
            
         </div>
-        <a href="/review/create" style="background:yellow; width:100px; height:50px; border-radius:100%; float:right; z-index:999; right:0; position: absolute; bottom:0; text-align:center" class="review-card__link">R</a>
+        <a href="/review/create" style="background:yellow; width:100px; height:50px; border-radius:100%; float:right; z-index:999; right:0; position: absolute; bottom:0; text-align:center; font-size: 2em;" class="review-card__link">+</a>
     </div>
    
 </div>

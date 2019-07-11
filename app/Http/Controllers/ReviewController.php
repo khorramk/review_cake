@@ -118,13 +118,14 @@ class ReviewController extends Controller
         $review->delete();
         return redirect('/review');
     }
+
     public function usersReviews($id)
     {
         $reviews = \App\User::find($id)->reviews;
     //  dd($review);
-        $comments = Review::find($id)->comments;
+         
         
-        return view('reviews.reviews')->with('reviews', $reviews)->with('comments', $comments);
+        return view('reviews.reviews')->with('reviews', $reviews);
     }
 
     public function welcome()
