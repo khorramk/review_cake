@@ -62,12 +62,12 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-                                    <a class="dropdown-item" href="/review"
+                                    <a class="dropdown-item" href="/review_cake/public/review"
                                        >
                                         Review
                                     </a>
 
-                                    <a class="dropdown-item" href="/review/user/{{ Auth::id()}}"
+                                    <a class="dropdown-item" href="/review_cake/public/review/user/{{ Auth::id()}}"
                                         >
                                             your reviews
                                     </a>
