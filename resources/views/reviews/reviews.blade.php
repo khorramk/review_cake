@@ -16,44 +16,52 @@
                 @foreach ($reviews as $review)
                     <div class="card reviews-card__single-review__wrapper">
                         <div class="card-body reviews-card__single-review">
-                                {{$review->reviews}}
-                                <a  class="review-card__single-review_add-comment" style="float:right;  color:blue;  margin-left:10px;" href="/review/comment/{{$review->id}}">🗨</a>
-                                
-                            
-                           
-                                
-                                
-                              @if ($review->user_id == Auth::id())
-                              <a class="review-card__single-review_edit-review" style="float:right;  color:blue;  margin-left:10px;" href="/review/{{$review->id}}/edit">🖉</a>
-                                <form class="review-card__single-review_remove-review" style="float:right;  color:blue;  margin-left:10px;" action="/review/{{$review->id}}" method="POST">
+                            {{$review->reviews}}
+                            {{-- {{dd($review)}} --}}
+                            <a  class="review-card__single-review_add-comment" style="float:right;  color:blue;  margin-left:10px; font-size:40px;" href="/review/comment/{{$review->id}}">🗨</a>
+                            @if ($review->user_id == Auth::id())
+                                <a class="review-card__single-review_edit-review" style="float:right;  color:blue;  margin-left:10px; font-size:40px;" href="/review/{{$review->id}}/edit">🖉</a>
+                                <form class="review-card__single-review_remove-review" style="float:right;  color:blue;  margin-left:10px; font-size:40px;" action="/review/{{$review->id}}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" style="color:teal; background:none; border:none; " value="">⨯</button>
-                                    
+                                    <button type="submit" style="color:teal; background:none; border:none; font-size:40px;" value="">⨯</button>
                                 </form>
+                                 
+
+                                <form action="/rating/{{$review->id}}" method="POST" style="float:right;  color:blue;  margin-left:10px; font-size:40px;">
+                                    @csrf   
+                                    <button style="font-size:40px; border:none; background-color:transparent;  padding:0;" type="submit">☆</button>
+                                </form>   
+                                {{-- <span>{{$review->rating->rating}}</span>  --}}
+
+
+                                {{-- @empty($review->rating)
+                                    <form action="/rating" method="POST" style="float:right;  color:blue;  margin-left:10px; font-size:40px;">
+                                        @csrf
+                                    
+                                    <input type="hidden" name="rate" value="1">
+                                        <button style="font-size:40px; border:none; background-color:transparent;  padding:0;" type="submit">☆</button>
+                                    </form> 
+                                @else 
+                                    HELLLLLOO
+                                @endempty --}}
                               
-                               
-                              @endif
-                            
-                            
-                           
-                            
-                        
+                                {{-- <span style="float:right">{{$review->rating->rating}}</span> --}}
+                            @endif
                         
                         </div>
                         @foreach ($review->comments as $comment)
-                                <div class="col border border-primary comments-card_single-comments__wrapper">
-                                    <div class="card-body comment-card__single-card">
-                                        {{$comment->comments}}
-                                        <a class="review-card__single-review_edit-comment" style="float:right;" href="/review/comment/{{$comment->id}}/edit">🖉</a>
+                            <div class="col border border-primary comments-card_single-comments__wrapper">
+                                <div class="card-body comment-card__single-card">
+                                    {{$comment->comments}}
+                                    <a class="review-card__single-review_edit-comment" style="float:right;" href="/review/comment/{{$comment->id}}/edit">🖉</a>
                                     <form  class="review-card__single-review_remove-comment" style="float:right;" action="/review/comment/{{$comment->id}}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <input type="submit" style="color:teal; background:none; border:none; padding-right:30px;" value="⨯">
-                                    
+                                        @csrf
+                                        @method('DELETE')
+                                        <input type="submit" style="color:teal; background:none; border:none; padding-right:30px;" value="⨯">
                                     </form>
-                                    </div>
                                 </div>
+                            </div>
                         @endforeach
                     </div>
                 @endforeach

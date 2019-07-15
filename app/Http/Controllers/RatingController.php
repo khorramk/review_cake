@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Rating;
 use App\Review;
-use App\Comment;
-class ReviewController extends Controller
+class RatingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +17,11 @@ class ReviewController extends Controller
         //
         $reviews = \App\Review::all();
         
-        return view('reviews.reviews')->with('reviews', $reviews);
+        
+        return view('review.review')
+                ->with('reviews', $reviews);
+                
+                
     }
 
     /**
@@ -29,7 +32,6 @@ class ReviewController extends Controller
     public function create()
     {
         //
-        return view('reviews.create');
     }
 
     /**
@@ -41,19 +43,13 @@ class ReviewController extends Controller
     public function store(Request $request)
     {
         //
-        $review = new Review();
-        
-        $review->reviews = $request->input('review_creation');
-        //insert auth id for id counting
-      
-        $review->user_id = Auth::id();
-        // $review->id = Auth::id();
-        // $latestOrder = Review::orderBy('created_at','DESC')->first();
-        // $review->id = $latestOrder->id;
-        // dd($review);
-        $review->save();
-        
-       return redirect('/review');
+        $rating = new Rating();
+
+        $rating->rating += $request->input('rate') + 1;
+
+        $rating->save();
+
+        return redirect('/review');
     }
 
     /**
@@ -65,9 +61,6 @@ class ReviewController extends Controller
     public function show($id)
     {
         //
-        // $review = Review::find($id);
-        
-        // return view('reviews.show')->with('review', $review);
     }
 
     /**
@@ -79,11 +72,6 @@ class ReviewController extends Controller
     public function edit($id)
     {
         //
-        $review = Review::find($id);
-
-        // dd($comment);
-        return view('reviews.edit')->with('review', $review);
-
     }
 
     /**
@@ -96,10 +84,23 @@ class ReviewController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $update_review = Review::find($id);
-        $update_review->reviews = $request->input('review_edit');
-        $update_review->user_id = Auth::id();
-        $update_review->save();
+        $update_rating = Rating::find(Review::find($id));
+      
+        $update_rating->increment('rating', 1);
+
+        $update_rating->save();
+
+        return redirect('/review');
+       
+        //use incrementRating function as an example
+   
+        
+    }
+
+    public function incrementRating(Request $request, $reviewID){
+            Rating::find(
+                Review::find($reviewID)->rating_id
+            )->increment('rating', 1);
 
         return redirect('/review');
     }
@@ -113,23 +114,6 @@ class ReviewController extends Controller
     public function destroy($id)
     {
         //
-        $review = Review::find($id);
-        $review->delete();
-        return redirect('/review');
     }
-
-    public function usersReviews($id)
-    {
-        $reviews = \App\User::find($id)->reviews;
-    //  dd($review);
-         
-        
-        return view('reviews.reviews')->with('reviews', $reviews);
-    }
-
-    public function welcome()
-    {
-        # code...
-        return view('welcome');
-    }
+   
 }

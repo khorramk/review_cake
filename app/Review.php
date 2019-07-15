@@ -12,6 +12,7 @@ class Review extends Model
     public $attributes = [
         'reviews' => null,
         'user_id' => 1,
+        'rating_id' => 1,
     ];
     
     public $timestamps = false;
@@ -19,11 +20,16 @@ class Review extends Model
     public function user()
     {
         
-        return $this->belongsTo('App\User');
+        return $this->belongsTo(User::class);
     }
     public function comments()
     {
         
-        return $this->hasMany('App\Comment');
+        return $this->hasMany(Comment::class);
+    }
+
+    public function rating()
+    {
+        return $this->hasOne(Rating::class);
     }
 }
