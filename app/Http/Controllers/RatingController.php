@@ -43,11 +43,11 @@ class RatingController extends Controller
     public function store(Request $request)
     {
         //
-        $rating = new Rating();
+        $update_rating = Rating::find(Review::find($id));
+      
+        $update_rating->increment('rating', 1);
 
-        $rating->rating += $request->input('rate') + 1;
-
-        $rating->save();
+        $update_rating->save();
 
         return redirect('/review');
     }
