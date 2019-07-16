@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Ratings extends Migration
+class CreateRatingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class Ratings extends Migration
     public function up()
     {
         Schema::create('ratings', function (Blueprint $table) {
-            
+            $table->bigIncrements('id');
             $table->unsignedInteger('rating');
             $table->unsignedInteger('review_id');
             $table->timestamps();

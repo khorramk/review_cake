@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Reviews extends Migration
+class CreateReviewTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,8 +16,8 @@ class Reviews extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('reviews')->nullable();
-            $table->integer('user_id');
             $table->unsignedInteger('rating_id');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

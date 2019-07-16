@@ -25,7 +25,7 @@ Route::middleware('auth')->group(function ()
     Route::get('/review/comment/{id}', 'CommentController@commentReviews');
    
    // Route::get('/review/{id}', 'ReviewController@revie')
-   Route::post('/rating/{id}/adding', 'RatingController@increaseRate');
+//    Route::post('/rating/{id}/adding', 'RatingController@increaseRate');
 
 });
 

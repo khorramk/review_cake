@@ -43,11 +43,14 @@ class RatingController extends Controller
     public function store(Request $request)
     {
         //
-        $update_rating = Rating::find(Review::find($id));
-      
-        $update_rating->increment('rating', 1);
+       
+        $rating = new Rating();
+        $rating->rating = 1;
+        $rating->review_id = $request->input('review_id');
+       
 
-        $update_rating->save();
+        $rating->save();
+        
 
         return redirect('/review');
     }
@@ -83,12 +86,12 @@ class RatingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        $update_rating = Rating::find(Review::find($id));
-      
-        $update_rating->increment('rating', 1);
+       
+        $update_rating = Review::find($id);
+        
+        $update_rating->rating->increment('rating');
 
-        $update_rating->save();
+        $update_rating->rating->save();
 
         return redirect('/review');
        

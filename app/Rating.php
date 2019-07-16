@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Rating extends Model
 {
     //
-    protected $primaryKey = 'rating';
+    protected $primaryKey = 'id';
     
-    protected $attributes = [
-        'review_id' => 1,
-        'rating'  => 1,
+    public $attributes = [
+       
+        'rating' => 1,
     ];
 
     public function review()
