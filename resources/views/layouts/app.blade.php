@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'review-cakes') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -96,5 +96,6 @@
             
         </main>
     </div>
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

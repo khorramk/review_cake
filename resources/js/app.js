@@ -7,7 +7,8 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
-
+import reviewCreate from './components/reviewCreate';
+import reviewsComponent from './components/reviewsComponent';
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -19,8 +20,14 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+// Vue.component('reviews-component', require('./components/reviewsComponent.vue').default);
+// // Vue.component('reviews-create', require('./components/reviewsComponent.vue'));
 
+// Vue.component('reviews-create', require('./components/reviewCreate.vue'));
+
+ 
+
+ 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -29,4 +36,14 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
+    components: {
+            reviewCreate,
+            reviewsComponent
+
+    }
 });
+
+
+
+
+

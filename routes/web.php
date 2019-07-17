@@ -11,6 +11,18 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/cake-component/review',  function ()
+    {
+        # code...   
+        return view('review-vue.review');
+    });
+    
+// Route::get('/cake-component/review/create', function ()
+//     {
+//         return view('review-vue.create');
+//     });
+
+Route::resource('/cake-component/review', 'ReviewController');
 
 Route::get('/', 'ReviewController@welcome');
 
@@ -23,7 +35,8 @@ Route::middleware('auth')->group(function ()
     Route::get('/review/user/{id}', 'ReviewController@usersReviews');
     Route::resource('/review/comment', 'CommentController');
     Route::get('/review/comment/{id}', 'CommentController@commentReviews');
-   // Route::get('/review/{id}', 'ReviewController@revie')
-
+    
 });
+
+
 
