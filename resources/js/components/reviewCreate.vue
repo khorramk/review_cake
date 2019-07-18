@@ -10,7 +10,7 @@
 </template>
 
 <script>
-    import reviewsComponent from './reviewsComponent';
+    //import reviewsComponent from './reviewsComponent';
     export default {
         data(){
             return {

@@ -15,11 +15,11 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        //
-        $reviews = \App\Review::all();
-        $comments = Comment::all();
+        // //
+        // $reviews = \App\Review::all();
+        // $comments = Comment::all();
         
-        return view('reviews.reviews')->with('reviews', $reviews)->with('comments', $comments);
+        return view('review-vue.review');//->with('reviews', $reviews)->with('comments', $comments);
     }
 
     /**
@@ -30,7 +30,7 @@ class ReviewController extends Controller
     public function create()
     {
         //
-        return view('reviews.create');
+        return view('review-vue.create');
     }
 
     /**
