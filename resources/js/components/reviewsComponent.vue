@@ -7,11 +7,11 @@
                         <div class="card reviews-card__single-review__wrapper" v-for="review in reviewsChange" v-bind:key="review">
                             <div class="card-body reviews-card__single-review">
                                     {{ review }}
-                                    <a  class="review-card__single-review_add-comment" style="float:right;  color:blue;  margin-left:10px;" :href="review.id">🗨</a>
-                                    <a class="review-card__single-review_edit-review" style="float:right;  color:blue;  margin-left:10px;" :href="review.id" >🖉</a>
+                                    <a  class="review-card__single-review_add-comment" style="float:right;  color:blue;  margin-left:10px;" href="review.id">🗨</a>
+                                    <a class="review-card__single-review_edit-review" style="float:right;  color:blue;  margin-left:10px;" href="review.id" >🖉</a>
                                     <form v-if="authorised" class="review-card__single-review_remove-review" style="float:right;  color:blue;  margin-left:10px;" action="review" method="POST">
                                             <input type="hidden" name="_method" value="DELETE">
-                                            <button type="submit" style="color:teal; background:none; border:none; " value="">⨯</button>
+                                            <button type="submit" style="color:teal; background:none; border:none; ">⨯</button>
                                     </form>
                             </div>
                         

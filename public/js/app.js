@@ -1697,7 +1697,6 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _reviewsComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./reviewsComponent */ "./resources/js/components/reviewsComponent.vue");
 //
 //
 //
@@ -1709,7 +1708,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//import reviewsComponent from './reviewsComponent';
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -37175,7 +37174,7 @@ var render = function() {
                               color: "blue",
                               "margin-left": "10px"
                             },
-                            attrs: { href: review.id }
+                            attrs: { href: "review.id" }
                           },
                           [_vm._v("🗨")]
                         ),
@@ -37190,7 +37189,7 @@ var render = function() {
                               color: "blue",
                               "margin-left": "10px"
                             },
-                            attrs: { href: review.id }
+                            attrs: { href: "review.id" }
                           },
                           [_vm._v("🖉")]
                         ),
@@ -37225,7 +37224,7 @@ var render = function() {
                                       background: "none",
                                       border: "none"
                                     },
-                                    attrs: { type: "submit", value: "" }
+                                    attrs: { type: "submit" }
                                   },
                                   [_vm._v("⨯")]
                                 )
