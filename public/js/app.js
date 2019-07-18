@@ -1697,6 +1697,8 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -1708,14 +1710,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//import reviewsComponent from './reviewsComponent';
+ //import reviewsComponent from './reviewsComponent';
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      reviews: [],
-      authorise: true,
-      review: ''
+      review_creation: '',
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     };
+  },
+  methods: {
+    checkform: function checkform() {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/review', this.data);
+      return true;
+    }
   }
 });
 
@@ -1730,6 +1738,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -1755,16 +1765,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      reviews: ['test', 'test2'],
-      authorised: true
+      reviewsTest: ['test', 'test2'],
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+      id: '',
+      action: "review/".concat(this.id)
     };
   },
-  computed: {
-    reviewsChange: function reviewsChange() {
-      return this.reviews = Array(Math.round(Math.random())).fill(Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15));
+  mounted: function mounted() {
+    var _this = this;
+
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/cake-component/review').then(function (response) {
+      return _this.reviewsTest = response.data;
+    }).then(function (resp) {
+      return console.log(resp);
+    })["catch"](function (err) {
+      return console.log(err);
+    });
+  },
+  methods: {
+    remove: function remove() {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]("/review/1", this.data);
     }
   }
 });
@@ -37071,12 +37096,13 @@ var render = function() {
       {
         staticClass: "create-form-reviews",
         staticStyle: { display: "flex", "flex-direction": "column" },
-        attrs: { action: "/cake-component/review", method: "POST" }
+        attrs: { action: "/review", method: "POST" },
+        on: { submit: _vm.checkform }
       },
       [
         _c("input", {
-          attrs: { type: "hidden", name: "_csrf" },
-          domProps: { value: _vm.authorise }
+          attrs: { type: "hidden", name: "_token" },
+          domProps: { value: _vm.csrf }
         }),
         _vm._v(" "),
         _c("label", { attrs: { for: "review_creation" } }, [
@@ -37088,23 +37114,23 @@ var render = function() {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.review,
-              expression: "review"
+              value: _vm.review_creation,
+              expression: "review_creation"
             }
           ],
           attrs: { name: "review_creation", id: "", cols: "30", rows: "10" },
-          domProps: { value: _vm.review },
+          domProps: { value: _vm.review_creation },
           on: {
             input: function($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.review = $event.target.value
+              _vm.review_creation = $event.target.value
             }
           }
         }),
         _vm._v(" "),
-        _c("input", { attrs: { type: "submit", value: "add your comments" } })
+        _c("input", { attrs: { type: "submit", value: "add your review" } })
       ]
     )
   ])
@@ -37147,12 +37173,13 @@ var render = function() {
             _c(
               "div",
               { staticClass: "card-body reviews-card__body" },
-              _vm._l(_vm.reviewsChange, function(review) {
+              _vm._l(_vm.reviewsTest, function(review) {
                 return _c(
                   "div",
                   {
-                    key: review,
-                    staticClass: "card reviews-card__single-review__wrapper"
+                    key: review.id,
+                    staticClass: "card reviews-card__single-review__wrapper",
+                    attrs: { "v:bind:id": "review.id" }
                   },
                   [
                     _c(
@@ -37161,8 +37188,8 @@ var render = function() {
                       [
                         _vm._v(
                           "\n                                " +
-                            _vm._s(review) +
-                            "\n                                "
+                            _vm._s(review.reviews) +
+                            "\n                                \n                                "
                         ),
                         _c(
                           "a",
@@ -37174,7 +37201,7 @@ var render = function() {
                               color: "blue",
                               "margin-left": "10px"
                             },
-                            attrs: { href: "review.id" }
+                            attrs: { href: "/review/comments" }
                           },
                           [_vm._v("🗨")]
                         ),
@@ -37189,48 +37216,52 @@ var render = function() {
                               color: "blue",
                               "margin-left": "10px"
                             },
-                            attrs: { href: "review.id" }
+                            attrs: { href: "/review/edit" }
                           },
                           [_vm._v("🖉")]
                         ),
                         _vm._v(" "),
-                        _vm.authorised
-                          ? _c(
-                              "form",
+                        _c(
+                          "form",
+                          {
+                            staticClass:
+                              "review-card__single-review_remove-review",
+                            staticStyle: {
+                              float: "right",
+                              color: "blue",
+                              "margin-left": "10px"
+                            },
+                            attrs: { action: _vm.action, method: "POST" },
+                            on: { submit: _vm.remove }
+                          },
+                          [
+                            _c("input", {
+                              attrs: { type: "hidden", name: "_token" },
+                              domProps: { value: _vm.csrf }
+                            }),
+                            _vm._v(" "),
+                            _c("input", {
+                              attrs: {
+                                type: "hidden",
+                                name: "_method",
+                                value: "DELETE"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "button",
                               {
-                                staticClass:
-                                  "review-card__single-review_remove-review",
                                 staticStyle: {
-                                  float: "right",
-                                  color: "blue",
-                                  "margin-left": "10px"
+                                  color: "teal",
+                                  background: "none",
+                                  border: "none"
                                 },
-                                attrs: { action: "review", method: "POST" }
+                                attrs: { type: "submit" }
                               },
-                              [
-                                _c("input", {
-                                  attrs: {
-                                    type: "hidden",
-                                    name: "_method",
-                                    value: "DELETE"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c(
-                                  "button",
-                                  {
-                                    staticStyle: {
-                                      color: "teal",
-                                      background: "none",
-                                      border: "none"
-                                    },
-                                    attrs: { type: "submit" }
-                                  },
-                                  [_vm._v("⨯")]
-                                )
-                              ]
+                              [_vm._v("⨯")]
                             )
-                          : _vm._e()
+                          ]
+                        )
                       ]
                     )
                   ]
@@ -37258,7 +37289,7 @@ var render = function() {
               "text-align": "center",
               "font-size": "2em"
             },
-            attrs: { href: "review/create" }
+            attrs: { href: "/review/create" }
           },
           [_vm._v("+")]
         )
@@ -49430,6 +49461,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
 
+
+var axio = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -49448,6 +49481,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+
 
 var app = new Vue({
   el: '#app',

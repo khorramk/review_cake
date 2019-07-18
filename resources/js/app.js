@@ -9,6 +9,7 @@ require('./bootstrap');
 window.Vue = require('vue');
 import reviewCreate from './components/reviewCreate';
 import reviewsComponent from './components/reviewsComponent';
+const axio = require('axios');
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -40,7 +41,12 @@ const app = new Vue({
             reviewCreate,
             reviewsComponent
 
-    }
+    },
+
+    
+    
+
+
 });
 
 
