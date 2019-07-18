@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     //
-    
+    public $attributes = [
+        'review_id' => null,
+    ];
 
     public function review()
     {

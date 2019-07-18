@@ -17,8 +17,9 @@ class ReviewController extends Controller
     {
         //
         $reviews = \App\Review::all();
+        $comments = Comment::all();
         
-        return view('reviews.reviews')->with('reviews', $reviews);
+        return view('reviews.reviews')->with('reviews', $reviews)->with('comments', $comments);
     }
 
     /**

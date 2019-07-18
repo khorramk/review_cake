@@ -6,6 +6,6 @@
             @csrf
             <label for="review_creation">write your reviews</label>
             <textarea name="review_creation" id="" cols="30" rows="10"></textarea>
-            <input type="submit" value="add your comments">
+            <input type="submit" value="add your review">
         </form>
 @endsection

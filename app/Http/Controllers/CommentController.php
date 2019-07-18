@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Review;
 use App\Comment;
 class CommentController extends Controller
@@ -37,10 +38,13 @@ class CommentController extends Controller
     public function store(Request $request)
     {
         //
+       
         $comments = new Comment();
         $comments->comments = $request->input('comment');
-        $comments->review_id = $request->input('review_id');
+        $comments->review_id = $request->input('comments_id');
+        $comments->user_id = Auth::id();
         $comments->save();
+        
 
         return redirect('/review');
     }
