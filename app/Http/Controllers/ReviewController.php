@@ -14,12 +14,8 @@ class ReviewController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        // //
-        // $reviews = \App\Review::all();
-        // $comments = Comment::all();
-        
-        return view('review-vue.review');//->with('reviews', $reviews)->with('comments', $comments);
+    {       
+        return view('review-vue.review');
     }
 
     /**
@@ -43,18 +39,11 @@ class ReviewController extends Controller
     {
         //
         $review = new Review();
-        
         $review->reviews = $request->input('review_creation');
-        //insert auth id for id counting
-      
         $review->user_id = Auth::id();
-        // $review->id = Auth::id();
-        // $latestOrder = Review::orderBy('created_at','DESC')->first();
-        // $review->id = $latestOrder->id;
-        // dd($review);
+        $review->rating_id = 0;
         $review->save();
-        
-       return redirect('/review');
+        return redirect('/review');
     }
 
     /**
@@ -65,10 +54,7 @@ class ReviewController extends Controller
      */
     public function show($id)
     {
-        //
-        // $review = Review::find($id);
-        
-        // return view('reviews.show')->with('review', $review);
+         
     }
 
     /**
@@ -79,11 +65,8 @@ class ReviewController extends Controller
      */
     public function edit($id)
     {
-        //
         $review = Review::find($id);
-
-        // dd($comment);
-        return view('reviews.edit')->with('review', $review);
+        return view('review.edit')->with('review', $review);
 
     }
 
@@ -114,7 +97,8 @@ class ReviewController extends Controller
     public function destroy($id)
     {
         //
-        $review = Review::find($id);
+        dd($id);
+        $review = Review::find(1);
         $review->delete();
         return redirect('/review');
     }

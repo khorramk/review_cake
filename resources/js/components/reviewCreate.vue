@@ -1,24 +1,33 @@
 <template>
     <div>
-        <form action="/cake-component/review"  method="POST" class="create-form-reviews" style="display:flex; flex-direction:column;" >
-            <input type="hidden" name="_csrf" v-bind:value="authorise">
+        <form action="/review" @submit="checkform" method="POST" class="create-form-reviews" style="display:flex; flex-direction:column;" >
+            <input type="hidden" name="_token" :value="csrf">
             <label for="review_creation">write your reviews</label>
-            <textarea name="review_creation" id="" cols="30" rows="10" v-model="review"></textarea>
-            <input type="submit" value="add your comments">
+            <textarea name="review_creation" id="" cols="30" rows="10" v-model="review_creation"></textarea>
+            <input type="submit" value="add your review">
         </form>
     </div>
 </template>
 
 <script>
+import Axios from 'axios';
     //import reviewsComponent from './reviewsComponent';
     export default {
         data(){
             return {
-                reviews: [],
-                authorise: true,
-                review: ''
+              
+                review_creation: '',
+                csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            }
+        },
+
+        methods: {
+            checkform(){
+                Axios.post('/review', this.data);
+                return true;
             }
         }
+
         
     }
 </script>
