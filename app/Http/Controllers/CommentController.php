@@ -26,7 +26,9 @@ class CommentController extends Controller
     public function create()
     {
         //
-        $comment = Comment::find($id);
+      
+        $comment = Comment::all();
+        
         return view('review-vue.commentCreate')->with('comment', $comment);
     }
 

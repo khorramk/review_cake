@@ -1,8 +1,8 @@
 <template>
     <div>
-        {{comment}}
-        <form  method="POST">
-            <input type="hidden" name="review_id" value="{{$review->id}}">
+        {{'working'}}
+        <form @submit="addComments()" method="POST">
+            <input type="hidden" name="review_id" value="1">
             <textarea name="comment" id="" cols="30" rows="10"></textarea>
             <input type="submit" value="add comments" v-model="comments">
         </form>
