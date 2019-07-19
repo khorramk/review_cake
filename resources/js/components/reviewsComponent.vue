@@ -14,17 +14,18 @@
                                 </form>
                         </div>
                     </div>
+                    <Comments/>
                 </div>
             </div>
             <a href="/reviews/create" style="background:yellow; width:100px; height:50px; border-radius:100%; float:right; z-index:999; right:0; position: absolute; bottom:0; text-align:center; font-size: 2em;" class="review-card__link">+</a>
         </div>
-        <comments/>
+        
     </div>
 </template>
 
 <script >
 import Axios from "axios";
-import comments from './comments';
+import Comments from './Comments';
 
 export default ({
     data() {
@@ -47,6 +48,9 @@ export default ({
             
            Axios.delete(`/reviews/${id}`);       
         } 
+    },
+    components:{
+        Comments
     }
 });
 </script>

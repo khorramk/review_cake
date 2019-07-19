@@ -34,6 +34,3 @@ import Axios from 'axios';
     }
 </script>
 
-<style lang="scss" scoped>
-
-</style>
