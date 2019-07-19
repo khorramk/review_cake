@@ -7,10 +7,9 @@
                         <div class="card reviews-card__single-review__wrapper" v-for="review in reviewsTest" v-bind:key="review.id" v:bind:id="review.id">
                             <div class="card-body reviews-card__single-review">
                                     {{ review.reviews }}
-                                    
                                     <a  class="review-card__single-review_add-comment" style="float:right;  color:blue;  margin-left:10px;" href="/review/comments">🗨</a>
                                     <a class="review-card__single-review_edit-review" style="float:right;  color:blue;  margin-left:10px;" href="/review/edit" >🖉</a>
-                                    <form  class="review-card__single-review_remove-review" style="float:right;  color:blue;  margin-left:10px;" :action="action" @submit="remove"  method="POST">
+                                    <form  class="review-card__single-review_remove-review" style="float:right;  color:blue;  margin-left:10px;"   @submit="remove(review.id)" >
                                            <input type="hidden" name="_token" :value="csrf">
                                            <input type="hidden" name="_method" value="DELETE">
                                             <button type="submit" style="color:teal; background:none; border:none; " >⨯</button>
@@ -19,7 +18,7 @@
                         </div>
                 </div>
             </div>
-            <a href="/review/create" style="background:yellow; width:100px; height:50px; border-radius:100%; float:right; z-index:999; right:0; position: absolute; bottom:0; text-align:center; font-size: 2em;" class="review-card__link">+</a>
+            <a href="/reviews/create" style="background:yellow; width:100px; height:50px; border-radius:100%; float:right; z-index:999; right:0; position: absolute; bottom:0; text-align:center; font-size: 2em;" class="review-card__link">+</a>
         </div>
     </div>
 </template>
@@ -33,11 +32,17 @@ import Axios from "axios";
             return {
             reviewsTest: ['test', 'test2'],
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-            id: '',
-            action: `review/${this.id}`
+   
+           
             };
         },
         
+        computed: {
+            getID(e){
+               console.log(this.id);
+            }
+        },
+
         mounted(){
             Axios.get('/api/cake-component/review')
                 .then((response)=> this.reviewsTest = response.data)
@@ -47,9 +52,12 @@ import Axios from "axios";
 
 
         methods: {
-                remove(){
-                    Axios.delete(`/review/1`, this.data);
+                remove(id){
+                   
+                    Axios.delete(`/reviews/${id}`);
                 }
+
+                
         }
 
     });

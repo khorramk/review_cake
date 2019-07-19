@@ -43,7 +43,7 @@ class ReviewController extends Controller
         $review->user_id = Auth::id();
         $review->rating_id = 0;
         $review->save();
-        return redirect('/review');
+        return redirect('/reviews');
     }
 
     /**
@@ -54,7 +54,7 @@ class ReviewController extends Controller
      */
     public function show($id)
     {
-         
+         dd('');
     }
 
     /**
@@ -85,7 +85,7 @@ class ReviewController extends Controller
         $update_review->user_id = Auth::id();
         $update_review->save();
 
-        return redirect('/review');
+        return redirect('/reviews');
     }
 
     /**
@@ -97,10 +97,10 @@ class ReviewController extends Controller
     public function destroy($id)
     {
         //
-        dd($id);
-        $review = Review::find(1);
+        dd('');
+        $review = Review::find($id);
         $review->delete();
-        return redirect('/review');
+        return redirect('/reviews');
     }
 
     public function usersReviews($id)
