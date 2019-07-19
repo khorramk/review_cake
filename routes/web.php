@@ -21,7 +21,7 @@ Auth::routes();
 
 // Route::middleware('auth')->group(function ()
 // {
-    Route::resource('/review', 'ReviewController');
+    Route::resource('/reviews', 'ReviewController');
 
     Route::get('/review/user/{id}', 'ReviewController@usersReviews');
     Route::resource('/review/comment', 'CommentController');

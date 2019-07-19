@@ -1765,16 +1765,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       reviewsTest: ['test', 'test2'],
-      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-      id: '',
-      action: "review/".concat(this.id)
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     };
+  },
+  computed: {
+    getID: function getID(e) {
+      console.log(this.id);
+    }
   },
   mounted: function mounted() {
     var _this = this;
@@ -1788,8 +1790,8 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
-    remove: function remove() {
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]("/review/1", this.data);
+    remove: function remove(id) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]("/reviews/".concat(id));
     }
   }
 });
@@ -37189,7 +37191,7 @@ var render = function() {
                         _vm._v(
                           "\n                                " +
                             _vm._s(review.reviews) +
-                            "\n                                \n                                "
+                            "\n                                "
                         ),
                         _c(
                           "a",
@@ -37231,8 +37233,11 @@ var render = function() {
                               color: "blue",
                               "margin-left": "10px"
                             },
-                            attrs: { action: _vm.action, method: "POST" },
-                            on: { submit: _vm.remove }
+                            on: {
+                              submit: function($event) {
+                                return _vm.remove(review.id)
+                              }
+                            }
                           },
                           [
                             _c("input", {
@@ -37289,7 +37294,7 @@ var render = function() {
               "text-align": "center",
               "font-size": "2em"
             },
-            attrs: { href: "/review/create" }
+            attrs: { href: "/reviews/create" }
           },
           [_vm._v("+")]
         )
