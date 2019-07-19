@@ -1720,8 +1720,10 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    checkform: function checkform() {
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/review', this.data);
+    checkform: function checkform(e) {
+      console.log('not working'); //  e.preventDefault();
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/reviews', this.data);
       return true;
     }
   }
@@ -1769,28 +1771,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      reviewsTest: ['test', 'test2'],
+      reviewsTest: [],
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     };
-  },
-  computed: {
-    getID: function getID(e) {
-      console.log(this.id);
-    }
   },
   mounted: function mounted() {
     var _this = this;
 
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/cake-component/review').then(function (response) {
       return _this.reviewsTest = response.data;
-    }).then(function (resp) {
-      return console.log(resp);
     })["catch"](function (err) {
       return console.log(err);
+    }).then(function (resp) {
+      return console.log(resp);
     });
   },
   methods: {
     remove: function remove(id) {
+      console.log(id);
       axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]("/reviews/".concat(id));
     }
   }
@@ -37098,7 +37096,7 @@ var render = function() {
       {
         staticClass: "create-form-reviews",
         staticStyle: { display: "flex", "flex-direction": "column" },
-        attrs: { action: "/review", method: "POST" },
+        attrs: { action: "/reviews", method: "POST" },
         on: { submit: _vm.checkform }
       },
       [
@@ -37179,9 +37177,16 @@ var render = function() {
                 return _c(
                   "div",
                   {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: review.reviews,
+                        expression: "review.reviews"
+                      }
+                    ],
                     key: review.id,
-                    staticClass: "card reviews-card__single-review__wrapper",
-                    attrs: { "v:bind:id": "review.id" }
+                    staticClass: "card reviews-card__single-review__wrapper"
                   },
                   [
                     _c(
@@ -37189,9 +37194,9 @@ var render = function() {
                       { staticClass: "card-body reviews-card__single-review" },
                       [
                         _vm._v(
-                          "\n                                " +
+                          "\n                            " +
                             _vm._s(review.reviews) +
-                            "\n                                "
+                            "\n                            "
                         ),
                         _c(
                           "a",
@@ -37203,7 +37208,7 @@ var render = function() {
                               color: "blue",
                               "margin-left": "10px"
                             },
-                            attrs: { href: "/review/comments" }
+                            attrs: { href: "/comments" }
                           },
                           [_vm._v("🗨")]
                         ),
@@ -37218,7 +37223,7 @@ var render = function() {
                               color: "blue",
                               "margin-left": "10px"
                             },
-                            attrs: { href: "/review/edit" }
+                            attrs: { href: "/reviews/edit" }
                           },
                           [_vm._v("🖉")]
                         ),
@@ -37240,19 +37245,6 @@ var render = function() {
                             }
                           },
                           [
-                            _c("input", {
-                              attrs: { type: "hidden", name: "_token" },
-                              domProps: { value: _vm.csrf }
-                            }),
-                            _vm._v(" "),
-                            _c("input", {
-                              attrs: {
-                                type: "hidden",
-                                name: "_method",
-                                value: "DELETE"
-                              }
-                            }),
-                            _vm._v(" "),
                             _c(
                               "button",
                               {

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <form action="/review" @submit="checkform" method="POST" class="create-form-reviews" style="display:flex; flex-direction:column;" >
+        <form action="/reviews" @submit="checkform" method="POST" class="create-form-reviews" style="display:flex; flex-direction:column;" >
             <input type="hidden" name="_token" :value="csrf">
             <label for="review_creation">write your reviews</label>
             <textarea name="review_creation" id="" cols="30" rows="10" v-model="review_creation"></textarea>
@@ -22,8 +22,10 @@ import Axios from 'axios';
         },
 
         methods: {
-            checkform(){
-                Axios.post('/review', this.data);
+            checkform(e){
+                console.log('not working');
+              //  e.preventDefault();
+                Axios.post('/reviews', this.data);
                 return true;
             }
         }

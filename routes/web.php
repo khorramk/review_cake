@@ -23,9 +23,9 @@ Auth::routes();
 // {
     Route::resource('/reviews', 'ReviewController');
 
-    Route::get('/review/user/{id}', 'ReviewController@usersReviews');
-    Route::resource('/review/comment', 'CommentController');
-    Route::get('/review/comment/{id}', 'CommentController@commentReviews');
+    // Route::get('/reviews/user/{id}', 'ReviewController@usersReviews');
+    Route::resource('/comments', 'CommentController');
+    // Route::get('/reviews/comment/{id}', 'CommentController@commentReviews');
     
 // });
 
