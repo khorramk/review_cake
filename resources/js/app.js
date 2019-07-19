@@ -9,6 +9,8 @@ require('./bootstrap');
 window.Vue = require('vue');
 import reviewCreate from './components/reviewCreate';
 import reviewsComponent from './components/reviewsComponent';
+import commentCreate from './components/commentCreate';
+import Comment from './components/Comments';
 const axio = require('axios');
 /**
  * The following block of code may be used to automatically register your
@@ -39,14 +41,9 @@ const app = new Vue({
     el: '#app',
     components: {
             reviewCreate,
-            reviewsComponent
-
+            reviewsComponent,
+            commentCreate
     },
-
-    
-    
-
-
 });
 
 
