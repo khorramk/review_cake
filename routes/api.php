@@ -1,6 +1,7 @@
 <?php
 
 use App\Review;
+use App\Comment;
 use Illuminate\Http\Request;
 
 /*
@@ -23,4 +24,10 @@ use Illuminate\Http\Request;
 Route::get('/cake-component/review', function(){
     $review = Review::all();
         return $review;
+});
+
+Route::get('/cake-component/comments', function ()
+{
+    $comments = Comment::all();
+        return $comments;
 });
