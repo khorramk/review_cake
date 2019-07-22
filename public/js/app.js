@@ -1771,10 +1771,10 @@ __webpack_require__.r(__webpack_exports__);
       istrue: true
     };
   },
-  props: ['comment'],
+  props: ['review'],
   methods: {
     addComments: function addComments() {
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/comments', this.data);
+      return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/store', this.data);
     }
   }
 });
@@ -37277,52 +37277,43 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "comment-create__container" }, [
     _vm._v("\n    " + _vm._s("working") + "\n    "),
-    _c(
+    _vm._m(0)
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
       "form",
       {
-        attrs: { method: "POST" },
-        on: {
-          submit: function($event) {
-            return _vm.addComments()
-          }
-        }
+        staticClass: "comment-create__container__create-comment-form",
+        attrs: { action: "/api/store", method: "POST" }
       },
       [
         _c("input", {
+          staticClass:
+            "comment-create__container__create-comment-form__review-id",
           attrs: { type: "hidden", name: "review_id", value: "1" }
         }),
         _vm._v(" "),
         _c("textarea", {
+          staticClass: "comment-create__container__create-comment-form__body",
           attrs: { name: "comment", id: "", cols: "30", rows: "10" }
         }),
         _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.comments,
-              expression: "comments"
-            }
-          ],
-          attrs: { type: "submit", value: "add comments" },
-          domProps: { value: _vm.comments },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.comments = $event.target.value
-            }
-          }
+        _c("button", {
+          staticClass:
+            "comment-create__container__create-comment-form__submit-btn",
+          attrs: { type: "submit", value: "add comments" }
         })
       ]
     )
-  ])
-}
-var staticRenderFns = []
+  }
+]
 render._withStripped = true
 
 

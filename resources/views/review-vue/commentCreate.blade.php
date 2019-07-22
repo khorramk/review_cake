@@ -2,5 +2,5 @@
 
 
 @section('content')
-     <comment-create></comment-create>
+     <comment-create review="1"></comment-create>
 @endsection
