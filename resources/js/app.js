@@ -11,6 +11,7 @@ import reviewCreate from './components/reviewCreate';
 import reviewsComponent from './components/reviewsComponent';
 import commentCreate from './components/commentCreate';
 import Comment from './components/Comments';
+import commentEdit from './components/commentEdit';
 const axio = require('axios');
 /**
  * The following block of code may be used to automatically register your
@@ -19,18 +20,6 @@ const axio = require('axios');
  *
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
-
-// const files = require.context('./', true, /\.vue$/i);
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
-
-// Vue.component('reviews-component', require('./components/reviewsComponent.vue').default);
-// // Vue.component('reviews-create', require('./components/reviewsComponent.vue'));
-
-// Vue.component('reviews-create', require('./components/reviewCreate.vue'));
-
- 
-
- 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -42,7 +31,8 @@ const app = new Vue({
     components: {
             reviewCreate,
             reviewsComponent,
-            commentCreate
+            commentCreate,
+            commentEdit
     },
 });
 

@@ -41,10 +41,10 @@ class ReviewController extends Controller
         
         $review = new Review();
         $review->reviews = $request->input('review_creation');
-        $review->user_id = Auth::id();
+        $review->user_id = 0;
         $review->rating_id = 0;
         $review->save();
-        
+       // dd($review->id);
         return redirect('/reviews');
     }
 
@@ -81,7 +81,7 @@ class ReviewController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd('update');
+        
         $update_review = Review::find($id);
         $update_review->reviews = $request->input('review_edit');
         $update_review->user_id = Auth::id();

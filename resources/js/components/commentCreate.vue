@@ -1,7 +1,7 @@
 <template>
     <div class="comment-create__container">
         {{'working'}}
-        <form action="/api/store" class="comment-create__container__create-comment-form" method="POST">
+        <form action="/api/comments" class="comment-create__container__create-comment-form" method="POST">
             <input class="comment-create__container__create-comment-form__review-id" type="hidden" name="review_id" value="1">
             <textarea class="comment-create__container__create-comment-form__body" name="comment" id="" cols="30" rows="10"></textarea>
             <button class="comment-create__container__create-comment-form__submit-btn" type="submit" value="add comments"></button>
@@ -22,10 +22,10 @@ import Axios from 'axios';
         methods: {
             addComments(){
                 
-               return Axios.post('/api/store', this.data);
+               return Axios.post('/api/comments', this.data);
               
             }
         }
-    }
+    };
 </script>
 

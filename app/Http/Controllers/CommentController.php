@@ -78,7 +78,7 @@ class CommentController extends Controller
         $comment = Comment::find($id);
 
         // dd($comment);
-        return view('comments.edit')->with('comment', $comment);
+        return view('comments.edit');
     }
 
     /**
@@ -98,7 +98,7 @@ class CommentController extends Controller
         $updating_comment->review_id = $id;
         $updating_comment->save();
 
-        return redirect('/review');
+        return redirect('/reviews');
 
          
     }
@@ -118,20 +118,5 @@ class CommentController extends Controller
         return redirect('/review');
     }
 
-    public function commentReviews($id)
-    {
-        $comments_review = Review::find($id);
-        dd($comments_review);
-        return view('comments.comment')->with('comment_review', $comments_review);
-    }
-
-    public function commentStore(Request $request)
-    {
-        $comments = new Comment();
-        $comments->comments = $request->input('comment');
-        $comments->review_id = $request->input('review_id');
-        $comments->save();
-
-        return redirect('/reviews');
-    }
+   
 }
