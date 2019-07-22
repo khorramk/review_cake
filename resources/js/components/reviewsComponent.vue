@@ -15,7 +15,7 @@
                         </div>
                     </div>
                     {{review.id}}
-                    <Comments :review-id="review.id" :title="review.reviews"/>
+                    <Comments :review-id="review.id"/>
                 </div>
             </div>
             <a href="/reviews/create" style="background:yellow; width:100px; height:50px; border-radius:100%; float:right; z-index:999; right:0; position: absolute; bottom:0; text-align:center; font-size: 2em;" class="review-card__link">+</a>

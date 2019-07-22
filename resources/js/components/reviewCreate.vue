@@ -14,7 +14,6 @@ import Axios from 'axios';
     export default {
         data(){
             return {
-              
                 review_creation: '',
                 csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             };

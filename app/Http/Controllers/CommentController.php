@@ -41,7 +41,7 @@ class CommentController extends Controller
     public function store(Request $request)
     {
         //
-        dd('store');
+       dd(store);
         $comments = new Comment();
         $comments->comments = $request->input('comment');
         $comments->review_id = $request->input('review_id');
@@ -74,9 +74,8 @@ class CommentController extends Controller
     {
         //
         
-        
-        $comment = Comment::find($id);
-
+       
+      
         // dd($comment);
         return view('comments.edit');
     }
@@ -90,9 +89,8 @@ class CommentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-         //dd
-         $updating_comment = Comment::find($id);
+        dd('update');
+        $updating_comment = Comment::find($id);
         //  dd($updating_comment);
         $updating_comment->comments = $request->input('comment_edit');
         $updating_comment->review_id = $id;
@@ -112,10 +110,11 @@ class CommentController extends Controller
     public function destroy($id)
     {
         //
+        dd('dele');
        $comment = Comment::find($id);
        $comment->delete();
 
-        return redirect('/review');
+        return redirect('/reviews');
     }
 
    

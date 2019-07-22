@@ -35,11 +35,6 @@ Route::get('/cake-component/comments', function ()
         return $comments;
 });
 
-Route::get('/comment/comments', function ()
-{
-    
-    return $comment
-})
 
 //Route::post('/store', 'storeController@store');
 Route::apiResource('/comments', 'CommentController');

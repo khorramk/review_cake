@@ -1724,9 +1724,19 @@ __webpack_require__.r(__webpack_exports__);
       authorised: true
     };
   },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/cake-component/comments').then(function (resp) {
+      console.log(resp.data);
+      _this.comments = resp.data;
+    })["catch"](function (err) {
+      return console.log(err);
+    });
+  },
   methods: {
     submit: function submit(id) {
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/comments/".concat(id), this.data);
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]("/api/comments/".concat(id));
     }
   },
   props: ['reviewId', 'title']
@@ -1767,7 +1777,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['review'],
   methods: {
     addComments: function addComments() {
-      return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/comments', this.data);
+      return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/comments');
     }
   }
 });
@@ -1804,20 +1814,14 @@ __webpack_require__.r(__webpack_exports__);
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     };
   },
-  mounted: function mounted() {
-    var _this = this;
-
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/comment/comments').then(function (resp) {
-      console.log(resp.data);
-      _this.comment = resp.data;
-      return _this.comment;
-    })["catch"](function (err) {
-      return console.log(err);
-    });
+  computed: {
+    getUri: function getUri() {
+      ;
+    }
   },
   methods: {
     submit: function submit() {
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/comments');
+      console.log(window.location.href); // Axios.put('/comments/{}/edit');
     }
   }
 });
@@ -37256,7 +37260,7 @@ var render = function() {
               {
                 staticClass: "review-card__single-review_edit-comment",
                 staticStyle: { float: "right" },
-                attrs: { href: "/comments/edit/" + comment.id }
+                attrs: { href: "/comments/" + comment.id + "/edit" }
               },
               [_vm._v("🖉")]
             ),
@@ -37266,7 +37270,6 @@ var render = function() {
               {
                 staticClass: "review-card__single-review_remove-comment",
                 staticStyle: { float: "right" },
-                attrs: { method: "POST" },
                 on: {
                   submit: function($event) {
                     return _vm.submit(comment.id)
@@ -37324,19 +37327,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "comment-create__container" }, [
     _vm._v("\n    " + _vm._s("working") + "\n    "),
-    _vm._m(0)
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
+    _c(
       "form",
       {
         staticClass: "comment-create__container__create-comment-form",
-        attrs: { action: "/api/comments", method: "POST" }
+        on: { submit: _vm.addComments }
       },
       [
         _c("input", {
@@ -37357,8 +37352,9 @@ var staticRenderFns = [
         })
       ]
     )
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -37381,12 +37377,11 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "form-edit-container" }, [
-    _vm._v("\n    " + _vm._s(_vm.comment.comments) + "\n   "),
+    _vm._v("\n    " + _vm._s(_vm.getUri) + "\n   "),
     _c(
       "form",
       {
         staticClass: "form-edit-container__form-edit-comments",
-        attrs: { method: "POST" },
         on: { submit: _vm.submit }
       },
       [
@@ -37627,9 +37622,7 @@ var render = function() {
                       _vm._s(review.id) +
                       "\n                "
                   ),
-                  _c("Comments", {
-                    attrs: { "review-id": review.id, title: review.reviews }
-                  })
+                  _c("Comments", { attrs: { "review-id": review.id } })
                 ],
                 1
               )
