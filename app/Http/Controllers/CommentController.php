@@ -15,7 +15,7 @@ class CommentController extends Controller
     public function index()
     {
         //
-        return view('review-vue.review');
+        dd('index');
     }
 
     /**
@@ -41,6 +41,7 @@ class CommentController extends Controller
     public function store(Request $request)
     {
         //
+        dd('store');
         $comments = new Comment();
         $comments->comments = $request->input('comment');
         $comments->review_id = $request->input('review_id');
@@ -59,7 +60,7 @@ class CommentController extends Controller
     {
         // //
         // $review = Review::find($id);
-
+        dd('show');
         // return view('comments.comment')->with('review', $review);
     }
 
@@ -73,7 +74,7 @@ class CommentController extends Controller
     {
         //
         
-
+        
         $comment = Comment::find($id);
 
         // dd($comment);
@@ -122,5 +123,15 @@ class CommentController extends Controller
         $comments_review = Review::find($id);
         dd($comments_review);
         return view('comments.comment')->with('comment_review', $comments_review);
+    }
+
+    public function commentStore(Request $request)
+    {
+        $comments = new Comment();
+        $comments->comments = $request->input('comment');
+        $comments->review_id = $request->input('review_id');
+        $comments->save();
+
+        return redirect('/reviews');
     }
 }

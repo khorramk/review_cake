@@ -19,7 +19,10 @@ use Illuminate\Http\Request;
 //     return $request->user();
     
 // });
-
+Route::get('/test', function ()
+{
+    dd('test');
+});
 
 Route::get('/cake-component/review', function(){
     $review = Review::all();
@@ -31,3 +34,7 @@ Route::get('/cake-component/comments', function ()
     $comments = Comment::all();
         return $comments;
 });
+
+
+
+Route::post('/store', 'storeController@store');
