@@ -2,5 +2,5 @@
 
 
 @section('content')
-     <comment-create review="1"></comment-create>
+<comment-create :comment="{{$id}}"></comment-create>
 @endsection

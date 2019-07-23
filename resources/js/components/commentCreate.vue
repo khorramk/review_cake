@@ -2,7 +2,7 @@
     <div class="comment-create__container">
         
         <form class="comment-create__container__create-comment-form" @submit="addComments">
-            <textarea class="comment-create__container__create-comment-form__body" name="comment" id="" cols="30" rows="10"  v-model="comment"></textarea>
+            <textarea class="comment-create__container__create-comment-form__body" name="comment" id="" cols="30" rows="10"  v-model="comment_body"></textarea>
             <button class="comment-create__container__create-comment-form__submit-btn" type="submit" value="add comments">Submit</button>
         </form>
     </div>
@@ -13,21 +13,21 @@ import Axios from 'axios';
     export default {
         data(){
             return {
-                comment: '',
+                comment_body: '',
             }
         },
         props: {
-            review: {
+            comment: {
                 default: null,
-                type: String
+                type: Number
             },
         },
         methods: {
             addComments(){
                Axios.post('/api/comments', {
                    'comment': this.comment,
-                   'review_id': this.$props.review 
-               });
+                   'comment_body': this.comment_body
+               }).then(()=> window.location.href = '/api/reviews');
             }
         }
     };

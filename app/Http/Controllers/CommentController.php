@@ -15,7 +15,7 @@ class CommentController extends Controller
     public function index()
     {
         //
-        dd('index');
+       
     }
 
     /**
@@ -23,11 +23,11 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        $comment = Comment::all();
+        $comment = Comment::find($id);
         
-        return view('review-vue.commentCreate')->with('comment', $comment);
+        return view('review-vue.commentCreate')->with('id', $id);
     }
 
     /**
@@ -38,12 +38,12 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
+
         $comments = new Comment();
-        $comments->comments = $request->input('comment');
-        $comments->review_id = $request->input('review_id');
+        $comments->comments = $request->input('comment_body');
+        $comments->review_id = $request->input('comment');
         $comments->save();
 
-        return redirect('/reviews');
     }
 
     /**

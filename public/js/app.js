@@ -1769,20 +1769,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      comment: ''
+      comment_body: ''
     };
   },
   props: {
-    review: {
+    comment: {
       "default": null,
-      type: String
+      type: Number
     }
   },
   methods: {
     addComments: function addComments() {
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/comments', {
         'comment': this.comment,
-        'review_id': this.$props.review
+        'comment_body': this.comment_body
+      }).then(function () {
+        return window.location.href = '/api/reviews';
       });
     }
   }
@@ -1864,7 +1866,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -1874,9 +1875,15 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    checkform: function checkform(e) {
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/reviews');
-      return true;
+    checkform: function checkform() {
+      console.log('working');
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/reviews', {
+        review_creation: this.review_creation
+      }).then(function () {
+        return window.location.href = '/api/reviews';
+      })["catch"](function (err) {
+        return console.log(err);
+      });
     }
   }
 });
@@ -1903,20 +1910,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      review: '',
       edits_reviews: ''
     };
   },
   methods: {
     editReview: function editReview() {
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.put("/api/reviews/".concat(this.reviewId), {
-        review: this.review,
-        reviews_edits: this.edits_Reviews
+      console.log('');
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.put("/api/reviews/".concat(this.id), {
+        review_id: this.id,
+        reviews_edits: this.edits_reviews
+      }).then(function () {
+        return window.location.href = '/api/reviews';
       });
+    }
+  },
+  props: {
+    review: {
+      defualt: null,
+      type: String
+    },
+    id: {
+      defualt: null,
+      type: Number
     }
   }
 });
@@ -1983,7 +2003,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     remove: function remove(id) {
       console.log(id);
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]("/reviews/".concat(id));
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]("/api/reviews/".concat(id));
     }
   },
   components: {
@@ -37393,19 +37413,19 @@ var render = function() {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.comment,
-              expression: "comment"
+              value: _vm.comment_body,
+              expression: "comment_body"
             }
           ],
           staticClass: "comment-create__container__create-comment-form__body",
           attrs: { name: "comment", id: "", cols: "30", rows: "10" },
-          domProps: { value: _vm.comment },
+          domProps: { value: _vm.comment_body },
           on: {
             input: function($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.comment = $event.target.value
+              _vm.comment_body = $event.target.value
             }
           }
         }),
@@ -37517,16 +37537,9 @@ var render = function() {
       {
         staticClass: "form-reviews-container__create-form-reviews",
         staticStyle: { display: "flex", "flex-direction": "column" },
-        attrs: { action: "/reviews", method: "POST" },
         on: { submit: _vm.checkform }
       },
       [
-        _c("input", {
-          staticClass: "form-reviews-container__create-form-reviews__token",
-          attrs: { type: "hidden", name: "_token" },
-          domProps: { value: _vm.csrf }
-        }),
-        _vm._v(" "),
         _c(
           "label",
           {
@@ -37548,7 +37561,7 @@ var render = function() {
           ],
           staticClass:
             "form-reviews-container__create-form-reviews__review-creation-body",
-          attrs: { name: "review_creation", id: "", cols: "30", rows: "10" },
+          attrs: { id: "", cols: "30", rows: "10" },
           domProps: { value: _vm.review_creation },
           on: {
             input: function($event) {
@@ -37592,30 +37605,42 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("form", { on: { submit: _vm.editReview } }, [
-      _c("textarea", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.edits_reviews,
-            expression: "edits_reviews"
-          }
-        ],
-        attrs: { name: "body", id: "", cols: "30", rows: "10" },
-        domProps: { value: _vm.edits_reviews },
+    _vm._v("\n    " + _vm._s(_vm.review) + "\n    "),
+    _c(
+      "form",
+      {
         on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.edits_reviews = $event.target.value
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.editReview($event)
           }
         }
-      }),
-      _vm._v(" "),
-      _c("input", { attrs: { type: "submit", value: "edit review" } })
-    ])
+      },
+      [
+        _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.edits_reviews,
+              expression: "edits_reviews"
+            }
+          ],
+          attrs: { name: "body", id: "", cols: "30", rows: "10" },
+          domProps: { value: _vm.edits_reviews },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.edits_reviews = $event.target.value
+            }
+          }
+        }),
+        _vm._v(" "),
+        _c("input", { attrs: { type: "submit", value: "edit review" } })
+      ]
+    )
   ])
 }
 var staticRenderFns = []
@@ -37696,7 +37721,7 @@ var render = function() {
                                 color: "blue",
                                 "margin-left": "10px"
                               },
-                              attrs: { href: "/comments/create" }
+                              attrs: { href: "/comments/create/" + review.id }
                             },
                             [_vm._v("🗨")]
                           ),
