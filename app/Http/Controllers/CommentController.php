@@ -25,8 +25,6 @@ class CommentController extends Controller
      */
     public function create()
     {
-        //
-      
         $comment = Comment::all();
         
         return view('review-vue.commentCreate')->with('comment', $comment);
@@ -40,8 +38,6 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
-       dd(store);
         $comments = new Comment();
         $comments->comments = $request->input('comment');
         $comments->review_id = $request->input('review_id');
@@ -73,11 +69,15 @@ class CommentController extends Controller
     public function edit($id)
     {
         //
-        
+           //dd(Comment::find($id));
+        $review_name = Comment::find($id)->review->reviews;
+
+
        
       
         // dd($comment);
-        return view('comments.edit');
+        return view('comments.edit')->with('comment_id', $id)
+                                    ->with('review_name', $review_name);
     }
 
     /**
@@ -89,14 +89,14 @@ class CommentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd('update');
+       
         $updating_comment = Comment::find($id);
-        //  dd($updating_comment);
-        $updating_comment->comments = $request->input('comment_edit');
-        $updating_comment->review_id = $id;
+       
+       
+        $updating_comment->comments = $request->input('comment');
         $updating_comment->save();
 
-        return redirect('/reviews');
+        
 
          
     }

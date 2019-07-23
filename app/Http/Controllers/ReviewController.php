@@ -56,7 +56,7 @@ class ReviewController extends Controller
      */
     public function show($id)
     {
-        
+        dd('show');
     }
 
     /**
@@ -67,8 +67,9 @@ class ReviewController extends Controller
      */
     public function edit($id)
     {
+        dd('edit');
         $review = Review::find($id);
-        return view('review.edit')->with('review', $review);
+        return view('review-vue.reviewEdit');
 
     }
 
@@ -81,7 +82,7 @@ class ReviewController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        dd('update');
         $update_review = Review::find($id);
         $update_review->reviews = $request->input('review_edit');
         $update_review->user_id = Auth::id();
@@ -98,22 +99,23 @@ class ReviewController extends Controller
      */
     public function destroy($id)
     {
+        dd('update');
         $review = Review::find($id);
         $review->delete();
         dd('store');
         
     }
 
-    public function usersReviews($id)
-    {
-        $reviews = \App\User::find($id)->reviews;
+    // public function usersReviews($id)
+    // {
+    //     $reviews = \App\User::find($id)->reviews;
          
         
-        return view('reviews.reviews')->with('reviews', $reviews);
-    }
+    //     return view('reviews.reviews')->with('reviews', $reviews);
+    // }
 
-    public function welcome()
-    {
-        return view('welcome');
-    }
+    // public function welcome()
+    // {
+    //     return view('welcome');
+    // }
 }

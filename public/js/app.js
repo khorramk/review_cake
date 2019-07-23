@@ -1765,19 +1765,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      comments: '',
-      istrue: true
+      comment: ''
     };
   },
-  props: ['review'],
+  props: {
+    review: {
+      "default": null,
+      type: String
+    }
+  },
   methods: {
     addComments: function addComments() {
-      return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/comments');
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/comments', {
+        'comment': this.comment,
+        'review_id': this.$props.review
+      });
     }
   }
 });
@@ -1805,23 +1811,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      comment: '',
-      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+      edit_body: ''
     };
   },
-  computed: {
-    getUri: function getUri() {
-      ;
+  methods: {
+    update: function update() {
+      console.log(this.edit_body);
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.put("/api/comments/".concat(this.commentId), {
+        comment: this.edit_body
+      }).then(function () {
+        return window.location.href = '/reviews';
+      })["catch"](function (err) {
+        return console.log(err);
+      });
     }
   },
-  methods: {
-    submit: function submit() {
-      console.log(window.location.href); // Axios.put('/comments/{}/edit');
+  props: {
+    commentId: {
+      type: Number
+    },
+    reviewName: {
+      type: String
     }
   }
 });
@@ -1862,6 +1877,46 @@ __webpack_require__.r(__webpack_exports__);
     checkform: function checkform(e) {
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/reviews');
       return true;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/reviewEdit.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/reviewEdit.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      review: '',
+      edits_reviews: ''
+    };
+  },
+  methods: {
+    editReview: function editReview() {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.put("/api/reviews/".concat(this.reviewId), {
+        review: this.review,
+        reviews_edits: this.edits_Reviews
+      });
     }
   }
 });
@@ -37260,7 +37315,7 @@ var render = function() {
               {
                 staticClass: "review-card__single-review_edit-comment",
                 staticStyle: { float: "right" },
-                attrs: { href: "/comments/" + comment.id + "/edit" }
+                attrs: { href: "/api/comments/" + comment.id + "/edit" }
               },
               [_vm._v("🖉")]
             ),
@@ -37326,7 +37381,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "comment-create__container" }, [
-    _vm._v("\n    " + _vm._s("working") + "\n    "),
     _c(
       "form",
       {
@@ -37334,22 +37388,37 @@ var render = function() {
         on: { submit: _vm.addComments }
       },
       [
-        _c("input", {
-          staticClass:
-            "comment-create__container__create-comment-form__review-id",
-          attrs: { type: "hidden", name: "review_id", value: "1" }
-        }),
-        _vm._v(" "),
         _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.comment,
+              expression: "comment"
+            }
+          ],
           staticClass: "comment-create__container__create-comment-form__body",
-          attrs: { name: "comment", id: "", cols: "30", rows: "10" }
+          attrs: { name: "comment", id: "", cols: "30", rows: "10" },
+          domProps: { value: _vm.comment },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.comment = $event.target.value
+            }
+          }
         }),
         _vm._v(" "),
-        _c("button", {
-          staticClass:
-            "comment-create__container__create-comment-form__submit-btn",
-          attrs: { type: "submit", value: "add comments" }
-        })
+        _c(
+          "button",
+          {
+            staticClass:
+              "comment-create__container__create-comment-form__submit-btn",
+            attrs: { type: "submit", value: "add comments" }
+          },
+          [_vm._v("Submit")]
+        )
       ]
     )
   ])
@@ -37377,23 +37446,39 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "form-edit-container" }, [
-    _vm._v("\n    " + _vm._s(_vm.getUri) + "\n   "),
+    _vm._v("\n    " + _vm._s(_vm.reviewName) + "\n   "),
     _c(
       "form",
       {
         staticClass: "form-edit-container__form-edit-comments",
-        on: { submit: _vm.submit }
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.update($event)
+          }
+        }
       },
       [
-        _c("input", {
-          staticClass: "form-edit-container__form-edit-comments__token",
-          attrs: { type: "hidden", name: "_token" },
-          domProps: { value: _vm.csrf }
-        }),
-        _vm._v(" "),
         _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.edit_body,
+              expression: "edit_body"
+            }
+          ],
           staticClass: "form-edit-container__form-edit-comments__body",
-          attrs: { name: "comment_edit", id: "", cols: "30", rows: "10" }
+          attrs: { name: "comment_edit", id: "", cols: "30", rows: "10" },
+          domProps: { value: _vm.edit_body },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.edit_body = $event.target.value
+            }
+          }
         }),
         _vm._v(" "),
         _c("input", {
@@ -37491,6 +37576,55 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/reviewEdit.vue?vue&type=template&id=78be85e6&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/reviewEdit.vue?vue&type=template&id=78be85e6&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("form", { on: { submit: _vm.editReview } }, [
+      _c("textarea", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.edits_reviews,
+            expression: "edits_reviews"
+          }
+        ],
+        attrs: { name: "body", id: "", cols: "30", rows: "10" },
+        domProps: { value: _vm.edits_reviews },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.edits_reviews = $event.target.value
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("input", { attrs: { type: "submit", value: "edit review" } })
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/reviewsComponent.vue?vue&type=template&id=0005b46d&":
 /*!*******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/reviewsComponent.vue?vue&type=template&id=0005b46d& ***!
@@ -37577,7 +37711,7 @@ var render = function() {
                                 color: "blue",
                                 "margin-left": "10px"
                               },
-                              attrs: { href: "/reviews/edit" }
+                              attrs: { href: "/reviews/" + review.id + "/edit" }
                             },
                             [_vm._v("🖉")]
                           ),
@@ -49813,6 +49947,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_commentCreate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/commentCreate */ "./resources/js/components/commentCreate.vue");
 /* harmony import */ var _components_Comments__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Comments */ "./resources/js/components/Comments.vue");
 /* harmony import */ var _components_commentEdit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/commentEdit */ "./resources/js/components/commentEdit.vue");
+/* harmony import */ var _components_reviewEdit__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/reviewEdit */ "./resources/js/components/reviewEdit.vue");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -49821,6 +49956,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+
 
 
 
@@ -49849,7 +49985,8 @@ var app = new Vue({
     reviewCreate: _components_reviewCreate__WEBPACK_IMPORTED_MODULE_0__["default"],
     reviewsComponent: _components_reviewsComponent__WEBPACK_IMPORTED_MODULE_1__["default"],
     commentCreate: _components_commentCreate__WEBPACK_IMPORTED_MODULE_2__["default"],
-    commentEdit: _components_commentEdit__WEBPACK_IMPORTED_MODULE_4__["default"]
+    commentEdit: _components_commentEdit__WEBPACK_IMPORTED_MODULE_4__["default"],
+    reviewEdit: _components_reviewEdit__WEBPACK_IMPORTED_MODULE_5__["default"]
   }
 });
 
@@ -50184,6 +50321,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_reviewCreate_vue_vue_type_template_id_7b59783f___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_reviewCreate_vue_vue_type_template_id_7b59783f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/reviewEdit.vue":
+/*!************************************************!*\
+  !*** ./resources/js/components/reviewEdit.vue ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _reviewEdit_vue_vue_type_template_id_78be85e6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./reviewEdit.vue?vue&type=template&id=78be85e6&scoped=true& */ "./resources/js/components/reviewEdit.vue?vue&type=template&id=78be85e6&scoped=true&");
+/* harmony import */ var _reviewEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reviewEdit.vue?vue&type=script&lang=js& */ "./resources/js/components/reviewEdit.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _reviewEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _reviewEdit_vue_vue_type_template_id_78be85e6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _reviewEdit_vue_vue_type_template_id_78be85e6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "78be85e6",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/reviewEdit.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/reviewEdit.vue?vue&type=script&lang=js&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/reviewEdit.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_reviewEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./reviewEdit.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/reviewEdit.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_reviewEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/reviewEdit.vue?vue&type=template&id=78be85e6&scoped=true&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/reviewEdit.vue?vue&type=template&id=78be85e6&scoped=true& ***!
+  \*******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_reviewEdit_vue_vue_type_template_id_78be85e6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./reviewEdit.vue?vue&type=template&id=78be85e6&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/reviewEdit.vue?vue&type=template&id=78be85e6&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_reviewEdit_vue_vue_type_template_id_78be85e6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_reviewEdit_vue_vue_type_template_id_78be85e6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

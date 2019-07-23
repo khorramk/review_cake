@@ -1,9 +1,8 @@
  <template>
      <div class="form-edit-container">
-         {{ getUri }}
-        <form class="form-edit-container__form-edit-comments" @submit="submit">
-            <input class="form-edit-container__form-edit-comments__token" type="hidden" name="_token" :value="csrf">
-            <textarea class="form-edit-container__form-edit-comments__body" name="comment_edit" id="" cols="30" rows="10"></textarea>
+         {{ reviewName }}
+        <form class="form-edit-container__form-edit-comments" @submit.prevent="update">
+            <textarea class="form-edit-container__form-edit-comments__body" name="comment_edit" v-model="edit_body" id="" cols="30" rows="10"></textarea>
             <input class="form-edit-comments-btn" type="submit" value="add comments">
         </form>
      </div>
@@ -14,22 +13,24 @@ import Axios from 'axios';
      export default {
          data(){
              return {
-                 comment: '',
-                 csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                 
+                 csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                 edit_body: ''
              };
          },
-
-        computed:{
-            getUri(){
-               ;
+        methods: {
+            update(){
+                console.log(this.edit_body);
+                Axios.put(`/api/comments/${this.commentId}`, {comment: this.edit_body})
+                    .then(()=> window.location.href = '/reviews')
+                    .catch((err)=> console.log(err));
             }
         },
-        methods: {
-            submit(){
-                console.log(window.location.href);
-               // Axios.put('/comments/{}/edit');
-               
+        props: {
+            commentId: {
+                type: Number
+            },
+            reviewName: {
+                type: String
             }
         }
      }
