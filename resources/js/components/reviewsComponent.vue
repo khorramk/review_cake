@@ -15,7 +15,7 @@
                         </div>
                     </div>
                     {{review.id}}
-                    <Comments :review-id="review.id"/>
+                    <Comments :review-id="review.id" :comments="comments" v-if="comments !== null"/>
                 </div>
             </div>
             <a href="/reviews/create" style="background:yellow; width:100px; height:50px; border-radius:100%; float:right; z-index:999; right:0; position: absolute; bottom:0; text-align:center; font-size: 2em;" class="review-card__link">+</a>
@@ -31,22 +31,30 @@ export default ({
     data() {
         return {
             reviewsTest: [],
-            csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-            
+            comments: ''
         };
     },
     mounted(){
         Axios.get('/api/cake-component/review')
             .then((response)=> this.reviewsTest = response.data)
-            .catch((err)=> console.log(err))
-            .then((resp)=> console.log(resp));
+            .catch((err)=> console.log(err));
+        Axios.get('/api/cake-component/comments')
+                    .then((resp)=> {
+                        if(!resp.data.length){
+                            this.comments = null;
+                            return this.comments;
+                        };
+                        this.comments = resp.data;
+                    })
+                    .catch((err)=> console.log(err));
              
     },
     methods: {
         remove(id){
-            console.log(id);
-            
-           Axios.delete(`/api/reviews/${id}`);       
+           Axios.delete(`/api/reviews/${id}`, {
+                id: id
+
+           });       
         } 
     },
     components:{
