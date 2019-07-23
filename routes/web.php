@@ -11,25 +11,16 @@
 |
 */
 
-// Route::post('/cake-component/review', function ()
-// {
-//     return redirect('/cake-component');
-// });
+
 Route::get('/', 'ReviewController@welcome');
 
 Auth::routes();
 
-// Route::middleware('auth')->group(function ()
-// {
-    Route::get('/reviews/create', 'ReviewController@create');
 
+    Route::get('/reviews/create', 'ReviewController@create');
+    Route::get('/reviews/{id}/edit', 'ReviewController@edit');
     // Route::get('/reviews/user/{id}', 'ReviewController@usersReviews');
-    Route::get('/comments/create', 'CommentController@create');
-    
-  
-    // Route::get('/reviews/comment/{id}', 'CommentController@commentReviews');
-    
-// });
+    Route::get('/comments/create/{id}', 'CommentController@create');
 
 
 
