@@ -12,6 +12,7 @@ import reviewsComponent from './components/reviewsComponent';
 import commentCreate from './components/commentCreate';
 import Comment from './components/Comments';
 import commentEdit from './components/commentEdit';
+import reviewEdit from './components/reviewEdit';
 const axio = require('axios');
 /**
  * The following block of code may be used to automatically register your
@@ -32,7 +33,8 @@ const app = new Vue({
             reviewCreate,
             reviewsComponent,
             commentCreate,
-            commentEdit
+            commentEdit,
+            reviewEdit
     },
 });
 

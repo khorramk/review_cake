@@ -8,7 +8,7 @@
                         <div class="card-body reviews-card__single-review">
                                 {{ review.reviews }}
                                 <a  class="review-card__single-review_add-comment" style="float:right;  color:blue;  margin-left:10px;" href="/comments/create">🗨</a>
-                                <a class="review-card__single-review_edit-review" style="float:right;  color:blue;  margin-left:10px;" href="/reviews/edit" >🖉</a>
+                                <a class="review-card__single-review_edit-review" style="float:right;  color:blue;  margin-left:10px;" :href="`/reviews/${review.id}/edit`" >🖉</a>
                                 <form  class="review-card__single-review_remove-review" style="float:right;  color:blue;  margin-left:10px;"   @submit="remove(review.id)">
                                     <button type="submit" style="color:teal; background:none; border:none; " >⨯</button>
                                 </form>

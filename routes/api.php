@@ -35,6 +35,11 @@ Route::get('/cake-component/comments', function ()
         return $comments;
 });
 
-
+Route::apiResource('/reviews', 'ReviewController');
 //Route::post('/store', 'storeController@store');
-Route::apiResource('/comments', 'CommentController');
+Route::apiResource('/comments', 'CommentController')->except([
+    'show',
+])->only([
+    'store', 'edit', 'update', 'destroy',
+]);
+

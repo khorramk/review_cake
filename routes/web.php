@@ -21,11 +21,11 @@ Auth::routes();
 
 // Route::middleware('auth')->group(function ()
 // {
-    Route::resource('/reviews', 'ReviewController');
+    Route::get('/reviews/create', 'ReviewController@create');
 
     // Route::get('/reviews/user/{id}', 'ReviewController@usersReviews');
     Route::get('/comments/create', 'CommentController@create');
-    Route::get('/comments/{id}/edit', 'CommentController@edit');
+    
   
     // Route::get('/reviews/comment/{id}', 'CommentController@commentReviews');
     
