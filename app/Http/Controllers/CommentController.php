@@ -38,7 +38,7 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-
+        dd('store');
         $comments = new Comment();
         $comments->comments = $request->input('comment_body');
         $comments->review_id = $request->input('comment');
@@ -110,11 +110,10 @@ class CommentController extends Controller
     public function destroy($id)
     {
         //
-        dd('dele');
+        
        $comment = Comment::find($id);
        $comment->delete();
 
-        return redirect('/reviews');
     }
 
    

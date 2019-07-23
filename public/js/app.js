@@ -1719,27 +1719,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      comments: '',
-      csrf: '',
-      authorised: true
+      csrf: ''
     };
-  },
-  mounted: function mounted() {
-    var _this = this;
-
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/cake-component/comments').then(function (resp) {
-      console.log(resp.data);
-      _this.comments = resp.data;
-    })["catch"](function (err) {
-      return console.log(err);
-    });
   },
   methods: {
     submit: function submit(id) {
       axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]("/api/comments/".concat(id));
     }
   },
-  props: ['reviewId', 'title']
+  props: ['reviewId', 'title', 'comments']
 });
 
 /***/ }),
@@ -1986,7 +1974,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       reviewsTest: [],
-      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+      comments: ''
     };
   },
   mounted: function mounted() {
@@ -1996,14 +1984,24 @@ __webpack_require__.r(__webpack_exports__);
       return _this.reviewsTest = response.data;
     })["catch"](function (err) {
       return console.log(err);
-    }).then(function (resp) {
-      return console.log(resp);
+    });
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/cake-component/comments').then(function (resp) {
+      if (!resp.data.length) {
+        _this.comments = null;
+        return _this.comments;
+      }
+
+      ;
+      _this.comments = resp.data;
+    })["catch"](function (err) {
+      return console.log(err);
     });
   },
   methods: {
     remove: function remove(id) {
-      console.log(id);
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]("/api/reviews/".concat(id));
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]("/api/reviews/".concat(id), {
+        id: id
+      });
     }
   },
   components: {
@@ -37313,14 +37311,6 @@ var render = function() {
       return _c(
         "div",
         {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: comment.review_id === _vm.reviewId,
-              expression: "comment.review_id === reviewId"
-            }
-          ],
           key: comment.id,
           staticClass:
             "col border border-primary comments-card_single-comments__wrapper"
@@ -37328,7 +37318,9 @@ var render = function() {
         [
           _c("div", { staticClass: "card-body comment-card__single-card" }, [
             _vm._v(
-              "\n            " + _vm._s(comment.comments) + "\n            "
+              "\n                " +
+                _vm._s(comment.comments) +
+                "\n                "
             ),
             _c(
               "a",
@@ -37781,7 +37773,14 @@ var render = function() {
                       _vm._s(review.id) +
                       "\n                "
                   ),
-                  _c("Comments", { attrs: { "review-id": review.id } })
+                  _vm.comments !== null
+                    ? _c("Comments", {
+                        attrs: {
+                          "review-id": review.id,
+                          comments: _vm.comments
+                        }
+                      })
+                    : _vm._e()
                 ],
                 1
               )

@@ -100,10 +100,10 @@ class ReviewController extends Controller
      */
     public function destroy($id)
     {
-        dd('update');
+       
         $review = Review::find($id);
         $review->delete();
-        dd('store');
+        
         
     }
 
