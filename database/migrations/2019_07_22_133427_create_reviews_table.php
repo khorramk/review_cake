@@ -14,7 +14,7 @@ class CreateReviewsTable extends Migration
     public function up()
     {
         Schema::create('reviews', function (Blueprint $table) {
-            $table->unsignedInteger('id')->default(0);
+            $table->bigIncrements('id');
             $table->string('reviews')->default('');
             $table->unsignedInteger('user_id')->default(0);
             $table->unsignedInteger('rating_id')->default(0);
