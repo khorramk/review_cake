@@ -23,11 +23,12 @@ import Axios from 'axios';
             },
         },
         methods: {
-            addComments(){
+            addComments(e){
                Axios.post('/api/comments', {
                    'reviewId': this.$props.reviewId,
                    'comment_body': this.comment_body
                }).then(()=> window.location.href = '/api/reviews');
+                 e.preventDefault();
             }
         }
     };
