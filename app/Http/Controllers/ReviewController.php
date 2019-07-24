@@ -42,6 +42,7 @@ class ReviewController extends Controller
        
         $review = new Review();
         $review->reviews = $request->input('review_creation');
+        $review->increment(1);
         $review->user_id = 0;
         $review->rating_id = 0;
         $review->save();
