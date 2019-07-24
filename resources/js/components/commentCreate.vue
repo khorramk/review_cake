@@ -17,7 +17,7 @@ import Axios from 'axios';
             }
         },
         props: {
-            comment: {
+            reviewId: {
                 default: null,
                 type: Number
             },
@@ -25,7 +25,7 @@ import Axios from 'axios';
         methods: {
             addComments(){
                Axios.post('/api/comments', {
-                   'comment': this.comment,
+                   'reviewId': this.$props.reviewId,
                    'comment_body': this.comment_body
                }).then(()=> window.location.href = '/api/reviews');
             }

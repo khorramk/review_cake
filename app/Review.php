@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Review extends Model
 {
     //
-    public $primaryKey = 'id';
+    protected $primaryKey = 'id';
 
     public $attributes = [
         'reviews' => null,

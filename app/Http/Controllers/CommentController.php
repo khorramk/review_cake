@@ -38,10 +38,10 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        dd('store');
+    
         $comments = new Comment();
         $comments->comments = $request->input('comment_body');
-        $comments->review_id = $request->input('comment');
+        $comments->review_id = $request->input('reviewId');
         $comments->save();
 
     }
@@ -69,6 +69,7 @@ class CommentController extends Controller
     public function edit($id)
     {
         //
+        dd('edit');
            //dd(Comment::find($id));
         $review_name = Comment::find($id)->review->reviews;
 

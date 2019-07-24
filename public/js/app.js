@@ -1715,9 +1715,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
+    console.log(this.comment);
     return {
       csrf: ''
     };
@@ -1727,7 +1729,7 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]("/api/comments/".concat(id));
     }
   },
-  props: ['reviewId', 'title', 'comments']
+  props: ['reviewId', 'title', 'comment']
 });
 
 /***/ }),
@@ -1761,7 +1763,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   props: {
-    comment: {
+    reviewId: {
       "default": null,
       type: Number
     }
@@ -1769,7 +1771,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     addComments: function addComments() {
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/comments', {
-        'comment': this.comment,
+        'reviewId': this.$props.reviewId,
         'comment_body': this.comment_body
       }).then(function () {
         return window.location.href = '/api/reviews';
@@ -1858,17 +1860,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      review_creation: '',
-      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+      review_creation: ''
     };
   },
   methods: {
     checkform: function checkform() {
-      console.log('working');
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/reviews', {
         review_creation: this.review_creation
-      }).then(function () {
-        return window.location.href = '/api/reviews';
       })["catch"](function (err) {
         return console.log(err);
       });
@@ -1973,7 +1971,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      reviewsTest: [],
+      reviewsTest: '',
       comments: ''
     };
   },
@@ -1986,13 +1984,18 @@ __webpack_require__.r(__webpack_exports__);
       return console.log(err);
     });
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/cake-component/comments').then(function (resp) {
-      if (!resp.data.length) {
-        _this.comments = null;
-        return _this.comments;
+      if (resp.data.length === 0) {
+        _this.comments = '';
+        console.log(_this.comments);
+        return 0;
       }
 
       ;
       _this.comments = resp.data;
+      console.log(_this.comments);
+      return 0;
+    })["catch"](function (err) {
+      return console.log(err);
     })["catch"](function (err) {
       return console.log(err);
     });
@@ -37305,72 +37308,22 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    _vm._l(_vm.comments, function(comment) {
-      return _c(
-        "div",
-        {
-          key: comment.id,
-          staticClass:
-            "col border border-primary comments-card_single-comments__wrapper"
-        },
-        [
-          _c("div", { staticClass: "card-body comment-card__single-card" }, [
-            _vm._v(
-              "\n                " +
-                _vm._s(comment.comments) +
-                "\n                "
-            ),
-            _c(
-              "a",
-              {
-                staticClass: "review-card__single-review_edit-comment",
-                staticStyle: { float: "right" },
-                attrs: { href: "/api/comments/" + comment.id + "/edit" }
-              },
-              [_vm._v("🖉")]
-            ),
-            _vm._v(" "),
-            _c(
-              "form",
-              {
-                staticClass: "review-card__single-review_remove-comment",
-                staticStyle: { float: "right" },
-                on: {
-                  submit: function($event) {
-                    return _vm.submit(comment.id)
-                  }
-                }
-              },
-              [
-                _c("input", {
-                  attrs: { type: "hidden", name: "_token", value: "csrf" }
-                }),
-                _vm._v(" "),
-                _c("input", {
-                  attrs: { type: "hidden", name: "_method", value: "DELETE" }
-                }),
-                _vm._v(" "),
-                _c("input", {
-                  staticStyle: {
-                    color: "teal",
-                    background: "none",
-                    border: "none",
-                    "padding-right": "30px"
-                  },
-                  attrs: { type: "submit", value: "⨯" }
-                })
-              ]
-            )
-          ])
-        ]
-      )
-    }),
-    0
-  )
+  return _vm.comment.id === _vm.comment.review_id
+    ? _c("div", [_vm._m(0)])
+    : _vm._e()
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "col border  comments-card_single-comments__wrapper" },
+      [_c("h1", [_vm._v("comments")])]
+    )
+  }
+]
 render._withStripped = true
 
 
@@ -37529,7 +37482,12 @@ var render = function() {
       {
         staticClass: "form-reviews-container__create-form-reviews",
         staticStyle: { display: "flex", "flex-direction": "column" },
-        on: { submit: _vm.checkform }
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.checkform($event)
+          }
+        }
       },
       [
         _c(
@@ -37769,21 +37727,25 @@ var render = function() {
                     ]
                   ),
                   _vm._v(
-                    "\n                " +
-                      _vm._s(review.id) +
-                      "\n                "
-                  ),
-                  _vm.comments !== null
-                    ? _c("Comments", {
-                        attrs: {
-                          "review-id": review.id,
-                          comments: _vm.comments
-                        }
-                      })
-                    : _vm._e()
-                ],
-                1
+                    "\n                " + _vm._s(review.id) + "\n            "
+                  )
+                ]
               )
+            }),
+            _vm._v(" "),
+            _vm._l(_vm.comments, function(comment, i) {
+              return _c("Comments", {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: comment.id === comment.review_id ? true : false,
+                    expression: "comment.id === comment.review_id? true:false"
+                  }
+                ],
+                key: i,
+                attrs: { comment: comment }
+              })
             })
           ],
           2
