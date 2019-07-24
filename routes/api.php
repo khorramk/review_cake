@@ -25,7 +25,9 @@ Route::get('/test', function ()
 });
 
 Route::get('/cake-component/review', function(){
+    
     $review = Review::all();
+
         return $review;
 });
 

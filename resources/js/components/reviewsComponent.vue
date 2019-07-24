@@ -15,8 +15,8 @@
                         </div>
                     </div>
                     {{review.id}}
-                    <Comments :review-id="review.id" :comments="comments" v-if="comments !== null"/>
                 </div>
+                 <Comments  :comment="comment" v-show="comment.id === comment.review_id? true:false" v-for="(comment, i) in comments" :key="i"/>
             </div>
             <a href="/reviews/create" style="background:yellow; width:100px; height:50px; border-radius:100%; float:right; z-index:999; right:0; position: absolute; bottom:0; text-align:center; font-size: 2em;" class="review-card__link">+</a>
         </div>
@@ -30,8 +30,8 @@ import Comments from './Comments';
 export default ({
     data() {
         return {
-            reviewsTest: [],
-            comments: ''
+            reviewsTest: '',
+            comments: '',
         };
     },
     mounted(){
@@ -40,12 +40,18 @@ export default ({
             .catch((err)=> console.log(err));
         Axios.get('/api/cake-component/comments')
                     .then((resp)=> {
-                        if(!resp.data.length){
-                            this.comments = null;
-                            return this.comments;
+                        if(resp.data.length === 0){
+                            this.comments = '';
+                            console.log(this.comments);
+                            return 0;
                         };
+                        
                         this.comments = resp.data;
+                        console.log(this.comments);
+                        return 0
+                        
                     })
+                    .catch((err)=> console.log(err))
                     .catch((err)=> console.log(err));
              
     },

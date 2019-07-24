@@ -21,6 +21,7 @@ Auth::routes();
     Route::get('/reviews/{id}/edit', 'ReviewController@edit');
     // Route::get('/reviews/user/{id}', 'ReviewController@usersReviews');
     Route::get('/comments/create/{id}', 'CommentController@create');
+    Route::get('/comments/{id}/edit', 'CommentController@edit');
 
 
 
