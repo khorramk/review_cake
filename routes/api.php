@@ -31,10 +31,13 @@ Route::get('/cake-component/review', function(){
         return $review;
 });
 
-Route::get('/cake-component/comments', function ()
+Route::get('/cake-component/comments/{id}', function($id)
 {
-    $comments = Comment::all();
-        return $comments;
+  
+    
+    $comment = Review::find($id)->comments;
+    
+        return $comment;
 });
 
 //Route::apiResource('/reviews', 'ReviewController');
