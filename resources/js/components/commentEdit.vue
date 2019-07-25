@@ -21,7 +21,7 @@ import Axios from 'axios';
             update(){
                 console.log(this.edit_body);
                 Axios.put(`/api/comments/${this.commentId}`, {comment: this.edit_body})
-                    .then(()=> window.location.href = '/reviews')
+                    .then(()=> window.location.href = '/api/reviews')
                     .catch((err)=> console.log(err));
             }
         },

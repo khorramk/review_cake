@@ -69,7 +69,7 @@ class CommentController extends Controller
     public function edit($id)
     {
         //
-        dd('edit');
+        
            //dd(Comment::find($id));
         $review_name = Comment::find($id)->review->reviews;
 
