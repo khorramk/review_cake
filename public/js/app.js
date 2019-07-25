@@ -1980,6 +1980,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+var CancelToken = axios__WEBPACK_IMPORTED_MODULE_0___default.a.CancelToken;
+var cancel;
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1995,7 +1997,6 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (err) {
         return console.log(err);
       });
-      e.preventDefault();
     }
   }
 });
@@ -38486,7 +38487,15 @@ var render = function() {
       {
         staticClass: "form-reviews-container__create-form-reviews",
         staticStyle: { display: "flex", "flex-direction": "column" },
-        on: { submit: _vm.checkform }
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+          },
+          "~submit": function($event) {
+            $event.preventDefault()
+            return _vm.checkform($event)
+          }
+        }
       },
       [
         _c(
