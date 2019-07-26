@@ -10,7 +10,6 @@ window.Vue = require('vue');
 import reviewCreate from './components/reviewCreate';
 import reviewsComponent from './components/reviewsComponent';
 import commentCreate from './components/commentCreate';
-import Comment from './components/Comments';
 import commentEdit from './components/commentEdit';
 import reviewEdit from './components/reviewEdit';
 export const EventBus = new Vue({});
