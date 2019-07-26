@@ -1,9 +1,9 @@
 <template>
     <div>
         {{ review }}
-        <form @submit.prevent="editReview">
+        <form @submit="editReview">
             <textarea name="body" id="" cols="30" rows="10" v-model="edits_reviews"></textarea>
-            <input type="submit" value="edit review">
+            <input :disabled="isDisable" type="submit" value="edit review">
         </form>
     </div>
 </template>
@@ -13,7 +13,8 @@ import Axios from 'axios';
     export default {
         data() {
             return {
-                edits_reviews: ''
+                edits_reviews: '',
+                isDisable: false
             }
         },
         methods: {
@@ -23,6 +24,7 @@ import Axios from 'axios';
                     review_id: this.id,
                     reviews_edits: this.edits_reviews
                 }).then(() => window.location.href = '/api/reviews');
+                this.$data.isDisable = true;
             }
         },
         props: {
