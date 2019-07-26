@@ -27,7 +27,7 @@ class ReviewController extends Controller
     public function create()
     {
         //
-     
+        
         return view('review-vue.create');
     }
 
@@ -39,10 +39,8 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-    
-        $review = new Review();
       
-      //  dd($review);
+        $review = new Review();
         $review->reviews = $request->input('review_creation'); 
         $review->save();
         
@@ -57,7 +55,7 @@ class ReviewController extends Controller
      */
     public function show($id)
     {
-        dd('show');
+      return ['show data'];
     }
 
     /**
