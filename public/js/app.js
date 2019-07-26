@@ -1943,7 +1943,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 var CancelToken = axios__WEBPACK_IMPORTED_MODULE_0___default.a.CancelToken;
 var cancel;
@@ -1961,6 +1960,7 @@ var cancel;
         review_creation: this.review_creation
       }).then(function () {
         window.location.href = '/api/reviews';
+        return true;
       })["catch"](function (err) {
         return console.log(err);
       });
@@ -2001,7 +2001,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     editReview: function editReview() {
-      console.log('');
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.put("/api/reviews/".concat(this.id), {
         review_id: this.id,
         reviews_edits: this.edits_reviews
@@ -38292,7 +38291,12 @@ var render = function() {
       "form",
       {
         staticClass: "form-edit-container__form-edit-comments",
-        on: { submit: _vm.update }
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.update($event)
+          }
+        }
       },
       [
         _c("textarea", {
@@ -38357,7 +38361,12 @@ var render = function() {
       {
         staticClass: "form-reviews-container__create-form-reviews",
         staticStyle: { display: "flex", "flex-direction": "column" },
-        on: { submit: _vm.checkform }
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.checkform($event)
+          }
+        }
       },
       [
         _c(
@@ -38430,32 +38439,47 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _vm._v("\n    " + _vm._s(_vm.review) + "\n    "),
-    _c("form", { on: { submit: _vm.editReview } }, [
-      _c("textarea", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.edits_reviews,
-            expression: "edits_reviews"
-          }
-        ],
-        attrs: { name: "body", id: "", cols: "30", rows: "10" },
-        domProps: { value: _vm.edits_reviews },
+    _c(
+      "form",
+      {
         on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.edits_reviews = $event.target.value
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.editReview($event)
           }
         }
-      }),
-      _vm._v(" "),
-      _c("input", {
-        attrs: { disabled: _vm.isDisable, type: "submit", value: "edit review" }
-      })
-    ])
+      },
+      [
+        _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.edits_reviews,
+              expression: "edits_reviews"
+            }
+          ],
+          attrs: { name: "body", id: "", cols: "30", rows: "10" },
+          domProps: { value: _vm.edits_reviews },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.edits_reviews = $event.target.value
+            }
+          }
+        }),
+        _vm._v(" "),
+        _c("input", {
+          attrs: {
+            disabled: _vm.isDisable,
+            type: "submit",
+            value: "edit review"
+          }
+        })
+      ]
+    )
   ])
 }
 var staticRenderFns = []
