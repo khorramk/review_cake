@@ -3,6 +3,8 @@
 
 @section('content')
 
+
+
 <reviews-component></reviews-component>
 
 @endsection
