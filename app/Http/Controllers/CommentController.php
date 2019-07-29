@@ -25,7 +25,8 @@ class CommentController extends Controller
      */
     public function create()
     {
-        //
+        
+        return view('comments.create');
     }
 
     /**
@@ -38,10 +39,10 @@ class CommentController extends Controller
     {
         //
         $comments = new Comment();
-        $comments->comments = $request->input('comment');
-        $comments->review_id = $request->input('review_id');
+        $comments->comments = $request->input('comments');
+        
         $comments->save();
-
+        
         return redirect('/review');
     }
 
@@ -87,11 +88,13 @@ class CommentController extends Controller
     {
         //
          //dd
-         $updating_comment = Comment::find($id);
-        //  dd($updating_comment);
-        $updating_comment->comments = $request->input('comment_edit');
-        $updating_comment->review_id = $id;
-        $updating_comment->save();
+         $comment = Comment::find($id);
+ 
+        $comment->update([
+            'comments' => $request->input('comment_edit'),
+        ]);
+
+       
 
         return redirect('/review');
 

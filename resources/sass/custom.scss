@@ -1,0 +1,32 @@
+.create-form-reviews{
+    display:flex; 
+    flex-direction:column;
+}
+
+a, .remove-btn{
+    float:right;  
+    color:blue;  
+    margin-left:10px;
+}
+
+.remove-btn-style{
+    background:none; 
+    border:none;
+}
+
+.p-r{
+    padding-right: 30px;
+}
+
+#plus{
+    background:yellow; 
+    width:100px; 
+    height:50px; 
+    border-radius:100%; 
+    z-index:999; 
+    right:0; 
+    position: absolute; 
+    bottom:0; 
+    text-align:center; 
+    font-size: 2em;
+}

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     //
+    
     public $attributes = [
         'review_id' => 1,
         'user_id' => 1,
@@ -22,4 +23,7 @@ class Comment extends Model
         
         return $this->belongsTo('App\User');
     }
+    protected $fillable = [
+        'comments',
+    ];
 }

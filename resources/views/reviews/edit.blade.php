@@ -3,7 +3,7 @@
 
 @section('content')
         {{$review->reviews}}
-        <form action="/review/{{$review->id}}" method="POST">
+<form action="{{action('ReviewController@update')}}" method="POST">
             @csrf
             @method('PUT')
             <input type="hidden" name="review_id" value="{{$review->id}}">
