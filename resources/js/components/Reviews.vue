@@ -4,10 +4,10 @@
             <div class="card reviews-card__single-review__wrapper">
                 <div class="card-body reviews-card__single-review">
                         {{ this.$props.reviews.reviews}}
-                        <a  class="review-card__single-review_add-comment" style="float:right;  color:blue;  margin-left:10px;" :href="`/comments/create/${$props.reviewId}`">🗨</a>
-                        <a class="review-card__single-review_edit-review" style="float:right;  color:blue;  margin-left:10px;" :href="`/reviews/${$props.reviewId}/edit`" >🖉</a>
-                        <form  class="review-card__single-review_remove-review" style="float:right;  color:blue;  margin-left:10px;"   @submit="remove($props.reviewId)">
-                            <button :disabled="isDisable" type="submit" style="color:teal; background:none; border:none; " >⨯</button>
+                        <a class="review-card__single-review_add-comment" :href="`/comments/create/${$props.reviewId}`">🗨</a>
+                        <a class="review-card__single-review_edit-review" :href="`/reviews/${$props.reviewId}/edit`">🖉</a>
+                        <form  class="review-card__single-review_remove-review" @submit="remove($props.reviewId)">
+                            <button :disabled="isDisable" type="submit" class="button-remove">⨯</button>
                         </form>
                 </div>
             </div>

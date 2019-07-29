@@ -38025,8 +38025,7 @@ var render = function() {
         _c(
           "a",
           {
-            staticClass: "review-card__single-review_edit-comment",
-            staticStyle: { float: "right" },
+            staticClass: "review-card__single-review_edit-comment right-side",
             attrs: { href: "/comments/" + _vm.$props.comment.id + "/edit" }
           },
           [_vm._v("🖉")]
@@ -38035,8 +38034,7 @@ var render = function() {
         _c(
           "form",
           {
-            staticClass: "review-card__single-review_remove-comment",
-            staticStyle: { float: "right" },
+            staticClass: "review-card__single-review_remove-comment right-side",
             on: {
               submit: function($event) {
                 return _vm.submit(_vm.$props.comment.id)
@@ -38045,12 +38043,7 @@ var render = function() {
           },
           [
             _c("input", {
-              staticStyle: {
-                color: "teal",
-                background: "none",
-                border: "none",
-                "padding-right": "30px"
-              },
+              staticClass: "button-remove p-r",
               attrs: {
                 disabled: _vm.isDisable,
                 type: "submit",
@@ -38118,11 +38111,6 @@ var render = function() {
                   "a",
                   {
                     staticClass: "review-card__single-review_add-comment",
-                    staticStyle: {
-                      float: "right",
-                      color: "blue",
-                      "margin-left": "10px"
-                    },
                     attrs: { href: "/comments/create/" + _vm.$props.reviewId }
                   },
                   [_vm._v("🗨")]
@@ -38132,11 +38120,6 @@ var render = function() {
                   "a",
                   {
                     staticClass: "review-card__single-review_edit-review",
-                    staticStyle: {
-                      float: "right",
-                      color: "blue",
-                      "margin-left": "10px"
-                    },
                     attrs: { href: "/reviews/" + _vm.$props.reviewId + "/edit" }
                   },
                   [_vm._v("🖉")]
@@ -38146,11 +38129,6 @@ var render = function() {
                   "form",
                   {
                     staticClass: "review-card__single-review_remove-review",
-                    staticStyle: {
-                      float: "right",
-                      color: "blue",
-                      "margin-left": "10px"
-                    },
                     on: {
                       submit: function($event) {
                         return _vm.remove(_vm.$props.reviewId)
@@ -38161,11 +38139,7 @@ var render = function() {
                     _c(
                       "button",
                       {
-                        staticStyle: {
-                          color: "teal",
-                          background: "none",
-                          border: "none"
-                        },
+                        staticClass: "button-remove",
                         attrs: { disabled: _vm.isDisable, type: "submit" }
                       },
                       [_vm._v("⨯")]
@@ -38359,8 +38333,8 @@ var render = function() {
     _c(
       "form",
       {
-        staticClass: "form-reviews-container__create-form-reviews",
-        staticStyle: { display: "flex", "flex-direction": "column" },
+        staticClass:
+          "form-reviews-container__create-form-reviews form-container",
         on: {
           submit: function($event) {
             $event.preventDefault()
@@ -38531,19 +38505,6 @@ var render = function() {
           "a",
           {
             staticClass: "review-card__link",
-            staticStyle: {
-              background: "yellow",
-              width: "100px",
-              height: "50px",
-              "border-radius": "100%",
-              float: "right",
-              "z-index": "999",
-              right: "0",
-              position: "absolute",
-              bottom: "0",
-              "text-align": "center",
-              "font-size": "2em"
-            },
             attrs: { href: "/reviews/create" }
           },
           [_vm._v("+")]
