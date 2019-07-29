@@ -38026,7 +38026,7 @@ var render = function() {
           "a",
           {
             staticClass: "review-card__single-review_edit-comment right-side",
-            attrs: { href: "/comments/" + _vm.$props.comment.id + "/edit" }
+            attrs: { href: "/comment/" + _vm.$props.comment.id + "/edit" }
           },
           [_vm._v("🖉")]
         ),
