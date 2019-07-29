@@ -1,5 +1,48 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
+.review-card__single-review_add-comment {
+  float: right;
+  color: blue;
+  margin-left: 10px;
+}
+
+.button-remove {
+  color: teal;
+  background: none;
+  border: none;
+}
+
+.right-side {
+  float: right;
+}
+
+.p-r {
+  padding-right: 30px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-card__link {
+  background: yellow;
+  width: 100px;
+  height: 50px;
+  border-radius: 100%;
+  float: right;
+  z-index: 999;
+  right: 0;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  font-size: 2em;
+}
+
+.hidden-form {
+  display: none;
+}
+
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
