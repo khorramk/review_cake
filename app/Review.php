@@ -14,7 +14,7 @@ class Review extends Model
         'user_id' => 1,
     ];
     
-    public $timestamps = false;
+    public $timestamps = true;
 
     public function user()
     {
