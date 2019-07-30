@@ -36,11 +36,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function posts( )
-    {
-        # code...
-        return $this->hasMany('App\Posts');
-    }
     //not needed because we are not using login and auth functionality
     //if we do then uncomment this line and change migration
     // public function reviews()
