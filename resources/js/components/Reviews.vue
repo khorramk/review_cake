@@ -50,7 +50,6 @@ import CommentsComponent from "./CommentsComponent";
                     })
                     .catch((err)=> console.log(err))
                     .catch((err)=> console.log(err));
-                
         },
         methods: {
             remove(id){
@@ -58,10 +57,8 @@ import CommentsComponent from "./CommentsComponent";
                 Axios.delete(`/api/reviews/${id}`, {
                     id: id
                 }).then(()=> {
-                    
                     window.location.href= '/api/reviews';
-                });    
-                   
+                });       
             },
         },
         components: {

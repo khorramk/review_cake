@@ -31,8 +31,7 @@ import Axios from 'axios';
                }).then(()=> {
      
                    window.location.href = '/api/reviews';
-               }); 
-               
+               });  
             }
         }
     };
