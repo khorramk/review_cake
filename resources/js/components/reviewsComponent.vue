@@ -11,9 +11,7 @@
 </template>
 
 <script >
-import Axios from "axios";
 import  Reviews  from "./Reviews";
-import EventBus from '../app';
 export default ({
     data() {
         return {
@@ -23,7 +21,7 @@ export default ({
         };
     },
     mounted(){
-        Axios.get('/api/cake-component/review')
+        axios.get('/api/cake-component/review')
             .then((response)=> this.reviewsTest = response.data)
             .catch((err)=> console.log(err));     
         },
