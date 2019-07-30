@@ -31,9 +31,3 @@ import Axios from 'axios';
         props: ['comment']
     };
 </script>
-
-<style scoped>
-     .comments-card_single-comments__wrapper{
-         border: solid 2px blue;
-     }
-</style>
