@@ -66,7 +66,3 @@ import CommentsComponent from "./CommentsComponent";
         }
     }
 </script>
-
-<style lang="scss" scoped>
-
-</style>
