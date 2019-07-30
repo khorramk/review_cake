@@ -6,11 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Review extends Model
 {
-    public $attributes = [
-        'reviews' => null,
-        'user_id' => 1,
-    ];
-    
     public $timestamps = false;
 
     public function user()
