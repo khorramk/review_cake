@@ -6,9 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Review extends Model
 {
-    //
-    public $primaryKey = 'id';
-
     public $attributes = [
         'reviews' => null,
         'user_id' => 1,
