@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Review;
 use App\Comment;
+use App\User;
 class ReviewController extends Controller
 {
     /**
@@ -121,7 +122,7 @@ class ReviewController extends Controller
 
     public function usersReviews($id)
     {
-        $reviews = \App\User::find($id)->reviews;
+        $reviews = User::find($id)->reviews;
     //  dd($review);
          
         
