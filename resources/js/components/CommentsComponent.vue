@@ -13,7 +13,6 @@
 </template>
 
 <script>
-import Axios from 'axios';
     export default {
         data() {
             return {
@@ -24,7 +23,7 @@ import Axios from 'axios';
         methods: {
             submit(id){  
                 this.isDisable = true;
-                Axios.delete(`/api/comments/${id}`)
+                axios.delete(`/api/comments/${id}`)
                      .then(()=> window.location.href = '/api/reviews');
             },
         },

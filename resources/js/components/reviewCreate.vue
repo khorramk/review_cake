@@ -8,9 +8,6 @@
     </div>
 </template>
 <script>
-import Axios from 'axios';
-const CancelToken =  Axios.CancelToken;
-let cancel;
     export default {
         data(){
             return {
@@ -21,7 +18,7 @@ let cancel;
         methods: {
             checkform(){
                 this.$data.isDisable = true;
-                Axios.post('/api/reviews',{
+                axios.post('/api/reviews',{
                     review_creation: this.review_creation,
                     })
                     .then(()=> {
