@@ -45,9 +45,9 @@ class CommentController extends Controller
      */
     public function edit($id)
     {
-        $review_name = Comment::find($id)->review->reviews;
+        $reviewName = Comment::find($id)->review->reviews;
         return view('comments.edit')->with('comment_id', $id)
-                                    ->with('review_name', $review_name);
+                                    ->with('review_name', $reviewName);
     }
     /**
      * Update the specified resource in storage.
@@ -58,9 +58,9 @@ class CommentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $updating_comment = Comment::find($id);
-        $updating_comment->comments = $request->input('comment');
-        $updating_comment->save();
+        $updatingComment = Comment::find($id);
+        $updatingComment->comments = $request->input('comment');
+        $updatingComment->save();
     }
 
     /**
