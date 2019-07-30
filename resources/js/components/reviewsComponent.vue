@@ -22,17 +22,11 @@ export default ({
         
         };
     },
-   
     mounted(){
         Axios.get('/api/cake-component/review')
             .then((response)=> this.reviewsTest = response.data)
-            .catch((err)=> console.log(err));
-        
-     
-
-                    
-             
-    },
+            .catch((err)=> console.log(err));     
+        },
     components:{
         Reviews
     }

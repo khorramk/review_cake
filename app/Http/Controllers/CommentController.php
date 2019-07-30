@@ -12,13 +12,10 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create()
     {
-        $comment = Comment::find($id);
-        
-        return view('review-vue.commentCreate')->with('id', $id);
+        return view('review-vue.commentCreate');
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -27,14 +24,10 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-    
         $comments = new Comment();
         $comments->comments = $request->input('comment_body');
-        $comments->review_id = $request->input('reviewId');
         $comments->save();
-
     }
-
     /**
      * Display the specified resource.
      *
@@ -43,12 +36,7 @@ class CommentController extends Controller
      */
     public function show($id)
     {
-        // //
-        // $review = Review::find($id);
-        dd('show');
-        // return view('comments.comment')->with('review', $review);
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -57,19 +45,10 @@ class CommentController extends Controller
      */
     public function edit($id)
     {
-        //
-        
-           //dd(Comment::find($id));
         $review_name = Comment::find($id)->review->reviews;
-
-
-       
-      
-        // dd($comment);
         return view('comments.edit')->with('comment_id', $id)
                                     ->with('review_name', $review_name);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -79,16 +58,9 @@ class CommentController extends Controller
      */
     public function update(Request $request, $id)
     {
-       
         $updating_comment = Comment::find($id);
-       
-       
         $updating_comment->comments = $request->input('comment');
         $updating_comment->save();
-
-        
-
-         
     }
 
     /**
@@ -99,12 +71,7 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-        //
-        
        $comment = Comment::find($id);
        $comment->delete();
-
     }
-
-   
 }
