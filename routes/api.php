@@ -15,10 +15,6 @@ use Illuminate\Http\Request;
 |
 */
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-    
-// });
 Route::get('/test', function ()
 {
     dd('test');
@@ -40,8 +36,6 @@ Route::get('/cake-component/comments/{id}', function($id)
         return $comment;
 });
 
-//Route::apiResource('/reviews', 'ReviewController');
-//Route::post('/store', 'storeController@store');
 Route::apiResources([
     '/comments' => 'CommentController',
     '/reviews' => 'ReviewController',
