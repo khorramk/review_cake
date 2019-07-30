@@ -19,8 +19,7 @@ Auth::routes();
 
     Route::get('/reviews/create', 'ReviewController@create')->name('reviews.create');
     Route::get('/reviews/{id}/edit', 'ReviewController@edit')->name('reviews.edit');
-    // Route::get('/reviews/user/{id}', 'ReviewController@usersReviews');
-    Route::get('/comments/create/{id}', 'CommentController@create')->name('comments.create');
+    Route::get('/comments/create', 'CommentController@create')->name('comments.create');
     Route::get('/comments/{id}/edit', 'CommentController@edit')->name('comments.edit');
 
 
