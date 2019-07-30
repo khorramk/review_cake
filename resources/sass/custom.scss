@@ -3,27 +3,21 @@
     color:blue;  
     margin-left:10px;
 }
-
 .button-remove{
     color:teal; 
     background:none; 
     border:none;
 }
-
 .right-side{
     float: right;
 }
-
-
 .p-r{
     padding-right: 30px;
 }
-
 .form-container{
     display:flex; 
     flex-direction:column;
 }
-
 .review-card__link{
     background:yellow; 
     width:100px; 
@@ -37,7 +31,6 @@
     text-align:center; 
     font-size: 2em;
 }
-
 .hidden-form{
     display: none;
 }
