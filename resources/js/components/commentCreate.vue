@@ -8,7 +8,6 @@
 </template>
 
 <script>
-import Axios from 'axios';
     export default {
         data(){
             return {
@@ -25,7 +24,7 @@ import Axios from 'axios';
         methods: {
             addComments(){
                this.$data.isDisable = true;
-               Axios.post('/api/comments', {
+               axios.post('/api/comments', {
                    'reviewId': this.$props.reviewId,
                    'comment_body': this.comment_body
                }).then(()=> {

@@ -17,7 +17,6 @@
 </template>
 
 <script>
-import Axios from 'axios';
 import CommentsComponent from "./CommentsComponent";
     export default {
         data() {
@@ -37,7 +36,7 @@ import CommentsComponent from "./CommentsComponent";
             }
         },
         mounted(){
-            Axios.get(`/api/cake-component/comments/${this.$props.reviewId}`)
+            axios.get(`/api/cake-component/comments/${this.$props.reviewId}`)
                     .then((resp)=> {
                         if(resp.data.length === 0){
                             this.comments = '';
@@ -54,7 +53,7 @@ import CommentsComponent from "./CommentsComponent";
         methods: {
             remove(id){
                 this.$data.isDisable = true;
-                Axios.delete(`/api/reviews/${id}`, {
+                axios.delete(`/api/reviews/${id}`, {
                     id: id
                 }).then(()=> {
                     window.location.href= '/api/reviews';
