@@ -15,10 +15,8 @@ class ReviewController extends Controller
      */
     public function index()
     {       
-        
         return view('review-vue.review');
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -26,11 +24,8 @@ class ReviewController extends Controller
      */
     public function create()
     {
-        //
-        
         return view('review-vue.create');
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -39,14 +34,10 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-      
         $review = new Review();
         $review->reviews = $request->input('review_creation'); 
         $review->save();
-        
-        
     }
-
     /**
      * Display the specified resource.
      *
@@ -57,7 +48,6 @@ class ReviewController extends Controller
     {
       return ['show data'];
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -66,12 +56,9 @@ class ReviewController extends Controller
      */
     public function edit($id)
     {
-        
         $review = Review::find($id);
         return view('review-vue.reviewEdit')->with('review', $review);
-
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -81,15 +68,10 @@ class ReviewController extends Controller
      */
     public function update(Request $request, $id)
     {
-       
         $update_review = Review::find($id);
         $update_review->reviews = $request->input('reviews_edits');
-        $update_review->user_id = 1;
         $update_review->save();
-
-        
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -98,23 +80,7 @@ class ReviewController extends Controller
      */
     public function destroy($id)
     {
-       
         $review = Review::find($id);
         $review->delete();
-        
-        
     }
-
-    // public function usersReviews($id)
-    // {
-    //     $reviews = \App\User::find($id)->reviews;
-         
-        
-    //     return view('reviews.reviews')->with('reviews', $reviews);
-    // }
-
-    // public function welcome()
-    // {
-    //     return view('welcome');
-    // }
 }
