@@ -9,7 +9,6 @@
  </template>
  
  <script>
-import Axios from 'axios';
      export default {
          data(){
              return {
@@ -20,7 +19,7 @@ import Axios from 'axios';
         methods: {
             update(){
                 let self = this;
-                Axios.put(`/api/comments/${this.$props.commentId}`, {comment: this.edit_body})
+                axios.put(`/api/comments/${this.$props.commentId}`, {comment: this.edit_body})
                     .then(()=> {
                         self.isDisable = true;
                         window.location.href = '/api/reviews';

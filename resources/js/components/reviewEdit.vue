@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import Axios from 'axios';
     export default {
         data() {
             return {
@@ -19,7 +18,7 @@ import Axios from 'axios';
         },
         methods: {
             editReview() {
-                Axios.put(`/api/reviews/${this.id}`, {
+                axios.put(`/api/reviews/${this.id}`, {
                     review_id: this.id,
                     reviews_edits: this.edits_reviews
                 }).then(() => window.location.href = '/api/reviews');
