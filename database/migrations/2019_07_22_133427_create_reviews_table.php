@@ -17,7 +17,7 @@ class CreateReviewsTable extends Migration
             $table->bigIncrements('id');
             $table->string('reviews')->default('');
             $table->integer('user_id')->unsigned()->index();
-            $table->integer('rating_id')->default(0);
+            $table->integer('rating_id')->unsigned()->index();
             $table->timestamps();
         });
     }
