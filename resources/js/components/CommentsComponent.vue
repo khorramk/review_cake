@@ -26,7 +26,6 @@ import Axios from 'axios';
                 this.isDisable = true;
                 Axios.delete(`/api/comments/${id}`)
                      .then(()=> window.location.href = '/api/reviews');
-                
             },
         },
         props: ['comment']
