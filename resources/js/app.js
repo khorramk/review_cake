@@ -11,8 +11,6 @@ import reviewsComponent from './components/reviewsComponent';
 import commentCreate from './components/commentCreate';
 import commentEdit from './components/commentEdit';
 import reviewEdit from './components/reviewEdit';
-export const EventBus = new Vue({});
-const axio = require('axios');
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
