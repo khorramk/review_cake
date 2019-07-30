@@ -47,7 +47,6 @@ import CommentsComponent from "./CommentsComponent";
                         console.log(this.comments);
                         return 0 
                     })
-                    .catch((err)=> console.log(err))
                     .catch((err)=> console.log(err));
         },
         methods: {
