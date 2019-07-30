@@ -9,7 +9,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use Notifiable;
-
     /**
      * The attributes that are mass assignable.
      *
@@ -37,21 +36,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function posts( )
-    {
-        # code...
-        return $this->hasMany('App\Posts');
-    }
-
-    public function comments()
-    {
+    //not needed because we are not using login and auth functionality
+    //if we do then uncomment this line and change migration
+    // public function reviews()
+    // {
+    //     # code...
+    //     return $this->hasMany('App\Review');
+    // }
+    // public function comments()
+    // {
         
-        return $this->hasMany('App\Comment');
-    }
-
-    public function reviews()
-    {
-        # code...
-        return $this->hasMany('App\Review');
-    }
+    //     return $this->hasMany('App\Comment');
+    // }
 }
