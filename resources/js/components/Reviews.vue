@@ -3,12 +3,12 @@
         <div class="card-body reviews-card__body" v-show="$props.reviews.reviews">
             <div class="card reviews-card__single-review__wrapper">
                 <div class="card-body reviews-card__single-review">
-                        {{ this.$props.reviews.reviews}}
-                        <a class="review-card__single-review_add-comment" href="/comments/create">🗨</a>
-                        <a class="review-card__single-review_edit-review" :href="`/reviews/${$props.reviewId}/edit`">🖉</a>
-                        <form  class="review-card__single-review_remove-review" @submit="remove($props.reviewId)">
-                            <button :disabled="isDisable" type="submit" class="button-remove">⨯</button>
-                        </form>
+                    {{ this.$props.reviews.reviews}}
+                    <a class="review-card__single-review_add-comment" href="/comments/create">🗨</a>
+                    <a class="review-card__single-review_edit-review" :href="`/reviews/${$props.reviewId}/edit`">🖉</a>
+                    <form  class="review-card__single-review_remove-review" @submit="remove($props.reviewId)">
+                        <button :disabled="isDisable" type="submit" class="button-remove">⨯</button>
+                    </form>
                 </div>
             </div>
             <CommentsComponent v-for="(comment, i) in comments" :key="i" :comment="comment"/>
