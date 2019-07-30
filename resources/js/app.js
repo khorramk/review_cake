@@ -5,7 +5,6 @@
  */
 
 require('./bootstrap');
-
 window.Vue = require('vue');
 import reviewCreate from './components/reviewCreate';
 import reviewsComponent from './components/reviewsComponent';
@@ -26,7 +25,6 @@ const axio = require('axios');
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
 const app = new Vue({
     el: '#app',
     components: {
