@@ -27,6 +27,11 @@
                      .then(()=> window.location.href = '/api/reviews');
             },
         },
-        props: ['comment']
+        props: {
+            comment: {
+                type: Object,
+                default: {}
+            }
+        }
     };
 </script>
