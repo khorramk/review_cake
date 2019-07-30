@@ -1,25 +1,46 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
+<<<<<<< HEAD
 .review-card__single-review_add-comment {
+=======
+.create-form-reviews {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+}
+
+a,
+.remove-btn {
+>>>>>>> master
   float: right;
   color: blue;
   margin-left: 10px;
 }
 
+<<<<<<< HEAD
 .button-remove {
   color: teal;
+=======
+.remove-btn-style {
+>>>>>>> master
   background: none;
   border: none;
 }
 
+<<<<<<< HEAD
 .right-side {
   float: right;
 }
 
+=======
+>>>>>>> master
 .p-r {
   padding-right: 30px;
 }
 
+<<<<<<< HEAD
 .form-container {
   display: -webkit-box;
   display: flex;
@@ -29,11 +50,17 @@
 }
 
 .review-card__link {
+=======
+#plus {
+>>>>>>> master
   background: yellow;
   width: 100px;
   height: 50px;
   border-radius: 100%;
+<<<<<<< HEAD
   float: right;
+=======
+>>>>>>> master
   z-index: 999;
   right: 0;
   position: absolute;
@@ -42,10 +69,13 @@
   font-size: 2em;
 }
 
+<<<<<<< HEAD
 .hidden-form {
   display: none;
 }
 
+=======
+>>>>>>> master
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors

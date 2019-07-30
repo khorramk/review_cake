@@ -14,7 +14,8 @@ class CommentController extends Controller
      */
     public function create()
     {
-        return view('review-vue.commentCreate');
+        
+        return view('comments.create');
     }
     /**
      * Store a newly created resource in storage.
