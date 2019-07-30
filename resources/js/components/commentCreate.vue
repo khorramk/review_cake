@@ -29,10 +29,8 @@ import Axios from 'axios';
                    'reviewId': this.$props.reviewId,
                    'comment_body': this.comment_body
                }).then(()=> {
-     
                    window.location.href = '/api/reviews';
-               }); 
-               
+               });  
             }
         }
     };
