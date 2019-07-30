@@ -17,7 +17,6 @@ import  Reviews  from "./Reviews";
             return {
                 reviewsTest: '',
                 comments: '',
-            
             };
         },
         mounted(){
