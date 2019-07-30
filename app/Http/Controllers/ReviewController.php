@@ -68,9 +68,9 @@ class ReviewController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $update_review = Review::find($id);
-        $update_review->reviews = $request->input('reviews_edits');
-        $update_review->save();
+        $updateReview = Review::find($id);
+        $updateReview->reviews = $request->input('reviews_edits');
+        $updateReview->save();
     }
     /**
      * Remove the specified resource from storage.
