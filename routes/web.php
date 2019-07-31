@@ -12,8 +12,8 @@
 */
 Route::get('/', 'ReviewController@welcome');
 Auth::routes();
-Route::get('/reviews/create', 'ReviewController@create')->name('reviews.create');
-Route::get('/comments/create', 'CommentController@create')->name('comments.create');
+Route::get('/reviews/create', 'ReviewController@create');
+Route::get('/comments/create', 'CommentController@create');
 Route::get('/comments/{comment}/edit', function ()
 {
     return view('comments.edit')->with('review', $review);
