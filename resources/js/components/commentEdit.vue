@@ -29,10 +29,12 @@
         },
         props: {
             commentId: {
-                type: Number
+                type: Number,
+                default: 0
             },
             reviewName: {
-                type: String
+                type: String,
+                default: ''
             }
         }
      }
