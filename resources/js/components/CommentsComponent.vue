@@ -16,8 +16,8 @@
     export default {
         data() {
             return {
-              reviewIds: '',
-              isDisable: false
+                reviewIds: '',
+                isDisable: false
             };
         },
         methods: {
