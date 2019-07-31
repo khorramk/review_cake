@@ -1,9 +1,8 @@
 <?php
 
-use App\Review;
 use App\Comment;
+use App\Review;
 use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,28 +13,15 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::get('/test', function ()
-{
-    dd('test');
-});
-
 Route::get('/cake-component/review', function(){
-    
     $review = Review::all();
-
         return $review;
 });
-
 Route::get('/cake-component/comments/{id}', function($id)
 {
-  
-    
     $comment = Review::find($id)->comments;
-    
         return $comment;
 });
-
 Route::apiResources([
     '/comments' => 'CommentController',
     '/reviews' => 'ReviewController',
