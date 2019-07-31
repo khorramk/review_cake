@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Review;
 use App\Comment;
+use App\Review;
+use Illuminate\Http\Request;
 class ReviewController extends Controller
 {
     /**

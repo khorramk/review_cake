@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-use App\Review;
 use App\Comment;
+use App\Review;
+use Illuminate\Http\Request;
 class CommentController extends Controller
 {
     /**
