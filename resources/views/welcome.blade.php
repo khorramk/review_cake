@@ -73,12 +73,8 @@
                     @endauth
                 </div>
             @endif
-
             <div class="content" >
-                 
                     <h1>Review baking blog</h1>
-
-                
             </div>
         </div>
     </body>
