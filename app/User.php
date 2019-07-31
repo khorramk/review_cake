@@ -17,7 +17,6 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'email', 'password',
     ];
-
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -35,17 +34,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    //not needed because we are not using login and auth functionality
-    //if we do then uncomment this line and change migration
-    // public function reviews()
-    // {
-    //     # code...
-    //     return $this->hasMany('App\Review');
-    // }
-    // public function comments()
-    // {
-        
-    //     return $this->hasMany('App\Comment');
-    // }
 }
