@@ -51,7 +51,7 @@ import CommentsComponent from "./CommentsComponent";
         },
         methods: {
             remove(id){
-                this.$data.isDisable = true;
+                this.data.isDisable = true;
                 axios.delete(`/api/reviews/${id}`, {
                     id: id
                 }).then(()=> {
