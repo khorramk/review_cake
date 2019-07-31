@@ -12,25 +12,25 @@
     </div>               
 </template>
 <script>
-    export default {
-        data() {
-            return {
-                reviewIds: '',
-                isDisable: false
-            };
+export default {
+    data() {
+        return {
+            reviewIds: '',
+            isDisable: false
+        };
+    },
+    methods: {
+        submit(id){  
+            $data.isDisable = true;
+            axios.delete(`/api/comments/${id}`)
+                    .then(()=> window.location.href = '/api/reviews');
         },
-        methods: {
-            submit(id){  
-                this.isDisable = true;
-                axios.delete(`/api/comments/${id}`)
-                     .then(()=> window.location.href = '/api/reviews');
-            },
-        },
-        props: {
-            comment: {
-                type: Object,
-                default: {}
-            }
+    },
+    props: {
+        comment: {
+            type: Object,
+            default: {}
         }
-    };
+    }
+};
 </script>
