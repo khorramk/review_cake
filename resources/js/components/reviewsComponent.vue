@@ -9,7 +9,6 @@
         </div>
     </div>
 </template>
-
 <script >
 import  Reviews  from "./Reviews";
     export default ({
