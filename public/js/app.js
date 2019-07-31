@@ -1710,11 +1710,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      reviewIds: '',
       isDisable: false
     };
   },
@@ -1763,7 +1761,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -1788,21 +1785,17 @@ __webpack_require__.r(__webpack_exports__);
     axios.get("/api/cake-component/comments/".concat(this.$props.reviewId)).then(function (resp) {
       if (resp.data.length === 0) {
         _this.comments = '';
-        console.log(_this.comments);
-        return 0;
       }
 
       ;
       _this.comments = resp.data;
-      console.log(_this.comments);
-      return 0;
     })["catch"](function (err) {
       return console.log(err);
     });
   },
   methods: {
     remove: function remove(id) {
-      this.data.isDisable = true;
+      this.isDisable = true;
       axios["delete"]("/api/reviews/".concat(id), {
         id: id
       }).then(function () {
@@ -1834,11 +1827,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      comment_body: '',
+      commentBody: '',
       isDisable: false
     };
   },
@@ -1850,10 +1842,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     addComments: function addComments() {
-      this.data.isDisable = true;
+      this.isDisable = true;
       axios.post('/api/comments', {
         'reviewId': this.$props.reviewId,
-        'comment_body': this.comment_body
+        'commentBody': this.commentBody
       }).then(function () {
         window.location.href = '/api/reviews';
       });
@@ -1881,11 +1873,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      edit_body: '',
+      editBody: '',
       isDisable: false
     };
   },
@@ -1893,7 +1884,7 @@ __webpack_require__.r(__webpack_exports__);
     update: function update() {
       var self = this;
       axios.put("/api/comments/".concat(this.$props.commentId), {
-        comment: this.edit_body
+        comment: this.editBody
       }).then(function () {
         self.isDisable = true;
         window.location.href = '/api/reviews';
@@ -1937,18 +1928,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      review_creation: '',
+      reviewCreation: '',
       isDisable: false
     };
   },
   methods: {
     checkform: function checkform() {
-      this.data.isDisable = true;
+      this.isDisable = true;
       axios.post('/api/reviews', {
-        review_creation: this.review_creation
+        reviewCreation: this.reviewCreation
       }).then(function () {
         window.location.href = '/api/reviews';
-        return true;
       })["catch"](function (err) {
         return console.log(err);
       });
@@ -1976,32 +1966,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      edits_reviews: '',
+      editsReviews: '',
       isDisable: false
     };
   },
   methods: {
     editReview: function editReview() {
       axios.put("/api/reviews/".concat(this.id), {
-        review_id: this.id,
-        reviews_edits: this.edits_reviews
+        reviewId: this.$props.id,
+        reviewsEdits: this.editsReviews
       }).then(function () {
         return window.location.href = '/api/reviews';
       });
-      this.data.isDisable = true;
+      this.isDisable = true;
     }
   },
   props: {
     review: {
-      defualt: null,
+      "default": null,
       type: String
     },
     id: {
-      defualt: null,
+      "default": null,
       type: Number
     }
   }
@@ -2019,7 +2008,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Reviews__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Reviews */ "./resources/js/components/Reviews.vue");
-//
 //
 //
 //
@@ -37532,19 +37520,19 @@ var render = function() {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.comment_body,
-              expression: "comment_body"
+              value: _vm.commentBody,
+              expression: "commentBody"
             }
           ],
           staticClass: "comment-create__container__create-comment-form__body",
           attrs: { name: "comment", id: "", cols: "30", rows: "10" },
-          domProps: { value: _vm.comment_body },
+          domProps: { value: _vm.commentBody },
           on: {
             input: function($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.comment_body = $event.target.value
+              _vm.commentBody = $event.target.value
             }
           }
         }),
@@ -37608,19 +37596,19 @@ var render = function() {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.edit_body,
-              expression: "edit_body"
+              value: _vm.editBody,
+              expression: "editBody"
             }
           ],
           staticClass: "form-edit-container__form-edit-comments__body",
-          attrs: { name: "comment_edit", id: "", cols: "30", rows: "10" },
-          domProps: { value: _vm.edit_body },
+          attrs: { id: "", cols: "30", rows: "10" },
+          domProps: { value: _vm.editBody },
           on: {
             input: function($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.edit_body = $event.target.value
+              _vm.editBody = $event.target.value
             }
           }
         }),
@@ -37688,20 +37676,20 @@ var render = function() {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.review_creation,
-              expression: "review_creation"
+              value: _vm.reviewCreation,
+              expression: "reviewCreation"
             }
           ],
           staticClass:
             "form-reviews-container__create-form-reviews__review-creation-body",
           attrs: { id: "", cols: "30", rows: "10" },
-          domProps: { value: _vm.review_creation },
+          domProps: { value: _vm.reviewCreation },
           on: {
             input: function($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.review_creation = $event.target.value
+              _vm.reviewCreation = $event.target.value
             }
           }
         }),
@@ -37759,18 +37747,18 @@ var render = function() {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.edits_reviews,
-              expression: "edits_reviews"
+              value: _vm.editsReviews,
+              expression: "editsReviews"
             }
           ],
           attrs: { name: "body", id: "", cols: "30", rows: "10" },
-          domProps: { value: _vm.edits_reviews },
+          domProps: { value: _vm.editsReviews },
           on: {
             input: function($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.edits_reviews = $event.target.value
+              _vm.editsReviews = $event.target.value
             }
           }
         }),
