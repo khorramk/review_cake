@@ -18,7 +18,7 @@ export default {
     methods: {
         update(){
             let self = this;
-            axios.put(`/api/comments/${this.$props.commentId}`, {comment: this.$data.edit_body})
+            axios.put(`/api/comments/${this.$props.commentId}`, {comment: this.editBody})
                 .then(()=> {
                     self.isDisable = true;
                     window.location.href = '/api/reviews';
