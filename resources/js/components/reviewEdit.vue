@@ -18,8 +18,8 @@ export default {
     methods: {
         editReview() {
             axios.put(`/api/reviews/${this.id}`, {
-                review_id: this.id,
-                reviews_edits: this.edits_reviews
+                reviewId: this.$props.id,
+                reviewsEdits: this.editsReviews
             }).then(() => window.location.href = '/api/reviews');
             this.isDisable = true;
         }
