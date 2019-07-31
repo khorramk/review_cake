@@ -50,7 +50,7 @@ export default {
     },
     methods: {
         remove(id){
-            $data.isDisable = true;
+            this.isDisable = true;
             axios.delete(`/api/reviews/${id}`, {
                 id: id
             }).then(()=> {
