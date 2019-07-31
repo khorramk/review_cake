@@ -22,7 +22,7 @@
                     review_id: this.id,
                     reviews_edits: this.edits_reviews
                 }).then(() => window.location.href = '/api/reviews');
-                this.$data.isDisable = true;
+                this.data.isDisable = true;
             }
         },
         props: {

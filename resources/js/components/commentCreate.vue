@@ -23,7 +23,7 @@
         },
         methods: {
             addComments(){
-               this.$data.isDisable = true;
+               this.data.isDisable = true;
                axios.post('/api/comments', {
                    'reviewId': this.$props.reviewId,
                    'comment_body': this.comment_body
