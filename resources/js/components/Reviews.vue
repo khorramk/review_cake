@@ -15,7 +15,6 @@
         </div>        
     </div>
 </template>
-
 <script>
 import CommentsComponent from "./CommentsComponent";
     export default {
