@@ -17,7 +17,7 @@ export default {
     },
     methods: {
         checkform(){
-            this.$data.isDisable = true;
+            this.isDisable = true;
             axios.post('/api/reviews',{
                 review_creation: this.review_creation,
                 })

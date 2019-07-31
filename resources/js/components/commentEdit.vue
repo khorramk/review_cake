@@ -17,7 +17,7 @@ export default {
     },
     methods: {
         update(){
-            let self = $data;
+            let self = this;
             axios.put(`/api/comments/${this.$props.commentId}`, {comment: this.$data.edit_body})
                 .then(()=> {
                     self.isDisable = true;
