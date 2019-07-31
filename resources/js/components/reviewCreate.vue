@@ -23,7 +23,6 @@ export default {
                 })
                 .then(()=> {
                         window.location.href = '/api/reviews';
-                        return true;
                 })
                 .catch((err)=> console.log(err));
         }

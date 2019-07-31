@@ -39,11 +39,8 @@ export default {
             .then((resp)=> {
                 if(resp.data.length === 0){
                     this.comments = '';
-                    console.log(this.comments);
-                    return 0;
                 };
                 this.comments = resp.data;
-                return 0 
             })
             .catch((err)=> console.log(err));
     },
