@@ -11,20 +11,20 @@
 </template>
 <script >
 import  Reviews  from "./Reviews";
-    export default ({
-        data() {
-            return {
-                reviewsTest: '',
-                comments: '',
-            };
+export default ({
+    data() {
+        return {
+            reviewsTest: '',
+            comments: '',
+        };
+    },
+    mounted(){
+        axios.get('/api/cake-component/review')
+            .then((response)=> this.reviewsTest = response.data)
+            .catch((err)=> console.log(err));     
         },
-        mounted(){
-            axios.get('/api/cake-component/review')
-                .then((response)=> this.reviewsTest = response.data)
-                .catch((err)=> console.log(err));     
-            },
-        components:{
-            Reviews
-        }
-    });
+    components:{
+        Reviews
+    }
+});
 </script>
