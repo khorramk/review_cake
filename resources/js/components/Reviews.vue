@@ -36,17 +36,16 @@ export default {
     },
     mounted(){
         axios.get(`/api/cake-component/comments/${this.$props.reviewId}`)
-                .then((resp)=> {
-                    if(resp.data.length === 0){
-                        this.comments = '';
-                        console.log(this.comments);
-                        return 0;
-                    };
-                    this.comments = resp.data;
+            .then((resp)=> {
+                if(resp.data.length === 0){
+                    this.comments = '';
                     console.log(this.comments);
-                    return 0 
-                })
-                .catch((err)=> console.log(err));
+                    return 0;
+                };
+                this.comments = resp.data;
+                return 0 
+            })
+            .catch((err)=> console.log(err));
     },
     methods: {
         remove(id){
