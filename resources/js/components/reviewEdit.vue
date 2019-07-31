@@ -2,7 +2,7 @@
     <div>
         {{ review }}
         <form @submit.prevent="editReview">
-            <textarea name="body" id="" cols="30" rows="10" v-model="edits_reviews"></textarea>
+            <textarea name="body" id="" cols="30" rows="10" v-model="editsReviews"></textarea>
             <input :disabled="isDisable" type="submit" value="edit review">
         </form>
     </div>
@@ -11,7 +11,7 @@
 export default {
     data() {
         return {
-            edits_reviews: '',
+            editsReviews: '',
             isDisable: false
         }
     },
