@@ -20,7 +20,7 @@ export default {
     },
     methods: {
         submit(id){  
-            $data.isDisable = true;
+            this.isDisable = true;
             axios.delete(`/api/comments/${id}`)
                     .then(()=> window.location.href = '/api/reviews');
         },

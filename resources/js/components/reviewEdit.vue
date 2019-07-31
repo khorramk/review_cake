@@ -21,7 +21,7 @@ export default {
                 review_id: this.id,
                 reviews_edits: this.edits_reviews
             }).then(() => window.location.href = '/api/reviews');
-            $data.isDisable = true;
+            this.isDisable = true;
         }
     },
     props: {
