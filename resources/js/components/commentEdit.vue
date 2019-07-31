@@ -6,9 +6,8 @@
             <input :disabled="isDisable" class="form-edit-comments-btn" type="submit" value="add comments">
         </form>
      </div>
- </template>
- 
- <script>
+</template>
+<script>
      export default {
         data(){
             return {
@@ -38,4 +37,4 @@
             }
         }
      }
- </script>
+</script>
