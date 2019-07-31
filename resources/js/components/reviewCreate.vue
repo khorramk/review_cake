@@ -19,7 +19,7 @@ export default {
         checkform(){
             this.isDisable = true;
             axios.post('/api/reviews',{
-                review_creation: this.review_creation,
+                reviewCreation: this.reviewCreation,
                 })
                 .then(()=> {
                         window.location.href = '/api/reviews';
