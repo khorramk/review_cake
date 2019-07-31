@@ -3,7 +3,7 @@
         <div class="card-body reviews-card__body" v-show="$props.reviews.reviews">
             <div class="card reviews-card__single-review__wrapper">
                 <div class="card-body reviews-card__single-review">
-                    {{ this.$props.reviews.reviews}}
+                    {{ this.$props.reviews.reviews }}
                     <a class="review-card__single-review_add-comment" href="/comments/create">🗨</a>
                     <a class="review-card__single-review_edit-review" :href="`/reviews/${$props.reviewId}/edit`">🖉</a>
                     <form  class="review-card__single-review_remove-review" @submit="remove($props.reviewId)">
@@ -17,49 +17,49 @@
 </template>
 <script>
 import CommentsComponent from "./CommentsComponent";
-    export default {
-        data() {
-            return {
-                comments: '',
-                isDisable: false
-            }
-        },
-        props: {
-            reviews: {
-                type: Object,
-                default: {}
-            },
-            reviewId: {
-                type: Number,
-                default: 0
-            }
-        },
-        mounted(){
-            axios.get(`/api/cake-component/comments/${this.$props.reviewId}`)
-                    .then((resp)=> {
-                        if(resp.data.length === 0){
-                            this.comments = '';
-                            console.log(this.comments);
-                            return 0;
-                        };
-                        this.comments = resp.data;
-                        console.log(this.comments);
-                        return 0 
-                    })
-                    .catch((err)=> console.log(err));
-        },
-        methods: {
-            remove(id){
-                this.data.isDisable = true;
-                axios.delete(`/api/reviews/${id}`, {
-                    id: id
-                }).then(()=> {
-                    window.location.href= '/api/reviews';
-                });       
-            },
-        },
-        components: {
-            CommentsComponent
+export default {
+    data() {
+        return {
+            comments: '',
+            isDisable: false
         }
+    },
+    props: {
+        reviews: {
+            type: Object,
+            default: {}
+        },
+        reviewId: {
+            type: Number,
+            default: 0
+        }
+    },
+    mounted(){
+        axios.get(`/api/cake-component/comments/${this.$props.reviewId}`)
+                .then((resp)=> {
+                    if(resp.data.length === 0){
+                        this.comments = '';
+                        console.log(this.comments);
+                        return 0;
+                    };
+                    this.comments = resp.data;
+                    console.log(this.comments);
+                    return 0 
+                })
+                .catch((err)=> console.log(err));
+    },
+    methods: {
+        remove(id){
+            $data.isDisable = true;
+            axios.delete(`/api/reviews/${id}`, {
+                id: id
+            }).then(()=> {
+                window.location.href= '/api/reviews';
+            });       
+        },
+    },
+    components: {
+        CommentsComponent
     }
+};
 </script>
