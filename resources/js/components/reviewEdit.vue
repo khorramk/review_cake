@@ -26,11 +26,11 @@
         },
         props: {
             review: {
-                defualt:null,
+                default:null,
                 type: String
             },
             id: {
-                defualt: null,
+                default: null,
                 type: Number
             }
         }
