@@ -7,30 +7,30 @@
     </div>
 </template>
 <script>
-    export default {
-        data(){
-            return {
-                comment_body: '',
-                isDisable: false
-            }
-        },
-        props: {
-            reviewId: {
-                default: null,
-                type: Number
-            },
-        },
-        methods: {
-            addComments(){
-               this.data.isDisable = true;
-               axios.post('/api/comments', {
-                   'reviewId': this.$props.reviewId,
-                   'comment_body': this.comment_body
-               }).then(()=> {
-                   window.location.href = '/api/reviews';
-               });  
-            }
+export default {
+    data(){
+        return {
+            comment_body: '',
+            isDisable: false
         }
-    };
+    },
+    props: {
+        reviewId: {
+            default: null,
+            type: Number
+        },
+    },
+    methods: {
+        addComments(){
+        this.$data.isDisable = true;
+        axios.post('/api/comments', {
+            'reviewId': this.$props.reviewId,
+            'comment_body': this.comment_body
+        }).then(()=> {
+            window.location.href = '/api/reviews';
+        });  
+        }
+    }
+};
 </script>
 

@@ -8,26 +8,26 @@
     </div>
 </template>
 <script>
-    export default {
-        data(){
-            return {
-                review_creation: '', 
-                isDisable: false
-            };
-        },
-        methods: {
-            checkform(){
-                this.data.isDisable = true;
-                axios.post('/api/reviews',{
-                    review_creation: this.review_creation,
-                    })
-                    .then(()=> {
-                         window.location.href = '/api/reviews';
-                         return true;
-                    })
-                    .catch((err)=> console.log(err));
-            }
+export default {
+    data(){
+        return {
+            review_creation: '', 
+            isDisable: false
+        };
+    },
+    methods: {
+        checkform(){
+            this.$data.isDisable = true;
+            axios.post('/api/reviews',{
+                review_creation: this.review_creation,
+                })
+                .then(()=> {
+                        window.location.href = '/api/reviews';
+                        return true;
+                })
+                .catch((err)=> console.log(err));
         }
-    };
+    }
+};
 </script>
 
