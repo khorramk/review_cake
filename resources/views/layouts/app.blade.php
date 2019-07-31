@@ -47,18 +47,13 @@
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-                                    <a class="dropdown-item" href="/reviews"
-                                       >
+                                    <a class="dropdown-item" href="/reviews">
                                         Review
                                     </a>
-
-                                    <a class="dropdown-item" href="/reviews/user/{{ Auth::id()}}"
-                                        >
+                                    <a class="dropdown-item" href="/reviews/user/{{ Auth::id()}}">
                                             your reviews
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden-form">
