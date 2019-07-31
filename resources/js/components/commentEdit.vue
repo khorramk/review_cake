@@ -10,12 +10,12 @@
  
  <script>
      export default {
-         data(){
-             return {
-                 edit_body: '',
-                 isDisable: false
-             };
-         },
+        data(){
+            return {
+                edit_body: '',
+                isDisable: false
+            };
+        },
         methods: {
             update(){
                 let self = this;
