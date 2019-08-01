@@ -58,7 +58,7 @@ class ReviewController extends Controller
     public function update(Request $request, $id)
     {
         $updateReview = Review::find($id);
-        $updateReview->reviews = $request->input('reviews_edits');
+        $updateReview->reviews = $request->input('reviewsEdits');
         $updateReview->save();
     }
     /**
