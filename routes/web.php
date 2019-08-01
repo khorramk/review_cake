@@ -17,11 +17,12 @@ Route::get('/comments/create/{review}', function (App\Review $review)
 {
     return view('review-vue.commentCreate')->with('reviewId', $review->id);
 });
-Route::get('/comments/{comment}/edit', function ()
+Route::get('/comments/{review}/edit', function (\App\Review $review)
 {
-    return view('comments.edit')->with('review', $review);
+    $reviewName = $review->name;
+    return view('comments.edit')->with('reviewName', $reviewName);
 });
-Route::get('/reviews/{review}/edit', function (App\Review $review)
+Route::get('/reviews/{review}/edit', function(\App\Review $review)
 {
     return view('review-vue.reviewEdit')->with('review', $review);
 });
