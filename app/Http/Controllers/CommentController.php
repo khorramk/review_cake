@@ -16,7 +16,7 @@ class CommentController extends Controller
     {
         $comments = new Comment();
         $comments->comments = $request->input('commentBody');
-        $comments->reviews_id = $request->input('reviewId');
+        $comments->review_id = $request->input('reviewId');
         $comments->save();
     }
     /**
@@ -40,6 +40,7 @@ class CommentController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         $updatingComment = Comment::find($id);
         $updatingComment->comments = $request->input('comment');
         $updatingComment->save();
@@ -58,6 +59,7 @@ class CommentController extends Controller
     }
     public function fetchComments(Review $review)
     {
+        
         return $review->comments;
     }
 }
