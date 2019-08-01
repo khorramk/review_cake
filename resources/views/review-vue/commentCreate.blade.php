@@ -1,4 +1,4 @@
 @extends('layouts.app')
 @section('content')
-<comment-create></comment-create>
+<comment-create :review-id="{{$reviewId}}"></comment-create>
 @endsection
