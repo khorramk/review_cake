@@ -7,16 +7,6 @@ use Illuminate\Http\Request;
 class CommentController extends Controller
 {
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        
-        return view('comments.create');
-    }
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -25,7 +15,8 @@ class CommentController extends Controller
     public function store(Request $request)
     {
         $comments = new Comment();
-        $comments->comments = $request->input('comment_body');
+        $comments->comments = $request->input('commentBody');
+        $comments->reviews_id = $request->input('reviewId');
         $comments->save();
     }
     /**
@@ -64,5 +55,9 @@ class CommentController extends Controller
     {
        $comment = Comment::find($id);
        $comment->delete();
+    }
+    public function fetchComments(Review $review)
+    {
+        return $review->comments;
     }
 }
