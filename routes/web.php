@@ -13,7 +13,10 @@
 Route::get('/', 'ReviewController@welcome');
 Auth::routes();
 Route::get('/reviews/create', 'ReviewController@create');
-Route::get('/comments/create', 'CommentController@create');
+Route::get('/comments/create/{review}', function (App\Review $review)
+{
+    return view('review-vue.commentCreate')->with('reviewId', $review->id);
+});
 Route::get('/comments/{comment}/edit', function ()
 {
     return view('comments.edit')->with('review', $review);

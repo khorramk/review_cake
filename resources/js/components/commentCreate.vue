@@ -22,13 +22,13 @@ export default {
     },
     methods: {
         addComments(){
-        this.isDisable = true;
-        axios.post('/api/comments', {
-            'reviewId': this.$props.reviewId,
-            'commentBody': this.commentBody
-        }).then(()=> {
-            window.location.href = '/api/reviews';
-        });  
+            this.isDisable = true;
+            axios.post('/api/comments', {
+                reviewId: this.$props.reviewId,
+                commentBody: this.commentBody
+            }).then(()=> {
+                window.location.href = '/api/reviews';
+            });  
         }
     }
 };
