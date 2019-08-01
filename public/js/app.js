@@ -1766,7 +1766,9 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       comments: '',
-      isDisable: false
+      isDisable: false,
+      error: false,
+      loading: true
     };
   },
   props: {
@@ -1790,7 +1792,9 @@ __webpack_require__.r(__webpack_exports__);
       ;
       _this.comments = resp.data;
     })["catch"](function (err) {
-      return console.log(err);
+      return _this.error = true;
+    })["finally"](function () {
+      return _this.loading = false;
     });
   },
   methods: {
@@ -1844,8 +1848,8 @@ __webpack_require__.r(__webpack_exports__);
     addComments: function addComments() {
       this.isDisable = true;
       axios.post('/api/comments', {
-        'reviewId': this.$props.reviewId,
-        'commentBody': this.commentBody
+        reviewId: this.$props.reviewId,
+        commentBody: this.commentBody
       }).then(function () {
         window.location.href = '/api/reviews';
       });
@@ -37429,7 +37433,7 @@ var render = function() {
                   "a",
                   {
                     staticClass: "review-card__single-review_add-comment",
-                    attrs: { href: "/comments/create" }
+                    attrs: { href: "/comments/create/" + _vm.$props.reviewId }
                   },
                   [_vm._v("🗨")]
                 ),
@@ -37472,7 +37476,14 @@ var render = function() {
         _vm._l(_vm.comments, function(comment, i) {
           return _c("CommentsComponent", {
             key: i,
-            attrs: { comment: comment }
+            attrs: { comment: comment },
+            model: {
+              value: _vm.loading,
+              callback: function($$v) {
+                _vm.loading = $$v
+              },
+              expression: "loading"
+            }
           })
         })
       ],

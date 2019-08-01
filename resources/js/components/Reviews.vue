@@ -4,14 +4,14 @@
             <div class="card reviews-card__single-review__wrapper">
                 <div class="card-body reviews-card__single-review">
                     {{ this.$props.reviews.reviews }}
-                    <a class="review-card__single-review_add-comment" href="/comments/create">🗨</a>
+                    <a class="review-card__single-review_add-comment" :href="`/comments/create/${$props.reviewId}`">🗨</a>
                     <a class="review-card__single-review_edit-review" :href="`/reviews/${$props.reviewId}/edit`">🖉</a>
                     <form  class="review-card__single-review_remove-review" @submit="remove($props.reviewId)">
                         <button :disabled="isDisable" type="submit" class="button-remove">⨯</button>
                     </form>
                 </div>
             </div>
-            <CommentsComponent v-for="(comment, i) in comments" :key="i" :comment="comment"/>
+            <CommentsComponent v-for="(comment, i) in comments" :key="i" :comment="comment" v-model="loading"/>
         </div>        
     </div>
 </template>
@@ -21,7 +21,9 @@ export default {
     data() {
         return {
             comments: '',
-            isDisable: false
+            isDisable: false,
+            error: false,
+            loading:true
         }
     },
     props: {
@@ -42,7 +44,8 @@ export default {
                 };
                 this.comments = resp.data;
             })
-            .catch((err)=> console.log(err));
+            .catch(err => this.error = true)
+            .finally(()=> this.loading = false);
     },
     methods: {
         remove(id){

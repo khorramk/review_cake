@@ -17,11 +17,8 @@ Route::get('/cake-component/review', function(){
     $review = Review::all();
         return $review;
 });
-Route::get('/cake-component/comments/{id}', function($id)
-{
-    $comment = Review::find($id)->comments;
-        return $comment;
-});
+Route::get('/cake-component/comments/{review}', 'CommentController@fetchComments');
+
 Route::apiResources([
     '/comments' => 'CommentController',
     '/reviews' => 'ReviewController',
