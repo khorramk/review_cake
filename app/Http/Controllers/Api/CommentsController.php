@@ -1,21 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Auth;
+namespace App\Http\Controllers\Api;
+
+
 use App\Comment;
 use App\Review;
-use Illuminate\Http\Request;
-class ReviewController extends Controller
+
+class CommentsController
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {       
-        return view('review-vue.review');
-    }
     /**
      * Store a newly created resource in storage.
      *
@@ -24,9 +16,10 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        $review = new Review();
-        $review->reviews = $request->input('reviewCreation'); 
-        $review->save();
+        $comments = new Comment();
+        $comments->comments = $request->input('commentBody');
+        $comments->review_id = $request->input('reviewId');
+        $comments->save();
     }
     /**
      * Update the specified resource in storage.
@@ -37,10 +30,11 @@ class ReviewController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $updateReview = Review::find($id);
-        $updateReview->reviews = $request->input('reviewsEdits');
-        $updateReview->save();
+        $updatingComment = Comment::find($id);
+        $updatingComment->comments = $request->input('comment');
+        $updatingComment->save();
     }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -49,7 +43,13 @@ class ReviewController extends Controller
      */
     public function destroy($id)
     {
-        $review = Review::find($id);
-        $review->delete();
+        $comment = Comment::find($id);
+        $comment->delete();
+    }
+
+    public function fetchComments(Review $review)
+    {
+        /** @var Review */
+        return $review->comments;
     }
 }
