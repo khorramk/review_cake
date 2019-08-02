@@ -18,11 +18,14 @@ export default {
     methods: {
         update(){
             this.isDisable = true;
-            axios.put(`/api/comments/${this.$props.commentId}`, {comment: this.editBody})
+            axios.put(`/api/comments/${this.$props.commentId}`, {
+                comment: this.editBody,
+            })
                 .then(()=> {
                     window.location.href = '/api/reviews';
                 })
                 .catch((err)=> console.log(err));
+            
         }
     },
     props: {

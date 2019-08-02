@@ -12,19 +12,21 @@
 */
 Route::get('/', 'ReviewController@welcome');
 Auth::routes();
-Route::get('/reviews/create', 'ReviewController@create');
+Route::get('/reviews/create', function (\App\Review $review)
+{
+    return View::make('review-vue.create');
+});
 Route::get('/comments/create/{review}', function (\App\Review $review)
 {
-    return view('review-vue.commentCreate')->with('reviewId', $review->id);
+    return View::make('review-vue.commentCreate')->withReviewId($review->id);
 });
-Route::get('/comments/{review}/edit', function (\App\Review $review)
+Route::get('/comments/{comment}/edit', function (\App\Comment $comment)
 {
-    $reviewName = $review->name;
-    return view('comments.edit')->with('reviewName', $reviewName);
+    return view('comments.edit')->withCommentId($comment->id);
 });
 Route::get('/reviews/{review}/edit', function(\App\Review $review)
 {
-    return view('review-vue.reviewEdit')->with('review', $review);
+    return view('review-vue.reviewEdit')->withReview($review);
 });
 
 

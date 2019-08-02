@@ -17,15 +17,6 @@ class ReviewController extends Controller
         return view('review-vue.review');
     }
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('review-vue.create');
-    }
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -36,17 +27,6 @@ class ReviewController extends Controller
         $review = new Review();
         $review->reviews = $request->input('reviewCreation'); 
         $review->save();
-    }
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $review = Review::find($id);
-        return view('review-vue.reviewEdit')->with('review', $review);
     }
     /**
      * Update the specified resource in storage.
