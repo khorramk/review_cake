@@ -51,7 +51,7 @@ export default {
         remove(id){
             this.isDisable = true;
             axios.delete(`/api/reviews/${id}`, {
-                id: id
+                id
             }).then(()=> {
                 window.location.href= '/api/reviews';
             });       
