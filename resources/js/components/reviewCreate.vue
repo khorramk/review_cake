@@ -11,8 +11,8 @@
 export default {
     data(){
         return {
-            reviewCreation: '', 
-            isDisable: false
+            isDisable: false,
+            reviewCreation: ''
         };
     },
     methods: {

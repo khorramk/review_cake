@@ -14,8 +14,8 @@ import  Reviews  from "./Reviews";
 export default ({
     data() {
         return {
-            reviewsTest: '',
             comments: '',
+            reviewsTest: ''
         };
     },
     mounted(){
