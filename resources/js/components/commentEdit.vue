@@ -27,12 +27,12 @@ export default {
     },
     props: {
         commentId: {
-            type: Number,
-            default: 0
+            default: 0,
+            type: Number
         },
         reviewName: {
-            type: String,
-            default: ''
+            default: '',
+            type: String
         }
     }
 };

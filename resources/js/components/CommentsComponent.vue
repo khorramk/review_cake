@@ -27,8 +27,8 @@ export default {
     },
     props: {
         comment: {
-            type: Object,
-            default: {}
+            default: {},
+            type: Object
         }
     }
 };

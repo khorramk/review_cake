@@ -21,19 +21,19 @@ export default {
     data() {
         return {
             comments: '',
-            isDisable: false,
             error: false,
-            loading:true
+            isDisable: false,
+            loading: true
         }
     },
     props: {
         reviews: {
-            type: Object,
-            default: {}
+            default: {},
+            type: Object
         },
         reviewId: {
-            type: Number,
-            default: 0
+            default: 0,
+            type: Number
         }
     },
     mounted(){

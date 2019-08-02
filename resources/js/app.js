@@ -26,10 +26,10 @@ import reviewEdit from './components/reviewEdit';
 const app = new Vue({
     el: '#app',
     components: {
-            reviewCreate,
-            reviewsComponent,
-            commentCreate,
-            commentEdit,
-            reviewEdit
+        commentCreate,
+        commentEdit,
+        reviewCreate,
+        reviewEdit,
+        reviewsComponent
     },
 });
