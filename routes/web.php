@@ -13,5 +13,12 @@
 Route::get('/', 'ReviewController@welcome');
 Auth::routes();
 
+Route::get('/reviews', 'app/IndexController@index');
+
+Route::get('/reviews/create', 'ReviewController@create');
+Route::get('/reviews/{review}/edit', 'RevieController@edit');
+
+Route::get('/comments/create/{review}', 'CommentController@create');
+Route::get('/comments/{comment}/edit', 'CommentController@edit');
 
 

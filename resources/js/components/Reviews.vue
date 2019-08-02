@@ -4,8 +4,8 @@
             <div class="card reviews-card__single-review__wrapper">
                 <div class="card-body reviews-card__single-review">
                     {{ this.$props.reviews.reviews }}
-                    <a class="review-card__single-review_add-comment" :href="`/api/comments/create/${$props.reviewId}`">🗨</a>
-                    <a class="review-card__single-review_edit-review" :href="`/api/reviews/${$props.reviewId}/edit`">🖉</a>
+                    <a class="review-card__single-review_add-comment" :href="`/comments/create/${$props.reviewId}`">🗨</a>
+                    <a class="review-card__single-review_edit-review" :href="`/reviews/${$props.reviewId}/edit`">🖉</a>
                     <form  class="review-card__single-review_remove-review" @submit="remove($props.reviewId)">
                         <button :disabled="isDisable" type="submit" class="button-remove">⨯</button>
                     </form>
