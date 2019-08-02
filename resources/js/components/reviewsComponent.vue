@@ -5,7 +5,7 @@
                 <div class="card-header reviews-card__header">user review</div>
                 <Reviews :reviews="review" v-for="(review, i) in reviewsTest" :key="i" :review-id="review.id"/>
             </div>
-            <a href="/reviews/create"  class="review-card__link">+</a>
+            <a href="/api/reviews/create"  class="review-card__link">+</a>
         </div>
     </div>
 </template>
