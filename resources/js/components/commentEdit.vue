@@ -17,10 +17,9 @@ export default {
     },
     methods: {
         update(){
-            let self = this;
+            this.isDisable = true;
             axios.put(`/api/comments/${this.$props.commentId}`, {comment: this.editBody})
                 .then(()=> {
-                    self.isDisable = true;
                     window.location.href = '/api/reviews';
                 })
                 .catch((err)=> console.log(err));
