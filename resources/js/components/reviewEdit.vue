@@ -26,7 +26,7 @@ export default {
     },
     props: {
         review: {
-            default:null,
+            default: null,
             type: String
         },
         id: {
