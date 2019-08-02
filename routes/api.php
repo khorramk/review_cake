@@ -20,7 +20,7 @@ Route::get('/cake-component/review', function(){
 Route::get('/cake-component/comments/{review}', 'CommentController@fetchComments');
 
 Route::apiResources([
-    '/comments' => 'CommentController',
+    '/comments' => 'Api/CommentsController',
     '/reviews' => 'ReviewController',
 ]);
 
