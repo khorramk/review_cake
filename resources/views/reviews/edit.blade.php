@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    {{$review->reviews}}
+    {{ $review->reviews }}
     <form action="{{action('ReviewController@update')}}" method="POST">
         @csrf
         @method('PUT')
