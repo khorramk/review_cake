@@ -53,7 +53,7 @@ export default {
             axios.delete(`/api/reviews/${id}`, {
                 id
             }).then(()=> {
-                window.location.href= '/api/reviews';
+                window.location.href= '/reviews';
             });       
         },
     },

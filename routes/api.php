@@ -17,10 +17,11 @@ Route::get('/cake-component/review', function(){
     $review = Review::all();
         return $review;
 });
-Route::get('/cake-component/comments/{review}', 'CommentController@fetchComments');
+Route::get('/cake-component/comments/{review}', 'api\CommentsController@fetchComments');
 
 Route::apiResources([
-    '/comments' => 'CommentController',
-    '/reviews' => 'ReviewController',
+    'comments' => 'api\CommentsController',
+    'reviews' => 'api\ReviewController',
 ]);
+
 

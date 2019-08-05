@@ -20,7 +20,7 @@ export default {
             axios.put(`/api/reviews/${this.id}`, {
                 reviewId: this.$props.id,
                 reviewsEdits: this.editsReviews
-            }).then(() => window.location.href = '/api/reviews');
+            }).then(() => window.location.href = '/reviews');
             this.isDisable = true;
         }
     },

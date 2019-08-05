@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Comment;
@@ -8,15 +8,7 @@ use App\Review;
 use Illuminate\Http\Request;
 class ReviewController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {       
-        return view('review-vue.review');
-    }
+    
     /**
      * Store a newly created resource in storage.
      *
