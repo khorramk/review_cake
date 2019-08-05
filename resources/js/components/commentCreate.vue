@@ -27,7 +27,7 @@ export default {
                 reviewId: this.$props.reviewId,
                 commentBody: this.commentBody
             }).then(()=> {
-                window.location.href = '/api/reviews';
+                window.location.href = '/reviews';
             });  
         }
     }

@@ -22,7 +22,7 @@ export default {
                 reviewCreation: this.reviewCreation,
                 })
                 .then(()=> {
-                        window.location.href = '/api/reviews';
+                    window.location.href = '/reviews';
                 })
                 .catch((err)=> console.log(err));
         }

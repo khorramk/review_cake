@@ -17,26 +17,11 @@ Route::get('/cake-component/review', function(){
     $review = Review::all();
         return $review;
 });
-Route::get('/cake-component/comments/{review}', 'CommentController@fetchComments');
+Route::get('/cake-component/comments/{review}', 'api\CommentsController@fetchComments');
 
 Route::apiResources([
-    '/comments' => 'Api/CommentsController',
-    '/reviews' => 'ReviewController',
+    'comments' => 'api\CommentsController',
+    'reviews' => 'api\ReviewController',
 ]);
 
-Route::get('/reviews/create', function (\App\Review $review)
-{
-    return View::make('review-vue.create');
-});
-Route::get('/comments/create/{review}', function (\App\Review $review)
-{
-    return View::make('review-vue.commentCreate')->withReviewId($review->id);
-});
-Route::get('/comments/{comment}/edit', function (\App\Comment $comment)
-{
-    return view('comments.edit')->withCommentId($comment->id);
-});
-Route::get('/reviews/{review}/edit', function(\App\Review $review)
-{
-    return view('review-vue.reviewEdit')->withReview($review);
-});
+

@@ -22,7 +22,7 @@ export default {
         submit(id){  
             this.isDisable = true;
             axios.delete(`/api/comments/${id}`)
-                    .then(()=> window.location.href = '/api/reviews');
+                 .then(()=> window.location.href = '/reviews');
         },
     },
     props: {
