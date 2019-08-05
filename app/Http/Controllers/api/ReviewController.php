@@ -8,7 +8,6 @@ use App\Review;
 use Illuminate\Http\Request;
 class ReviewController extends Controller
 {
-    
     /**
      * Store a newly created resource in storage.
      *

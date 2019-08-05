@@ -34,7 +34,6 @@ class CommentsController extends Controller
         $updatingComment->comments = $request->input('comment');
         $updatingComment->save();
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -46,7 +45,6 @@ class CommentsController extends Controller
         $comment = Comment::find($id);
         $comment->delete();
     }
-
     public function fetchComments(Review $review)
     {
         /** @var Review */
