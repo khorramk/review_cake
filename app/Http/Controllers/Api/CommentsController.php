@@ -45,9 +45,13 @@ class CommentsController extends Controller
         $comment = Comment::find($id);
         $comment->delete();
     }
+    /**
+     * fetch all the comments for one spefic review
+     * @param Model $review
+     * @return \Illuminate\Http\Response
+     */
     public function fetchComments(Review $review)
     {
-        /** @var Review */
         return $review->comments;
     }
 }
