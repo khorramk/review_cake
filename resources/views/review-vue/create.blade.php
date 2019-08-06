@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
-      <p>{{$review->id}}</p> 
+<review-create></review-create>
 @endsection

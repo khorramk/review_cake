@@ -1,6 +1,5 @@
 <?php
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,20 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', 'ReviewController@welcome');
-
 Auth::routes();
 
-Route::middleware('auth')->group(function ()
-{
-    Route::resource('/review', 'ReviewController');
+Route::get('/reviews', 'app\IndexController@index');
 
-    Route::get('/review/user/{id}', 'ReviewController@usersReviews')->name('user.review');
-    Route::get('/review/{review}/comment/create', 'CommentController@create')->name('comment.create');
-    Route::resource('/review/comment', 'CommentController');
-    Route::get('/review/comment/{id}', 'CommentController@commentReviews');
-   // Route::get('/review/{id}', 'ReviewController@revie')
+Route::get('/reviews/create', 'ReviewController@create');
+Route::get('/reviews/{review}/edit', 'ReviewController@edit');
 
-});
+Route::get('/comments/create/{review}', 'CommentsController@create');
+Route::get('/comments/{comment}/edit', 'CommentsController@edit');
+
 

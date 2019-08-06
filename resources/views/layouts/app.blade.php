@@ -3,19 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name', 'review-cakes') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -52,33 +45,18 @@
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
-                                    
                                 </a>
-                                
-
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-                                    <a class="dropdown-item" href="/review"
-                                       >
+                                    <a class="dropdown-item" href="/reviews">
                                         Review
                                     </a>
-
-                                    <a class="dropdown-item" href="/review/user/{{ Auth::id()}}"
-                                        >
+                                    <a class="dropdown-item" href="/reviews/user/{{ Auth::id()}}">
                                             your reviews
                                     </a>
-                                    
-                                   
-                                
-
-
-                                    
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden-form">
                                         @csrf
                                     </form>
                                 </div>
@@ -88,13 +66,12 @@
                 </div>
             </div>
         </nav>
-
         <main class="py-4">
             <div class="container">
                     @yield('content')
             </div>
-            
         </main>
     </div>
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
