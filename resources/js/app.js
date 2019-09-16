@@ -38,6 +38,18 @@ export const app = new Vue({
             {
                 path: '/',
                 component: reviewsComponent
+            },
+            {
+                path: '/reviews/:id/edit',
+                component: reviewEdit
+            },
+            {
+                path: '/comments/:id/edit',
+                component: commentEdit
+            },
+            {
+                path: '/comments/create/:id',
+                component: commentCreate
             }
         ]
     }),

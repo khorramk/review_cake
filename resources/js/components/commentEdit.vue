@@ -18,7 +18,7 @@ export default {
     methods: {
         update(){
             this.isDisable = true;
-            axios.put(`/api/comments/${this.$props.commentId}`, {
+            axios.put(`/api/comments/${this.$route.params.id}`, {
                 comment: this.editBody,
             })
                 .then(()=> {

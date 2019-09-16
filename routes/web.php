@@ -20,9 +20,9 @@ Route::get('/{any}', function(){
 // Route::get('/reviews', 'app\IndexController@index');
 
 // Route::get('/reviews/create', 'ReviewController@create');
-Route::get('/reviews/{review}/edit', 'ReviewController@edit');
+// Route::get('/reviews/{review}/edit', 'ReviewController@edit');
 
-Route::get('/comments/create/{review}', 'CommentsController@create');
-Route::get('/comments/{comment}/edit', 'CommentsController@edit');
+// Route::get('/comments/create/{review}', 'CommentsController@create');
+// Route::get('/comments/{comment}/edit', 'CommentsController@edit');
 
 
