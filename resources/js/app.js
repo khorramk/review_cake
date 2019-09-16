@@ -11,6 +11,9 @@ import reviewsComponent from './components/reviewsComponent';
 import commentCreate from './components/commentCreate';
 import commentEdit from './components/commentEdit';
 import reviewEdit from './components/reviewEdit';
+import VueRouter from 'vue-router'
+
+Vue.use(VueRouter);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -23,13 +26,29 @@ import reviewEdit from './components/reviewEdit';
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-const app = new Vue({
+
+export const app = new Vue({
     el: '#app',
-    components: {
-        commentCreate,
-        commentEdit,
-        reviewCreate,
-        reviewEdit,
-        reviewsComponent
-    },
+    router: new VueRouter({
+        routes: [
+            {
+                path: '/reviews/create',
+                component: reviewCreate
+            },
+            {
+                path: '/',
+                component: reviewsComponent
+            }
+        ]
+    }),
+    // components: {
+    //     commentCreate,
+    //     commentEdit,
+    //     reviewCreate,
+    //     reviewEdit,
+    //     reviewsComponent
+    // },
 });
+
+
+

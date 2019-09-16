@@ -1,4 +1,4 @@
 @extends('layouts.app')
 @section('content')
-<reviews-component></reviews-component>
+<router-view></router-view>
 @endsection

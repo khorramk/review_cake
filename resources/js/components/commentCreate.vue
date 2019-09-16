@@ -24,9 +24,11 @@ export default {
         addComments(){
             this.isDisable = true;
             axios.post('/api/comments', {
-                reviewId: this.$props.reviewId,
+                reviewId: Window.location.pathname,
                 commentBody: this.commentBody
             }).then(()=> {
+                console.log(Window.location.pathname);
+                debugger;
                 window.location.href = '/reviews';
             });  
         }

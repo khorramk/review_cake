@@ -7,12 +7,20 @@
         "watch-poll": "npm run watch -- --watch-poll",
         "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
         "prod": "npm run production",
-        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "test": "jest"
     },
     "devDependencies": {
+        "@babel/core": "^7.6.0",
+        "@babel/preset-env": "^7.6.0",
+        "@vue/test-utils": "^1.0.0-beta.29",
         "axios": "^0.18",
+        "babel-core": "^7.0.0-0",
+        "babel-jest": "^24.9.0",
+        "babel-loader": "^7.1.5",
         "bootstrap": "^4.1.0",
         "cross-env": "^5.1",
+        "jest": "^24.9.0",
         "jquery": "^3.2",
         "laravel-mix": "^4.0.7",
         "lodash": "^4.17.13",
@@ -21,10 +29,31 @@
         "sass": "^1.15.2",
         "sass-loader": "^7.1.0",
         "vue": "^2.5.17",
+        "vue-jest": "^3.0.5",
+        "vue-router": "^3.1.3",
         "vue-template-compiler": "^2.6.10"
+    },
+    "jest": {
+        "moduleFileExtensions": [
+            "js",
+            "ts",
+            "json",
+            "vue"
+        ],
+        "transform": {
+            ".*\\.(vue)$": "vue-jest",
+            "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
+        },
+        "testURL": "http://localhost/",
+        "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(js?|tsx?)$"
     },
     "name": "review_cake",
     "version": "1.0.0",
     "main": "index.js",
-    "license": "MIT"
+    "license": "MIT",
+    "dependencies": {
+        "yarn": "^1.17.3"
+    },
+    "repository": "https://github.com/khorramk/review_cake.git",
+    "author": "khorramkho <52155201+khorramkho@users.noreply.github.com>"
 }

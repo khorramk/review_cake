@@ -5,7 +5,7 @@
                 <div class="card-header reviews-card__header">user review</div>
                 <Reviews :reviews="review" v-for="(review, i) in reviewsTest" :key="i" :review-id="review.id"/>
             </div>
-            <a href="/reviews/create"  class="review-card__link">+</a>
+            <router-link to="/reviews/create">+</router-link>
         </div>
     </div>
 </template>
@@ -22,9 +22,10 @@ export default ({
         axios.get('/api/cake-component/review')
             .then((response)=> this.reviewsTest = response.data)
             .catch((err)=> console.log(err));     
-        },
-    components:{
+    },
+    components: {
         Reviews
     }
 });
+
 </script>
