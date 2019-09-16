@@ -10,15 +10,19 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', 'ReviewController@welcome');
+
 Auth::routes();
 
-Route::get('/reviews', 'app\IndexController@index');
+Route::get('/{any}', function(){
+    return view('review-vue.review');
+})->where('any', '.*');
 
-Route::get('/reviews/create', 'ReviewController@create');
-Route::get('/reviews/{review}/edit', 'ReviewController@edit');
+// Route::get('/reviews', 'app\IndexController@index');
 
-Route::get('/comments/create/{review}', 'CommentsController@create');
-Route::get('/comments/{comment}/edit', 'CommentsController@edit');
+// Route::get('/reviews/create', 'ReviewController@create');
+// Route::get('/reviews/{review}/edit', 'ReviewController@edit');
+
+// Route::get('/comments/create/{review}', 'CommentsController@create');
+// Route::get('/comments/{comment}/edit', 'CommentsController@edit');
 
 
