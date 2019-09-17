@@ -1,11 +1,8 @@
  <template>
-     <div class="form-edit-container">
-         {{ reviewName }}
-        <form class="form-edit-container__form-edit-comments" @submit.prevent="update">
+        <form class="form-edit-container__form-edit-comments form-container" @submit.prevent="update">
             <textarea class="form-edit-container__form-edit-comments__body" v-model="editBody" id="" cols="30" rows="10"></textarea>
             <input :disabled="isDisable" class="form-edit-comments-btn" type="submit" value="add comments">
         </form>
-     </div>
 </template>
 <script>
 export default {

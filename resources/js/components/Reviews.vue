@@ -1,9 +1,8 @@
 <template>
-    <div>
         <div class="card-body reviews-card__body" v-show="$props.reviews.reviews">
             <div class="card reviews-card__single-review__wrapper">
                 <div class="card-body reviews-card__single-review">
-                    {{ this.$props.reviews.reviews }}
+                    {{this.$props.reviews.reviews}}
                     <router-link class="review-card__single-review_add-comment" :to="`/comments/create/${$props.reviewId}`">🗨</router-link>
                     <router-link class="review-card__single-review_edit-review" :to="`/reviews/${$props.reviewId}/edit`">🖉</router-link>
                     <form  class="review-card__single-review_remove-review" @submit.prevent="remove($props.reviewId)">
@@ -13,7 +12,6 @@
             </div>
             <CommentsComponent v-for="(comment, i) in comments" :key="i" :comment="comment" v-model="loading"/>
         </div>        
-    </div>
 </template>
 <script>
 import CommentsComponent from "./CommentsComponent";

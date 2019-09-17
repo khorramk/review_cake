@@ -1,12 +1,8 @@
 <template>
-    <div>
-        {{ review }}
-        <form @submit.prevent="editReview">
-            <textarea name="body" id="" cols="30" rows="10" v-model="editsReviews"></textarea>
-            <input type="hidden" :name="_csrf" value="token">
-            <input :disabled="isDisable" type="submit" value="edit review">
+        <form class="edit-form form-container" @submit.prevent="editReview">
+            <textarea class="edit-form__body" name="body" id="" cols="30" rows="10" v-model="editsReviews"></textarea>
+            <input class="edit-form__submit-btn" :disabled="isDisable" type="submit" value="edit review">
         </form>
-    </div>
 </template>
 <script>
 export default {
@@ -14,7 +10,6 @@ export default {
         return {
             editsReviews: '',
             isDisable: false,
-            _csrf: docum
         }
     },
     methods: {
