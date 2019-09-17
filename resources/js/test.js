@@ -1,27 +1,31 @@
 //test.js
-
-import {mount, RouterLinkStub} from '@vue/test-utils';
-import { app } from './app';
+import { mount, shallowMount } from '@vue/test-utils';
 import reviewsComponent from './components/reviewsComponent';
+import axios from 'axios';
+jest.mock('axios');
 
-const wrapper = mount(app);
 
-const vm = wrapper.vm 
-
-console.log(wrapper)
-
-describe('Review-Create-Post-Link', ()=> {
+describe('Review-Component', ()=> {
     
-    console.log(reviewsComponent);
-    it('upon clicking redirect to correct uri', ()=>{
+    it('wrapper name should be reviewsComponent',  ()=> {
+      //name defining
+      const wrapper = mount(reviewsComponent);
+    //  const reviewsList = axios.get('/cake-component/review').then
+      wrapper.setMethods({getRequest: ()=> {
+        return ['cakes']
+      }})
     
-        const wrapper = mount(reviewsComponent, {
-            stubs: {
-              RouterLink: RouterLinkStub
-            }
-          })
-          expect(wrapper.find(RouterLinkStub).to).toBe('/reviews/create')
-    }
-    )
+    });
+
+    it('data should have reviewList array',  ()=> {
+      //settingData
+      const wrapper = mount(reviewsComponent);
+      const vm = wrapper.vm;
+
+      expect(vm.$data.reviewsList.value).toBe([]);
+     
+     
+    })
+
    
 });
