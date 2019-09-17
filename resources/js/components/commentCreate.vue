@@ -1,10 +1,8 @@
 <template>
-    <div class="comment-create__container">
-        <form @submit.prevent="addComments" class="comment-create__container__create-comment-form" >
-            <textarea class="comment-create__container__create-comment-form__body" name="comment" id="" cols="30" rows="10"  v-model="commentBody"></textarea>
-            <button :disabled="isDisable" class="comment-create__container__create-comment-form__submit-btn" name="Submit" type="submit" value="add comments">Submit</button>
+        <form @submit.prevent="addComments" class="create-comment-form form-container">
+            <textarea class="create-comment-form__body" name="comment" id="" cols="30" rows="10"  v-model="commentBody"></textarea>
+            <button :disabled="isDisable" class="create-comment-form__submit-btn" name="Submit" type="submit" value="add comments">Submit</button>
         </form>
-    </div>
 </template>
 <script>
 export default {
@@ -13,12 +11,6 @@ export default {
             commentBody: '',
             isDisable: false
         }
-    },
-    props: {
-        reviewId: {
-            default: null,
-            type: Number
-        },
     },
     methods: {
         addComments(){
