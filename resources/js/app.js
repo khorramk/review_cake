@@ -11,7 +11,7 @@ import reviewsComponent from './components/reviewsComponent';
 import commentCreate from './components/commentCreate';
 import commentEdit from './components/commentEdit';
 import reviewEdit from './components/reviewEdit';
-import VueRouter from 'vue-router'
+import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 /**

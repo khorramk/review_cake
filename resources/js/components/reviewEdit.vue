@@ -1,6 +1,6 @@
 <template>
         <form class="edit-form form-container" @submit.prevent="editReview">
-            <textarea class="edit-form__body" name="body" id="" cols="30" rows="10" v-model="editsReviews"></textarea>
+            <textarea class="edit-form__body" name="body" id="" cols="30" rows="10" v-model="reviewsEdits"></textarea>
             <input class="edit-form__submit-btn" :disabled="isDisable" type="submit" value="edit review">
         </form>
 </template>
@@ -8,7 +8,7 @@
 export default {
     data() {
         return {
-            editsReviews: '',
+            reviewsEdits: '',
             isDisable: false,
         }
     },
@@ -21,15 +21,5 @@ export default {
             this.isDisable = true;
         }
     },
-    props: {
-        review: {
-            default: null,
-            type: String
-        },
-        id: {
-            default: null,
-            type: Number
-        }
-    }
 }
 </script>

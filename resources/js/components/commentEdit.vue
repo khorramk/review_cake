@@ -22,17 +22,6 @@ export default {
                     window.location.href = '/reviews';
                 })
                 .catch((err)=> console.log(err));
-            
-        }
-    },
-    props: {
-        commentId: {
-            default: 0,
-            type: Number
-        },
-        reviewName: {
-            default: '',
-            type: String
         }
     }
 };

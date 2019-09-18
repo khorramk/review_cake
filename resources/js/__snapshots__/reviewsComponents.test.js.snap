@@ -1,0 +1,171 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders link 1`] = `
+Vue {
+  "$attrs": Object {},
+  "$children": Array [],
+  "$createElement": [Function],
+  "$listeners": Object {},
+  "$options": Object {
+    "_base": [Function],
+    "components": Object {
+      "Reviews": Object {
+        "components": Object {
+          "CommentsComponent": Object {
+            "data": [Function],
+            "methods": Object {
+              "submit": [Function],
+            },
+            "props": Object {
+              "comment": Object {
+                "default": [Function],
+                "type": [Function],
+              },
+            },
+            "render": [Function],
+            "staticRenderFns": Array [],
+          },
+        },
+        "data": [Function],
+        "methods": Object {
+          "remove": [Function],
+        },
+        "mounted": [Function],
+        "props": Object {
+          "reviewId": Object {
+            "default": 0,
+            "type": [Function],
+          },
+          "reviews": Object {
+            "default": [Function],
+            "type": [Function],
+          },
+        },
+        "render": [Function],
+        "staticRenderFns": Array [],
+      },
+    },
+    "data": [Function],
+    "directives": Object {},
+    "filters": Object {},
+    "mounted": Array [
+      [Function],
+    ],
+    "render": [Function],
+    "staticRenderFns": Array [],
+  },
+  "$parent": undefined,
+  "$refs": Object {},
+  "$root": [Circular],
+  "$scopedSlots": Object {},
+  "$slots": Object {},
+  "$vnode": undefined,
+  "_c": [Function],
+  "_data": Object {
+    "reviewsList": Array [
+      Object {},
+    ],
+  },
+  "_directInactive": false,
+  "_events": Object {},
+  "_hasHookEvent": false,
+  "_inactive": null,
+  "_isBeingDestroyed": false,
+  "_isDestroyed": false,
+  "_isMounted": false,
+  "_isVue": true,
+  "_renderProxy": Vue {
+    "$attrs": Object {},
+    "$children": Array [],
+    "$createElement": [Function],
+    "$listeners": Object {},
+    "$options": Object {
+      "_base": [Function],
+      "components": Object {
+        "Reviews": Object {
+          "components": Object {
+            "CommentsComponent": Object {
+              "data": [Function],
+              "methods": Object {
+                "submit": [Function],
+              },
+              "props": Object {
+                "comment": Object {
+                  "default": [Function],
+                  "type": [Function],
+                },
+              },
+              "render": [Function],
+              "staticRenderFns": Array [],
+            },
+          },
+          "data": [Function],
+          "methods": Object {
+            "remove": [Function],
+          },
+          "mounted": [Function],
+          "props": Object {
+            "reviewId": Object {
+              "default": 0,
+              "type": [Function],
+            },
+            "reviews": Object {
+              "default": [Function],
+              "type": [Function],
+            },
+          },
+          "render": [Function],
+          "staticRenderFns": Array [],
+        },
+      },
+      "data": [Function],
+      "directives": Object {},
+      "filters": Object {},
+      "mounted": Array [
+        [Function],
+      ],
+      "render": [Function],
+      "staticRenderFns": Array [],
+    },
+    "$parent": undefined,
+    "$refs": Object {},
+    "$root": [Circular],
+    "$scopedSlots": Object {},
+    "$slots": Object {},
+    "$vnode": undefined,
+    "_c": [Function],
+    "_data": Object {
+      "reviewsList": Array [
+        Object {},
+      ],
+    },
+    "_directInactive": false,
+    "_events": Object {},
+    "_hasHookEvent": false,
+    "_inactive": null,
+    "_isBeingDestroyed": false,
+    "_isDestroyed": false,
+    "_isMounted": false,
+    "_isVue": true,
+    "_renderProxy": [Circular],
+    "_self": [Circular],
+    "_staticTrees": null,
+    "_uid": 1,
+    "_vnode": null,
+    "_watcher": null,
+    "_watchers": Array [],
+    "reviewsList": Array [
+      Object {},
+    ],
+  },
+  "_self": [Circular],
+  "_staticTrees": null,
+  "_uid": 1,
+  "_vnode": null,
+  "_watcher": null,
+  "_watchers": Array [],
+  "reviewsList": Array [
+    Object {},
+  ],
+}
+`;

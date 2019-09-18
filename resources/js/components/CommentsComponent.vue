@@ -25,7 +25,9 @@ export default {
     },
     props: {
         comment: {
-            default: {},
+            default() {
+                return {}
+            },
             type: Object
         }
     }

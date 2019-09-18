@@ -1,0 +1,189 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the elements 1`] = `
+Vue {
+  "$attrs": Object {},
+  "$children": Array [],
+  "$createElement": [Function],
+  "$listeners": Object {},
+  "$options": Object {
+    "_base": [Function],
+    "_propKeys": Array [
+      "reviews",
+      "reviewId",
+    ],
+    "components": Object {
+      "CommentsComponent": Object {
+        "data": [Function],
+        "methods": Object {
+          "submit": [Function],
+        },
+        "props": Object {
+          "comment": Object {
+            "default": [Function],
+            "type": [Function],
+          },
+        },
+        "render": [Function],
+        "staticRenderFns": Array [],
+      },
+    },
+    "data": [Function],
+    "directives": Object {},
+    "filters": Object {},
+    "methods": Object {
+      "remove": [Function],
+    },
+    "mounted": Array [
+      [Function],
+    ],
+    "props": Object {
+      "reviewId": Object {
+        "default": 0,
+        "type": [Function],
+      },
+      "reviews": Object {
+        "default": [Function],
+        "type": [Function],
+      },
+    },
+    "render": [Function],
+    "staticRenderFns": Array [],
+  },
+  "$parent": undefined,
+  "$refs": Object {},
+  "$root": [Circular],
+  "$scopedSlots": Object {},
+  "$slots": Object {},
+  "$vnode": undefined,
+  "_c": [Function],
+  "_data": Object {
+    "comments": Array [
+      Object {},
+    ],
+    "error": false,
+    "isDisable": false,
+    "loading": true,
+  },
+  "_directInactive": false,
+  "_events": Object {},
+  "_hasHookEvent": false,
+  "_inactive": null,
+  "_isBeingDestroyed": false,
+  "_isDestroyed": false,
+  "_isMounted": false,
+  "_isVue": true,
+  "_props": Object {
+    "reviewId": 0,
+    "reviews": Object {},
+  },
+  "_renderProxy": Vue {
+    "$attrs": Object {},
+    "$children": Array [],
+    "$createElement": [Function],
+    "$listeners": Object {},
+    "$options": Object {
+      "_base": [Function],
+      "_propKeys": Array [
+        "reviews",
+        "reviewId",
+      ],
+      "components": Object {
+        "CommentsComponent": Object {
+          "data": [Function],
+          "methods": Object {
+            "submit": [Function],
+          },
+          "props": Object {
+            "comment": Object {
+              "default": [Function],
+              "type": [Function],
+            },
+          },
+          "render": [Function],
+          "staticRenderFns": Array [],
+        },
+      },
+      "data": [Function],
+      "directives": Object {},
+      "filters": Object {},
+      "methods": Object {
+        "remove": [Function],
+      },
+      "mounted": Array [
+        [Function],
+      ],
+      "props": Object {
+        "reviewId": Object {
+          "default": 0,
+          "type": [Function],
+        },
+        "reviews": Object {
+          "default": [Function],
+          "type": [Function],
+        },
+      },
+      "render": [Function],
+      "staticRenderFns": Array [],
+    },
+    "$parent": undefined,
+    "$refs": Object {},
+    "$root": [Circular],
+    "$scopedSlots": Object {},
+    "$slots": Object {},
+    "$vnode": undefined,
+    "_c": [Function],
+    "_data": Object {
+      "comments": Array [
+        Object {},
+      ],
+      "error": false,
+      "isDisable": false,
+      "loading": true,
+    },
+    "_directInactive": false,
+    "_events": Object {},
+    "_hasHookEvent": false,
+    "_inactive": null,
+    "_isBeingDestroyed": false,
+    "_isDestroyed": false,
+    "_isMounted": false,
+    "_isVue": true,
+    "_props": Object {
+      "reviewId": 0,
+      "reviews": Object {},
+    },
+    "_renderProxy": [Circular],
+    "_self": [Circular],
+    "_staticTrees": null,
+    "_uid": 1,
+    "_vnode": null,
+    "_watcher": null,
+    "_watchers": Array [],
+    "comments": Array [
+      Object {},
+    ],
+    "error": false,
+    "isDisable": false,
+    "loading": true,
+    "remove": [Function],
+    "reviewId": 0,
+    "reviews": Object {},
+  },
+  "_self": [Circular],
+  "_staticTrees": null,
+  "_uid": 1,
+  "_vnode": null,
+  "_watcher": null,
+  "_watchers": Array [],
+  "comments": Array [
+    Object {},
+  ],
+  "error": false,
+  "isDisable": false,
+  "loading": true,
+  "remove": [Function],
+  "reviewId": 0,
+  "reviews": Object {},
+}
+`;

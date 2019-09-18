@@ -5,7 +5,7 @@
                     {{this.$props.reviews.reviews}}
                     <router-link class="review-card__single-review_add-comment" :to="`/comments/create/${$props.reviewId}`">🗨</router-link>
                     <router-link class="review-card__single-review_edit-review" :to="`/reviews/${$props.reviewId}/edit`">🖉</router-link>
-                    <form  class="review-card__single-review_remove-review" @submit.prevent="remove($props.reviewId)">
+                    <form  class="review-card__single-review_remove-review" v-on:submit.prevent="remove($props.reviewId)">
                         <button :disabled="isDisable" type="submit" class="button-remove">⨯</button>
                     </form>
                 </div>
@@ -18,7 +18,7 @@ import CommentsComponent from "./CommentsComponent";
 export default {
     data() {
         return {
-            comments: '',
+            comments: [{}],
             error: false,
             isDisable: false,
             loading: true
@@ -26,7 +26,9 @@ export default {
     },
     props: {
         reviews: {
-            default: {},
+            default() {
+                return {}
+            },
             type: Object
         },
         reviewId: {
