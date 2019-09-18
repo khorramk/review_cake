@@ -20,7 +20,7 @@ export default ({
         };
     },
     mounted(){
-        axios.get('/api/cake-component/review')
+        axios.get('/api/reviews')
             .then((response)=> this.reviewsList = response.data)
             .catch((err)=> console.log(err));     
     },

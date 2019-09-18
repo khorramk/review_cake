@@ -19,15 +19,18 @@ export default {
     methods: {
         submit(id){  
             this.isDisable = true;
-            axios.delete(`/api/comments/${id}`)
+            axios({
+                url: `/api/comments/${id}`,
+                method: 'delete',
+                params: {
+                    id
+                }
+            })
                  .then(()=> window.location.href = '/reviews');
         },
     },
     props: {
         comment: {
-            default() {
-                return {}
-            },
             type: Object
         }
     }

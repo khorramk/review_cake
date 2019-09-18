@@ -40,3 +40,12 @@ it('renders the elements', () => {
      expect(vm).toMatchSnapshot();
     }).catch().finally();
   })
+
+  test('test async request using axios and return the path params', () => {
+      vm.$nextTick().then(()=>{
+          const routeObject = {
+              id : vm.reviewId
+          }
+          expect(typeof vm.$route.params.id).toMatchObjects(routeObject);
+      }).catch().finally()
+  });
