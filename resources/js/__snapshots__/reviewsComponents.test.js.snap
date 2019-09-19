@@ -18,7 +18,9 @@ Vue {
             },
             "props": Object {
               "comment": Object {
-                "default": [Function],
+                "type": [Function],
+              },
+              "reviewId": Object {
                 "type": [Function],
               },
             },
@@ -30,13 +32,12 @@ Vue {
         "methods": Object {
           "remove": [Function],
         },
-        "mounted": [Function],
         "props": Object {
-          "reviewId": Object {
-            "default": 0,
+          "comments": Object {
+            "default": [Function],
             "type": [Function],
           },
-          "reviews": Object {
+          "review": Object {
             "default": [Function],
             "type": [Function],
           },
@@ -91,7 +92,9 @@ Vue {
               },
               "props": Object {
                 "comment": Object {
-                  "default": [Function],
+                  "type": [Function],
+                },
+                "reviewId": Object {
                   "type": [Function],
                 },
               },
@@ -103,13 +106,12 @@ Vue {
           "methods": Object {
             "remove": [Function],
           },
-          "mounted": [Function],
           "props": Object {
-            "reviewId": Object {
-              "default": 0,
+            "comments": Object {
+              "default": [Function],
               "type": [Function],
             },
-            "reviews": Object {
+            "review": Object {
               "default": [Function],
               "type": [Function],
             },

@@ -1,5 +1,5 @@
 <template>
-    <div class="col comments-card_single-comments__wrapper border border-dark shadow-sm">
+    <div class="col comments-card_single-comments__wrapper border border-dark shadow-sm" v-if="comment.review_id === $props.reviewId">
         <div class="card-body comment-card__single-card" >
             {{this.$props.comment.comments}}
             <router-link class="comment-card__single-card__router-link" :to="`/comments/${$props.comment.id}/edit`">🖉</router-link>
@@ -32,6 +32,9 @@ export default {
     props: {
         comment: {
             type: Object
+        },
+        reviewId: {
+            type: Number
         }
     }
 };

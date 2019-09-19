@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Review;
+use App\Comment;
 use App\User;
 class ReviewController extends Controller
 {
@@ -16,7 +17,8 @@ class ReviewController extends Controller
     public function index()
     {
         $review = Review::all();
-        return $review;
+        $comments = Comment::all();
+        return ['review' => $review, 'comments' => $comments];
     }
 
     /**
@@ -27,7 +29,8 @@ class ReviewController extends Controller
      */
     public function show($id)
     {
-        
+        dd('test');
+        return ['test'=> null];
     }
 
      /**
@@ -51,6 +54,7 @@ class ReviewController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         $updateReview = Review::find($id);
         $updateReview->reviews = $request->input('reviewsEdits');
         $updateReview->save();

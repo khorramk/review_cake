@@ -9,8 +9,8 @@ Vue {
   "$options": Object {
     "_base": [Function],
     "_propKeys": Array [
-      "reviews",
-      "reviewId",
+      "review",
+      "comments",
     ],
     "components": Object {
       "CommentsComponent": Object {
@@ -20,7 +20,9 @@ Vue {
         },
         "props": Object {
           "comment": Object {
-            "default": [Function],
+            "type": [Function],
+          },
+          "reviewId": Object {
             "type": [Function],
           },
         },
@@ -34,15 +36,12 @@ Vue {
     "methods": Object {
       "remove": [Function],
     },
-    "mounted": Array [
-      [Function],
-    ],
     "props": Object {
-      "reviewId": Object {
-        "default": 0,
+      "comments": Object {
+        "default": [Function],
         "type": [Function],
       },
-      "reviews": Object {
+      "review": Object {
         "default": [Function],
         "type": [Function],
       },
@@ -58,9 +57,6 @@ Vue {
   "$vnode": undefined,
   "_c": [Function],
   "_data": Object {
-    "comments": Array [
-      Object {},
-    ],
     "error": false,
     "isDisable": false,
     "loading": true,
@@ -74,8 +70,8 @@ Vue {
   "_isMounted": false,
   "_isVue": true,
   "_props": Object {
-    "reviewId": 0,
-    "reviews": Object {},
+    "comments": Array [],
+    "review": Object {},
   },
   "_renderProxy": Vue {
     "$attrs": Object {},
@@ -85,8 +81,8 @@ Vue {
     "$options": Object {
       "_base": [Function],
       "_propKeys": Array [
-        "reviews",
-        "reviewId",
+        "review",
+        "comments",
       ],
       "components": Object {
         "CommentsComponent": Object {
@@ -96,7 +92,9 @@ Vue {
           },
           "props": Object {
             "comment": Object {
-              "default": [Function],
+              "type": [Function],
+            },
+            "reviewId": Object {
               "type": [Function],
             },
           },
@@ -110,15 +108,12 @@ Vue {
       "methods": Object {
         "remove": [Function],
       },
-      "mounted": Array [
-        [Function],
-      ],
       "props": Object {
-        "reviewId": Object {
-          "default": 0,
+        "comments": Object {
+          "default": [Function],
           "type": [Function],
         },
-        "reviews": Object {
+        "review": Object {
           "default": [Function],
           "type": [Function],
         },
@@ -134,9 +129,6 @@ Vue {
     "$vnode": undefined,
     "_c": [Function],
     "_data": Object {
-      "comments": Array [
-        Object {},
-      ],
       "error": false,
       "isDisable": false,
       "loading": true,
@@ -150,8 +142,8 @@ Vue {
     "_isMounted": false,
     "_isVue": true,
     "_props": Object {
-      "reviewId": 0,
-      "reviews": Object {},
+      "comments": Array [],
+      "review": Object {},
     },
     "_renderProxy": [Circular],
     "_self": [Circular],
@@ -160,15 +152,12 @@ Vue {
     "_vnode": null,
     "_watcher": null,
     "_watchers": Array [],
-    "comments": Array [
-      Object {},
-    ],
+    "comments": Array [],
     "error": false,
     "isDisable": false,
     "loading": true,
     "remove": [Function],
-    "reviewId": 0,
-    "reviews": Object {},
+    "review": Object {},
   },
   "_self": [Circular],
   "_staticTrees": null,
@@ -176,14 +165,11 @@ Vue {
   "_vnode": null,
   "_watcher": null,
   "_watchers": Array [],
-  "comments": Array [
-    Object {},
-  ],
+  "comments": Array [],
   "error": false,
   "isDisable": false,
   "loading": true,
   "remove": [Function],
-  "reviewId": 0,
-  "reviews": Object {},
+  "review": Object {},
 }
 `;

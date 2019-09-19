@@ -3,7 +3,7 @@
         <div class="col-md-8 reviews-container__content">
             <div class="card reviews-container__content__review-card">
                 <div class="card-header reviews-card__header">user review</div>
-                <Reviews :reviews="review" v-for="(review, i) in reviewsList" :key="i" :review-id="review.id"/>
+                <Reviews :review="review"  v-for="(review, i) in reviewsList.review" :key="i" :id="review.id" :comments="reviewsList.comments"/>
             </div>
             <router-link class="review__router-link" to="/reviews/create">+</router-link>
         </div>
