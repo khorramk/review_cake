@@ -5,8 +5,8 @@
                     {{this.$props.reviews.reviews}}
                     <router-link class="review-card__single-review_add-comment" :to="`/comments/create/${$props.reviewId}`">🗨</router-link>
                     <router-link class="review-card__single-review_edit-review" :to="`/reviews/${$props.reviewId}/edit`">🖉</router-link>
-                    <form  class="review-card__single-review_remove-review" @submit.prevent="remove($props.reviewId)">
-                        <button :disabled="isDisable" type="submit" class="button-remove">⨯</button>
+                    <form  class="review-card__single-review_remove-review" @submit.prevent="$store.commit('removeReview', $props.reviewId)">
+                        <button :disabled="this.$store.state.isDisable" type="submit" class="button-remove">⨯</button>
                     </form>
                 </div>
             </div>
@@ -24,11 +24,6 @@ export default {
         reviewId: {
             default: 0,
             type: Number
-        }
-    },
-    computed: {
-        remove(id){
-            return this.$store.commit('removeReview', id);
         }
     },
     components: {

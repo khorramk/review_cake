@@ -13,7 +13,7 @@ import commentEdit from './components/commentEdit';
 import reviewEdit from './components/reviewEdit';
 import VueRouter from 'vue-router'
 import Vuex from 'vuex';
-import { store } from './store';
+import { store } from './store/store';
 
 Vue.use(Vuex)
 Vue.use(VueRouter);
