@@ -11,18 +11,7 @@
 </template>
 <script>
 export default {
-    data() {
-        return {
-            isDisable: false
-        };
-    },
-    methods: {
-        submit(id){  
-            this.isDisable = true;
-            axios.delete(`/api/comments/${id}`)
-                 .then(()=> window.location.href = '/reviews');
-        },
-    },
+
     props: {
         comment: {
             default: {},

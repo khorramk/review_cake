@@ -7,24 +7,7 @@
 </template>
 <script>
 export default {
-    data(){
-        return {
-            isDisable: false,
-            reviewCreation: ''
-        };
-    },
-    methods: {
-        checkform(){
-            this.isDisable = true;
-            axios.post('/api/reviews',{
-                reviewCreation: this.reviewCreation,
-                })
-                .then(()=> {
-                    window.location.href = '/reviews';
-                })
-                .catch((err)=> console.log(err));
-        }
-    }
+   
 };
 </script>
 

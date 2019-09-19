@@ -16,14 +16,6 @@
 <script>
 import CommentsComponent from "./CommentsComponent";
 export default {
-    data() {
-        return {
-            comments: '',
-            error: false,
-            isDisable: false,
-            loading: true
-        }
-    },
     props: {
         reviews: {
             default: {},
@@ -34,26 +26,10 @@ export default {
             type: Number
         }
     },
-    mounted(){
-        axios.get(`/api/cake-component/comments/${this.$props.reviewId}`)
-            .then((resp)=> {
-                if(resp.data.length === 0){
-                    this.comments = '';
-                };
-                this.comments = resp.data;
-            })
-            .catch(err => this.error = true)
-            .finally(()=> this.loading = false);
-    },
-    methods: {
+    computed: {
         remove(id){
-            this.isDisable = true;
-            axios.delete(`/api/reviews/${id}`, {
-                id
-            }).then(()=> {
-                window.location.href= '/reviews';
-            });       
-        },
+            return this.$store.commit('removeReview', id);
+        }
     },
     components: {
         CommentsComponent

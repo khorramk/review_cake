@@ -12,7 +12,10 @@ import commentCreate from './components/commentCreate';
 import commentEdit from './components/commentEdit';
 import reviewEdit from './components/reviewEdit';
 import VueRouter from 'vue-router'
+import Vuex from 'vuex';
+import { store } from './store';
 
+Vue.use(Vuex)
 Vue.use(VueRouter);
 /**
  * The following block of code may be used to automatically register your
@@ -29,6 +32,7 @@ Vue.use(VueRouter);
 
 export const app = new Vue({
     el: '#app',
+    store,
     router: new VueRouter({
         routes: [
             {

@@ -6,23 +6,7 @@
 </template>
 <script>
 export default {
-    data(){
-        return {
-            commentBody: '',
-            isDisable: false
-        }
-    },
-    methods: {
-        addComments(){
-            this.isDisable = true;
-            axios.post('/api/comments', {
-                reviewId: this.$route.params.id,
-                commentBody: this.commentBody
-            }).then(()=> {
-                window.location.href = '/reviews';
-            });  
-        }
-    }
+   
 };
 </script>
 

@@ -6,30 +6,6 @@
 </template>
 <script>
 export default {
-    data() {
-        return {
-            editsReviews: '',
-            isDisable: false,
-        }
-    },
-    methods: {
-        editReview() {
-            axios.put(`/api/reviews/${this.$route.params.id}`, {
-                reviewId: this.$route.params.id,
-                reviewsEdits: this.editsReviews
-            }).then(() => window.location.href = '/reviews');
-            this.isDisable = true;
-        }
-    },
-    props: {
-        review: {
-            default: null,
-            type: String
-        },
-        id: {
-            default: null,
-            type: Number
-        }
-    }
+    
 }
 </script>

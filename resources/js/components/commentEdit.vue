@@ -6,34 +6,6 @@
 </template>
 <script>
 export default {
-    data(){
-        return {
-            editBody: '',
-            isDisable: false
-        };
-    },
-    methods: {
-        update(){
-            this.isDisable = true;
-            axios.put(`/api/comments/${this.$route.params.id}`, {
-                comment: this.editBody,
-            })
-                .then(()=> {
-                    window.location.href = '/reviews';
-                })
-                .catch((err)=> console.log(err));
-            
-        }
-    },
-    props: {
-        commentId: {
-            default: 0,
-            type: Number
-        },
-        reviewName: {
-            default: '',
-            type: String
-        }
-    }
+    
 };
 </script>
