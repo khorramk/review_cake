@@ -1,0 +1,153 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders link 1`] = `
+Vue {
+  "$attrs": Object {},
+  "$children": Array [],
+  "$createElement": [Function],
+  "$listeners": Object {},
+  "$options": Object {
+    "_base": [Function],
+    "components": Object {
+      "Reviews": Object {
+        "components": Object {
+          "CommentsComponent": Object {
+            "methods": Object {
+              "deleteComments": [Function],
+            },
+            "props": Object {
+              "comment": Object {
+                "type": [Function],
+              },
+              "reviewId": Object {
+                "type": [Function],
+              },
+            },
+            "render": [Function],
+            "staticRenderFns": Array [],
+          },
+        },
+        "methods": Object {
+          "removeReview": [Function],
+        },
+        "props": Object {
+          "comments": Object {
+            "default": [Function],
+            "type": [Function],
+          },
+          "reviews": Object {
+            "default": [Function],
+            "type": [Function],
+          },
+        },
+        "render": [Function],
+        "staticRenderFns": Array [],
+      },
+    },
+    "directives": Object {},
+    "filters": Object {},
+    "mounted": Array [
+      [Function],
+    ],
+    "render": [Function],
+    "staticRenderFns": Array [],
+  },
+  "$parent": undefined,
+  "$refs": Object {},
+  "$root": [Circular],
+  "$scopedSlots": Object {},
+  "$slots": Object {},
+  "$vnode": undefined,
+  "_c": [Function],
+  "_data": Object {},
+  "_directInactive": false,
+  "_events": Object {},
+  "_hasHookEvent": false,
+  "_inactive": null,
+  "_isBeingDestroyed": false,
+  "_isDestroyed": false,
+  "_isMounted": false,
+  "_isVue": true,
+  "_renderProxy": Vue {
+    "$attrs": Object {},
+    "$children": Array [],
+    "$createElement": [Function],
+    "$listeners": Object {},
+    "$options": Object {
+      "_base": [Function],
+      "components": Object {
+        "Reviews": Object {
+          "components": Object {
+            "CommentsComponent": Object {
+              "methods": Object {
+                "deleteComments": [Function],
+              },
+              "props": Object {
+                "comment": Object {
+                  "type": [Function],
+                },
+                "reviewId": Object {
+                  "type": [Function],
+                },
+              },
+              "render": [Function],
+              "staticRenderFns": Array [],
+            },
+          },
+          "methods": Object {
+            "removeReview": [Function],
+          },
+          "props": Object {
+            "comments": Object {
+              "default": [Function],
+              "type": [Function],
+            },
+            "reviews": Object {
+              "default": [Function],
+              "type": [Function],
+            },
+          },
+          "render": [Function],
+          "staticRenderFns": Array [],
+        },
+      },
+      "directives": Object {},
+      "filters": Object {},
+      "mounted": Array [
+        [Function],
+      ],
+      "render": [Function],
+      "staticRenderFns": Array [],
+    },
+    "$parent": undefined,
+    "$refs": Object {},
+    "$root": [Circular],
+    "$scopedSlots": Object {},
+    "$slots": Object {},
+    "$vnode": undefined,
+    "_c": [Function],
+    "_data": Object {},
+    "_directInactive": false,
+    "_events": Object {},
+    "_hasHookEvent": false,
+    "_inactive": null,
+    "_isBeingDestroyed": false,
+    "_isDestroyed": false,
+    "_isMounted": false,
+    "_isVue": true,
+    "_renderProxy": [Circular],
+    "_self": [Circular],
+    "_staticTrees": null,
+    "_uid": 1,
+    "_vnode": null,
+    "_watcher": null,
+    "_watchers": Array [],
+  },
+  "_self": [Circular],
+  "_staticTrees": null,
+  "_uid": 1,
+  "_vnode": null,
+  "_watcher": null,
+  "_watchers": Array [],
+}
+`;

@@ -15,6 +15,7 @@ import VueRouter from 'vue-router'
 import Vuex from 'vuex';
 import { store } from './store/store';
 
+
 Vue.use(Vuex)
 Vue.use(VueRouter);
 /**
@@ -32,7 +33,6 @@ Vue.use(VueRouter);
 
 export const app = new Vue({
     el: '#app',
-    store,
     router: new VueRouter({
         routes: [
             {
@@ -57,13 +57,7 @@ export const app = new Vue({
             }
         ]
     }),
-    // components: {
-    //     commentCreate,
-    //     commentEdit,
-    //     reviewCreate,
-    //     reviewEdit,
-    //     reviewsComponent
-    // },
+    store
 });
 
 

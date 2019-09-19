@@ -58,5 +58,6 @@
         "yarn": "^1.17.3"
     },
     "repository": "https://github.com/khorramk/review_cake.git",
-    "author": "khorramkho <52155201+khorramkho@users.noreply.github.com>"
+    "author": "khorramkho <52155201+khorramkho@users.noreply.github.com>",
+    "description": "a post and comments project"
 }

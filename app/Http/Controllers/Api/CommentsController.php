@@ -1,13 +1,39 @@
 <?php
 
-namespace App\Http\Controllers\api;
+namespace App\Http\Controllers\API;
 
-use App\Http\Controllers\Controller;
-use App\Comment;
-use App\Review;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Review;
+use App\Comment;
 class CommentsController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        //
+       
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+        $review = Review::find($id);
+        
+        return $review->comments;
+       
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -45,13 +71,5 @@ class CommentsController extends Controller
         $comment = Comment::find($id);
         $comment->delete();
     }
-    /**
-     * fetch all the comments for one spefic review
-     * @param Model $review
-     * @return \Illuminate\Http\Response
-     */
-    public function fetchComments(Review $review)
-    {
-        return $review->comments;
-    }
+    
 }

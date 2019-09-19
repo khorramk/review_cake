@@ -17,6 +17,7 @@ Route::get('/{any}', function(){
     return view('review-vue.review');
 })->where('any', '.*');
 
+
 // Route::get('/reviews', 'app\IndexController@index');
 
 // Route::get('/reviews/create', 'ReviewController@create');

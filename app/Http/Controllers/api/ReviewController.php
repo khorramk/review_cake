@@ -1,14 +1,39 @@
 <?php
 
-namespace App\Http\Controllers\api;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use App\Comment;
-use App\Review;
+namespace App\Http\Controllers\API;
+
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Review;
+use App\Comment;
+use App\User;
 class ReviewController extends Controller
 {
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $review = Review::all();
+        $comments = Comment::all();
+        return ['review' => $review, 'comments' => $comments];
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        dd('test');
+        return ['test'=> null];
+    }
+
+     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -29,6 +54,7 @@ class ReviewController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         $updateReview = Review::find($id);
         $updateReview->reviews = $request->input('reviewsEdits');
         $updateReview->save();
