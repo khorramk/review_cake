@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders link 1`] = `
+exports[`renders component and match snapshots 1`] = `
 Vue {
   "$attrs": Object {},
   "$children": Array [],
@@ -138,14 +138,14 @@ Vue {
     "_renderProxy": [Circular],
     "_self": [Circular],
     "_staticTrees": null,
-    "_uid": 1,
+    "_uid": 0,
     "_vnode": null,
     "_watcher": null,
     "_watchers": Array [],
   },
   "_self": [Circular],
   "_staticTrees": null,
-  "_uid": 1,
+  "_uid": 0,
   "_vnode": null,
   "_watcher": null,
   "_watchers": Array [],

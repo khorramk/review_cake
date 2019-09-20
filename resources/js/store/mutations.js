@@ -8,6 +8,6 @@ export const mutations = {
    },
    //set the button to be disabled
    disableButton(state){
-       state.isdiable = true;
+       state.isDisable = true;
    }
 }

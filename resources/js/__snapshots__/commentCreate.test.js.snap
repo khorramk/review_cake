@@ -29,11 +29,7 @@ Vue {
     "comments": "",
   },
   "_directInactive": false,
-  "_events": Object {
-    "submit": Array [
-      [Function],
-    ],
-  },
+  "_events": Object {},
   "_hasHookEvent": false,
   "_inactive": null,
   "_isBeingDestroyed": false,
@@ -68,11 +64,7 @@ Vue {
       "comments": "",
     },
     "_directInactive": false,
-    "_events": Object {
-      "submit": Array [
-        [Function],
-      ],
-    },
+    "_events": Object {},
     "_hasHookEvent": false,
     "_inactive": null,
     "_isBeingDestroyed": false,
