@@ -1,7 +1,6 @@
 <?php
 
-use App\Comment;
-use \App\Review;
+
 use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------

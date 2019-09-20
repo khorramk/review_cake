@@ -65,7 +65,7 @@ Vue {
   "_isVue": true,
   "_props": Object {
     "comments": Object {},
-    "reviews": Object {},
+    "reviews": undefined,
   },
   "_renderProxy": Vue {
     "$attrs": Object {},
@@ -131,7 +131,7 @@ Vue {
     "_isVue": true,
     "_props": Object {
       "comments": Object {},
-      "reviews": Object {},
+      "reviews": undefined,
     },
     "_renderProxy": [Circular],
     "_self": [Circular],
@@ -142,7 +142,7 @@ Vue {
     "_watchers": Array [],
     "comments": Object {},
     "removeReview": [Function],
-    "reviews": Object {},
+    "reviews": undefined,
   },
   "_self": [Circular],
   "_staticTrees": null,
@@ -152,6 +152,6 @@ Vue {
   "_watchers": Array [],
   "comments": Object {},
   "removeReview": [Function],
-  "reviews": Object {},
+  "reviews": undefined,
 }
 `;

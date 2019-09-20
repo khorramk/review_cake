@@ -18,8 +18,8 @@ import CommentsComponent from "./CommentsComponent";
 export default {
     props: {
         reviews: {
-            default() {
-                return {}
+            default(){
+
             },
             type: Object
         },
