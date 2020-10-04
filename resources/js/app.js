@@ -11,8 +11,12 @@ import reviewsComponent from './components/reviewsComponent';
 import commentCreate from './components/commentCreate';
 import commentEdit from './components/commentEdit';
 import reviewEdit from './components/reviewEdit';
-import VueRouter from 'vue-router';
+import VueRouter from 'vue-router'
+import Vuex from 'vuex';
+import { store } from './store/store';
 
+
+Vue.use(Vuex)
 Vue.use(VueRouter);
 /**
  * The following block of code may be used to automatically register your
@@ -53,13 +57,7 @@ export const app = new Vue({
             }
         ]
     }),
-    // components: {
-    //     commentCreate,
-    //     commentEdit,
-    //     reviewCreate,
-    //     reviewEdit,
-    //     reviewsComponent
-    // },
+    store
 });
 
 

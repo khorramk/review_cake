@@ -26,15 +26,10 @@ Vue {
   "$vnode": undefined,
   "_c": [Function],
   "_data": Object {
-    "commentBody": "",
-    "isDisable": false,
+    "comments": "",
   },
   "_directInactive": false,
-  "_events": Object {
-    "submit": Array [
-      [Function],
-    ],
-  },
+  "_events": Object {},
   "_hasHookEvent": false,
   "_inactive": null,
   "_isBeingDestroyed": false,
@@ -66,15 +61,10 @@ Vue {
     "$vnode": undefined,
     "_c": [Function],
     "_data": Object {
-      "commentBody": "",
-      "isDisable": false,
+      "comments": "",
     },
     "_directInactive": false,
-    "_events": Object {
-      "submit": Array [
-        [Function],
-      ],
-    },
+    "_events": Object {},
     "_hasHookEvent": false,
     "_inactive": null,
     "_isBeingDestroyed": false,
@@ -89,8 +79,7 @@ Vue {
     "_watcher": null,
     "_watchers": Array [],
     "addComments": [Function],
-    "commentBody": "",
-    "isDisable": false,
+    "comments": "",
   },
   "_self": [Circular],
   "_staticTrees": null,
@@ -99,7 +88,6 @@ Vue {
   "_watcher": null,
   "_watchers": Array [],
   "addComments": [Function],
-  "commentBody": "",
-  "isDisable": false,
+  "comments": "",
 }
 `;

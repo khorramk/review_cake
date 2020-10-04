@@ -13,7 +13,7 @@ Vue {
     "directives": Object {},
     "filters": Object {},
     "methods": Object {
-      "checkform": [Function],
+      "reviewCreation": [Function],
     },
     "render": [Function],
     "staticRenderFns": Array [],
@@ -26,15 +26,10 @@ Vue {
   "$vnode": undefined,
   "_c": [Function],
   "_data": Object {
-    "isDisable": false,
-    "reviewCreation": "",
+    "reviewBody": "",
   },
   "_directInactive": false,
-  "_events": Object {
-    "submit": Array [
-      [Function],
-    ],
-  },
+  "_events": Object {},
   "_hasHookEvent": false,
   "_inactive": null,
   "_isBeingDestroyed": false,
@@ -53,7 +48,7 @@ Vue {
       "directives": Object {},
       "filters": Object {},
       "methods": Object {
-        "checkform": [Function],
+        "reviewCreation": [Function],
       },
       "render": [Function],
       "staticRenderFns": Array [],
@@ -66,15 +61,10 @@ Vue {
     "$vnode": undefined,
     "_c": [Function],
     "_data": Object {
-      "isDisable": false,
-      "reviewCreation": "",
+      "reviewBody": "",
     },
     "_directInactive": false,
-    "_events": Object {
-      "submit": Array [
-        [Function],
-      ],
-    },
+    "_events": Object {},
     "_hasHookEvent": false,
     "_inactive": null,
     "_isBeingDestroyed": false,
@@ -88,9 +78,8 @@ Vue {
     "_vnode": null,
     "_watcher": null,
     "_watchers": Array [],
-    "checkform": [Function],
-    "isDisable": false,
-    "reviewCreation": "",
+    "reviewBody": "",
+    "reviewCreation": [Function],
   },
   "_self": [Circular],
   "_staticTrees": null,
@@ -98,8 +87,7 @@ Vue {
   "_vnode": null,
   "_watcher": null,
   "_watchers": Array [],
-  "checkform": [Function],
-  "isDisable": false,
-  "reviewCreation": "",
+  "reviewBody": "",
+  "reviewCreation": [Function],
 }
 `;

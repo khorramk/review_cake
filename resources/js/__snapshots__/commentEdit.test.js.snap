@@ -13,7 +13,7 @@ Vue {
     "directives": Object {},
     "filters": Object {},
     "methods": Object {
-      "update": [Function],
+      "updateComments": [Function],
     },
     "render": [Function],
     "staticRenderFns": Array [],
@@ -27,14 +27,9 @@ Vue {
   "_c": [Function],
   "_data": Object {
     "editBody": "",
-    "isDisable": false,
   },
   "_directInactive": false,
-  "_events": Object {
-    "submit": Array [
-      [Function],
-    ],
-  },
+  "_events": Object {},
   "_hasHookEvent": false,
   "_inactive": null,
   "_isBeingDestroyed": false,
@@ -53,7 +48,7 @@ Vue {
       "directives": Object {},
       "filters": Object {},
       "methods": Object {
-        "update": [Function],
+        "updateComments": [Function],
       },
       "render": [Function],
       "staticRenderFns": Array [],
@@ -67,14 +62,9 @@ Vue {
     "_c": [Function],
     "_data": Object {
       "editBody": "",
-      "isDisable": false,
     },
     "_directInactive": false,
-    "_events": Object {
-      "submit": Array [
-        [Function],
-      ],
-    },
+    "_events": Object {},
     "_hasHookEvent": false,
     "_inactive": null,
     "_isBeingDestroyed": false,
@@ -89,8 +79,7 @@ Vue {
     "_watcher": null,
     "_watchers": Array [],
     "editBody": "",
-    "isDisable": false,
-    "update": [Function],
+    "updateComments": [Function],
   },
   "_self": [Circular],
   "_staticTrees": null,
@@ -99,7 +88,6 @@ Vue {
   "_watcher": null,
   "_watchers": Array [],
   "editBody": "",
-  "isDisable": false,
-  "update": [Function],
+  "updateComments": [Function],
 }
 `;

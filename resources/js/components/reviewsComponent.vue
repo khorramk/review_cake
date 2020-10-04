@@ -3,7 +3,7 @@
         <div class="col-md-8 reviews-container__content">
             <div class="card reviews-container__content__review-card">
                 <div class="card-header reviews-card__header">user review</div>
-                <Reviews :review="review"  v-for="(review, i) in reviewsList.review" :key="i" :id="review.id" :comments="reviewsList.comments"/>
+                <Reviews v-for="(review, i) in this.$store.state.reviewsList.review" :key="i" :reviews="review" :comments="$store.state.reviewsList.comments"/>
             </div>
             <router-link class="review__router-link" to="/reviews/create">+</router-link>
         </div>
@@ -14,15 +14,8 @@ import  Reviews  from "./Reviews";
 import axios from 'axios';
 import VueRouter from 'vue-router';
 export default ({
-    data() {
-        return {
-            reviewsList: [{}]
-        };
-    },
     mounted(){
-        axios.get('/api/reviews')
-            .then((response)=> this.reviewsList = response.data)
-            .catch((err)=> console.log(err));     
+        this.$store.commit('fetchReview');
     },
     components: {
         Reviews

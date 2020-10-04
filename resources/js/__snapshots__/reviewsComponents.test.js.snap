@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders link 1`] = `
+exports[`renders component and match snapshots 1`] = `
 Vue {
   "$attrs": Object {},
   "$children": Array [],
@@ -12,9 +12,8 @@ Vue {
       "Reviews": Object {
         "components": Object {
           "CommentsComponent": Object {
-            "data": [Function],
             "methods": Object {
-              "submit": [Function],
+              "deleteComments": [Function],
             },
             "props": Object {
               "comment": Object {
@@ -28,16 +27,15 @@ Vue {
             "staticRenderFns": Array [],
           },
         },
-        "data": [Function],
         "methods": Object {
-          "remove": [Function],
+          "removeReview": [Function],
         },
         "props": Object {
           "comments": Object {
             "default": [Function],
             "type": [Function],
           },
-          "review": Object {
+          "reviews": Object {
             "default": [Function],
             "type": [Function],
           },
@@ -46,7 +44,6 @@ Vue {
         "staticRenderFns": Array [],
       },
     },
-    "data": [Function],
     "directives": Object {},
     "filters": Object {},
     "mounted": Array [
@@ -62,11 +59,7 @@ Vue {
   "$slots": Object {},
   "$vnode": undefined,
   "_c": [Function],
-  "_data": Object {
-    "reviewsList": Array [
-      Object {},
-    ],
-  },
+  "_data": Object {},
   "_directInactive": false,
   "_events": Object {},
   "_hasHookEvent": false,
@@ -86,9 +79,8 @@ Vue {
         "Reviews": Object {
           "components": Object {
             "CommentsComponent": Object {
-              "data": [Function],
               "methods": Object {
-                "submit": [Function],
+                "deleteComments": [Function],
               },
               "props": Object {
                 "comment": Object {
@@ -102,16 +94,15 @@ Vue {
               "staticRenderFns": Array [],
             },
           },
-          "data": [Function],
           "methods": Object {
-            "remove": [Function],
+            "removeReview": [Function],
           },
           "props": Object {
             "comments": Object {
               "default": [Function],
               "type": [Function],
             },
-            "review": Object {
+            "reviews": Object {
               "default": [Function],
               "type": [Function],
             },
@@ -120,7 +111,6 @@ Vue {
           "staticRenderFns": Array [],
         },
       },
-      "data": [Function],
       "directives": Object {},
       "filters": Object {},
       "mounted": Array [
@@ -136,11 +126,7 @@ Vue {
     "$slots": Object {},
     "$vnode": undefined,
     "_c": [Function],
-    "_data": Object {
-      "reviewsList": Array [
-        Object {},
-      ],
-    },
+    "_data": Object {},
     "_directInactive": false,
     "_events": Object {},
     "_hasHookEvent": false,
@@ -152,22 +138,16 @@ Vue {
     "_renderProxy": [Circular],
     "_self": [Circular],
     "_staticTrees": null,
-    "_uid": 1,
+    "_uid": 0,
     "_vnode": null,
     "_watcher": null,
     "_watchers": Array [],
-    "reviewsList": Array [
-      Object {},
-    ],
   },
   "_self": [Circular],
   "_staticTrees": null,
-  "_uid": 1,
+  "_uid": 0,
   "_vnode": null,
   "_watcher": null,
   "_watchers": Array [],
-  "reviewsList": Array [
-    Object {},
-  ],
 }
 `;

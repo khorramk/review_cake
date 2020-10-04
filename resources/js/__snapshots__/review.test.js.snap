@@ -9,14 +9,13 @@ Vue {
   "$options": Object {
     "_base": [Function],
     "_propKeys": Array [
-      "review",
+      "reviews",
       "comments",
     ],
     "components": Object {
       "CommentsComponent": Object {
-        "data": [Function],
         "methods": Object {
-          "submit": [Function],
+          "deleteComments": [Function],
         },
         "props": Object {
           "comment": Object {
@@ -30,18 +29,17 @@ Vue {
         "staticRenderFns": Array [],
       },
     },
-    "data": [Function],
     "directives": Object {},
     "filters": Object {},
     "methods": Object {
-      "remove": [Function],
+      "removeReview": [Function],
     },
     "props": Object {
       "comments": Object {
         "default": [Function],
         "type": [Function],
       },
-      "review": Object {
+      "reviews": Object {
         "default": [Function],
         "type": [Function],
       },
@@ -56,11 +54,7 @@ Vue {
   "$slots": Object {},
   "$vnode": undefined,
   "_c": [Function],
-  "_data": Object {
-    "error": false,
-    "isDisable": false,
-    "loading": true,
-  },
+  "_data": Object {},
   "_directInactive": false,
   "_events": Object {},
   "_hasHookEvent": false,
@@ -70,8 +64,8 @@ Vue {
   "_isMounted": false,
   "_isVue": true,
   "_props": Object {
-    "comments": Array [],
-    "review": Object {},
+    "comments": Object {},
+    "reviews": undefined,
   },
   "_renderProxy": Vue {
     "$attrs": Object {},
@@ -81,14 +75,13 @@ Vue {
     "$options": Object {
       "_base": [Function],
       "_propKeys": Array [
-        "review",
+        "reviews",
         "comments",
       ],
       "components": Object {
         "CommentsComponent": Object {
-          "data": [Function],
           "methods": Object {
-            "submit": [Function],
+            "deleteComments": [Function],
           },
           "props": Object {
             "comment": Object {
@@ -102,18 +95,17 @@ Vue {
           "staticRenderFns": Array [],
         },
       },
-      "data": [Function],
       "directives": Object {},
       "filters": Object {},
       "methods": Object {
-        "remove": [Function],
+        "removeReview": [Function],
       },
       "props": Object {
         "comments": Object {
           "default": [Function],
           "type": [Function],
         },
-        "review": Object {
+        "reviews": Object {
           "default": [Function],
           "type": [Function],
         },
@@ -128,11 +120,7 @@ Vue {
     "$slots": Object {},
     "$vnode": undefined,
     "_c": [Function],
-    "_data": Object {
-      "error": false,
-      "isDisable": false,
-      "loading": true,
-    },
+    "_data": Object {},
     "_directInactive": false,
     "_events": Object {},
     "_hasHookEvent": false,
@@ -142,8 +130,8 @@ Vue {
     "_isMounted": false,
     "_isVue": true,
     "_props": Object {
-      "comments": Array [],
-      "review": Object {},
+      "comments": Object {},
+      "reviews": undefined,
     },
     "_renderProxy": [Circular],
     "_self": [Circular],
@@ -152,12 +140,9 @@ Vue {
     "_vnode": null,
     "_watcher": null,
     "_watchers": Array [],
-    "comments": Array [],
-    "error": false,
-    "isDisable": false,
-    "loading": true,
-    "remove": [Function],
-    "review": Object {},
+    "comments": Object {},
+    "removeReview": [Function],
+    "reviews": undefined,
   },
   "_self": [Circular],
   "_staticTrees": null,
@@ -165,11 +150,8 @@ Vue {
   "_vnode": null,
   "_watcher": null,
   "_watchers": Array [],
-  "comments": Array [],
-  "error": false,
-  "isDisable": false,
-  "loading": true,
-  "remove": [Function],
-  "review": Object {},
+  "comments": Object {},
+  "removeReview": [Function],
+  "reviews": undefined,
 }
 `;

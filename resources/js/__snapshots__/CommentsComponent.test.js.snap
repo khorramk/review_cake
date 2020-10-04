@@ -13,11 +13,10 @@ Vue {
       "reviewId",
     ],
     "components": Object {},
-    "data": [Function],
     "directives": Object {},
     "filters": Object {},
     "methods": Object {
-      "submit": [Function],
+      "deleteComments": [Function],
     },
     "props": Object {
       "comment": Object {
@@ -37,15 +36,9 @@ Vue {
   "$slots": Object {},
   "$vnode": undefined,
   "_c": [Function],
-  "_data": Object {
-    "isDisable": false,
-  },
+  "_data": Object {},
   "_directInactive": false,
-  "_events": Object {
-    "submit": Array [
-      [Function],
-    ],
-  },
+  "_events": Object {},
   "_hasHookEvent": false,
   "_inactive": null,
   "_isBeingDestroyed": false,
@@ -68,11 +61,10 @@ Vue {
         "reviewId",
       ],
       "components": Object {},
-      "data": [Function],
       "directives": Object {},
       "filters": Object {},
       "methods": Object {
-        "submit": [Function],
+        "deleteComments": [Function],
       },
       "props": Object {
         "comment": Object {
@@ -92,15 +84,9 @@ Vue {
     "$slots": Object {},
     "$vnode": undefined,
     "_c": [Function],
-    "_data": Object {
-      "isDisable": false,
-    },
+    "_data": Object {},
     "_directInactive": false,
-    "_events": Object {
-      "submit": Array [
-        [Function],
-      ],
-    },
+    "_events": Object {},
     "_hasHookEvent": false,
     "_inactive": null,
     "_isBeingDestroyed": false,
@@ -119,9 +105,8 @@ Vue {
     "_watcher": null,
     "_watchers": Array [],
     "comment": undefined,
-    "isDisable": false,
+    "deleteComments": [Function],
     "reviewId": undefined,
-    "submit": [Function],
   },
   "_self": [Circular],
   "_staticTrees": null,
@@ -130,8 +115,7 @@ Vue {
   "_watcher": null,
   "_watchers": Array [],
   "comment": undefined,
-  "isDisable": false,
+  "deleteComments": [Function],
   "reviewId": undefined,
-  "submit": [Function],
 }
 `;

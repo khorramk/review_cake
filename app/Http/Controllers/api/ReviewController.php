@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Review;
 use App\Comment;
-use App\User;
+
 class ReviewController extends Controller
 {
     /**
@@ -21,17 +21,6 @@ class ReviewController extends Controller
         return ['review' => $review, 'comments' => $comments];
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        dd('test');
-        return ['test'=> null];
-    }
 
      /**
      * Store a newly created resource in storage.
