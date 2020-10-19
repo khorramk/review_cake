@@ -10,10 +10,13 @@
 |
 */
     Route::get('/', function () {
-        return view('layouts.app');
+        return view('layouts.master-contents');
     });
 
-
+    Route::get('/cms', function ()
+    {
+        return view('cms.main');
+    });
 
 // Route::get('/{any}', function(){
 //     return view('review-vue.review');
