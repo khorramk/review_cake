@@ -15,9 +15,7 @@
 </head>
 <body>
     <div id="app">
-        @include('components.nav')
-        @include('components.hero')
-        hello owrld!
+        @yield('content')
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
