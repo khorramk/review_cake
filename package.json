@@ -54,6 +54,7 @@
     "main": "index.js",
     "license": "MIT",
     "dependencies": {
+        "object-path": "^0.11.5",
         "yarn": "^1.22.0"
     },
     "repository": "https://github.com/khorramk/review_cake.git",
